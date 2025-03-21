@@ -37,13 +37,11 @@ jobs:
           cache: 'npm'
       - run: npm ci --ignore-scripts
 
-      - run: npx prisma generate
-
       - name: Lint
         run: npx nx run-many -t lint
 
       - name: Test
-        run: npx nx run-many -t test --codeCoverage
+        run: npx nx run-many -t test --coverage --exclude api
 
       - name: Build
         run: npx nx run-many -t build

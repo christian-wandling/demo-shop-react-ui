@@ -1,0 +1,6 @@
+stringEnums: true
+supportsES6: true
+fileNaming: kebab-case
+withSeparateModelsAndApi: true
+apiPackage: api
+modelPackage: models
