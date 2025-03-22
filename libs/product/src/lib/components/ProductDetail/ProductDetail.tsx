@@ -11,7 +11,7 @@ export function ProductDetail() {
     if (id) {
       fetchProductById(+id);
     }
-  }, [fetchProductById]);
+  }, [id]);
 
   if (!id) {
     return <div>Product ID is missing</div>;

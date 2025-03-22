@@ -8,7 +8,7 @@ export function ProductList() {
 
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]);
+  }, []);
 
   return (
     <div className="bg-white">
