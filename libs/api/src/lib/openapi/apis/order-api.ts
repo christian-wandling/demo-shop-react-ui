@@ -13,13 +13,13 @@
  */
 
 import * as runtime from '../runtime';
-import type { OrderListResponse, OrderResponse } from '../models/index';
+import type { OrderListResponse, OrderResponse } from '../models';
 import {
   OrderListResponseFromJSON,
   OrderListResponseToJSON,
   OrderResponseFromJSON,
   OrderResponseToJSON,
-} from '../models/index';
+} from '../models';
 
 export interface GetOrderByIdRequest {
   id: number;

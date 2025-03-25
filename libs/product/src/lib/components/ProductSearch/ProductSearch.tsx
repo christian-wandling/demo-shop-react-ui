@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router';
-import { useProductStore } from '../../+state/ProductStore'; // Assuming you'll have a store
+import { useProductStore } from '../../+state/useProductStore'; // Assuming you'll have a store
 
 export function ProductSearch() {
   const navigate = useNavigate();

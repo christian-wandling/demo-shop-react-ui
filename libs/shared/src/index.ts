@@ -1,1 +1,1 @@
-export * from './lib/utils/FormatCurrency';
+export * from './lib/utils/formatCurrency';

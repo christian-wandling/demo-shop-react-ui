@@ -3,6 +3,15 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/navigation"
+    },
+    {
+      "path": "../../libs/api"
+    },
+    {
+      "path": "../../libs/auth"
+    },
+    {
       "path": "../../libs/product"
     },
     {

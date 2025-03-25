@@ -11,7 +11,7 @@
     </package>
     <package name="src.lib.utils">
       <metrics statements="6" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="FormatCurrency.ts" path="/Users/home/Projects/demo-shop-react-ui/libs/shared/src/lib/utils/FormatCurrency.ts">
+      <file name="formatCurrency.ts" path="/Users/home/Projects/demo-shop-react-ui/libs/shared/src/lib/utils/formatCurrency.ts">
         <metrics statements="6" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="2" count="0" type="stmt"/>

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { useProductStore } from './ProductStore';
+import { useProductStore } from './useProductStore';
 import { ProductApi, ProductListResponse, ProductResponse } from '@demo-shop-react-ui/api';
 
 vi.mock('@demo-shop-react-ui/api', () => ({

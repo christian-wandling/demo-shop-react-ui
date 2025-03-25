@@ -1,9 +1,9 @@
 .openapi-generator-ignore
 apis/index.ts
-apis/order-api.ts
-apis/product-api.ts
-apis/shopping-session-api.ts
-apis/user-api.ts
+apis/order-apiService.ts
+apis/product-apiService.ts
+apis/shopping-session-apiService.ts
+apis/user-apiService.ts
 index.ts
 models/add-cart-item-request.ts
 models/address-response.ts

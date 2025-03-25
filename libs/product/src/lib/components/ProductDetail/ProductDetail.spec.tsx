@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import ProductDetail from './ProductDetail';
-import { useProductStore } from '../../+state/ProductStore';
+import { useProductStore } from '../../+state/useProductStore';
 import { ProductResponse } from '@demo-shop-react-ui/api';
 
 vi.mock('react-router', () => ({

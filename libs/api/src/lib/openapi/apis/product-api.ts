@@ -13,13 +13,13 @@
  */
 
 import * as runtime from '../runtime';
-import type { ProductListResponse, ProductResponse } from '../models/index';
+import type { ProductListResponse, ProductResponse } from '../models';
 import {
   ProductListResponseFromJSON,
   ProductListResponseToJSON,
   ProductResponseFromJSON,
   ProductResponseToJSON,
-} from '../models/index';
+} from '../models';
 
 export interface GetProductByIdRequest {
   id: number;

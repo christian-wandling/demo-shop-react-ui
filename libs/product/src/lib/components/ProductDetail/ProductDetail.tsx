@@ -1,5 +1,5 @@
 import { formatCurrency } from '@demo-shop-react-ui/shared';
-import { useProductStore } from '../../+state/ProductStore';
+import { useProductStore } from '../../+state/useProductStore';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 

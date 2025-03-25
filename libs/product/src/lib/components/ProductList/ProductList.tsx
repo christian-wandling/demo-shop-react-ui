@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import ProductCard from './ProductCard';
-import { useProductStore } from '../../+state/ProductStore';
+import { useProductStore } from '../../+state/useProductStore';
 
 export function ProductList() {
   const { getFilteredProducts, fetchProducts } = useProductStore();

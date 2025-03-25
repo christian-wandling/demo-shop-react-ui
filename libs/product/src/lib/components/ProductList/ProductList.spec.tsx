@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import ProductList from './ProductList';
 import { beforeEach, expect, it, vi } from 'vitest';
 import { ProductResponse } from '@demo-shop-react-ui/api';
-import { useProductStore } from '../../+state/ProductStore';
+import { useProductStore } from '../../+state/useProductStore';
 import { act } from 'react';
 
 vi.mock('react-router', () => ({

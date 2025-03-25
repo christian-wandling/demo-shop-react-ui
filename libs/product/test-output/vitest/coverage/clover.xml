@@ -12,7 +12,7 @@
     </package>
     <package name="src.lib.+state">
       <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
-      <file name="ProductStore.ts" path="/Users/home/Projects/demo-shop-react-ui/libs/product/src/lib/+state/ProductStore.ts">
+      <file name="useProductStore.ts" path="/Users/home/Projects/demo-shop-react-ui/libs/product/src/lib/+state/useProductStore.ts">
         <metrics statements="17" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>

@@ -13,7 +13,7 @@
  */
 
 import * as runtime from '../runtime';
-import type { AddressResponse, UpdateUserAddressRequest, UpdateUserPhoneRequest, UserResponse } from '../models/index';
+import type { AddressResponse, UpdateUserAddressRequest, UpdateUserPhoneRequest, UserResponse } from '../models';
 import {
   AddressResponseFromJSON,
   AddressResponseToJSON,
@@ -23,7 +23,7 @@ import {
   UpdateUserPhoneRequestToJSON,
   UserResponseFromJSON,
   UserResponseToJSON,
-} from '../models/index';
+} from '../models';
 
 export interface UpdateCurrentUserAddressRequest {
   updateUserAddressRequest: UpdateUserAddressRequest;

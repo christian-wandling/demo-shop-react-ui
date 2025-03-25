@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { formatCurrency } from './FormatCurrency';
+import { formatCurrency } from './formatCurrency';
 
 describe('formatCurrency', () => {
   it('formats USD correctly with default parameters', () => {

@@ -19,7 +19,7 @@ import type {
   OrderResponse,
   ShoppingSessionResponse,
   UpdateCartItemQuantityRequest,
-} from '../models/index';
+} from '../models';
 import {
   AddCartItemRequestFromJSON,
   AddCartItemRequestToJSON,
@@ -31,7 +31,7 @@ import {
   ShoppingSessionResponseToJSON,
   UpdateCartItemQuantityRequestFromJSON,
   UpdateCartItemQuantityRequestToJSON,
-} from '../models/index';
+} from '../models';
 
 export interface AddCartItemOperationRequest {
   addCartItemRequest: AddCartItemRequest;
