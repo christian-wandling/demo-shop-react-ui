@@ -4,7 +4,7 @@ import { UserResponse } from '@demo-shop-react-ui/api';
 export interface SideNavigationProps {
   items: NavigationItem[];
   selectedItem: string;
-  user?: UserResponse;
+  user: UserResponse | null;
   isOpen: boolean;
   onSetOpen: (isOpen: boolean) => void;
   onSelectedItemChange: (item: string) => void;

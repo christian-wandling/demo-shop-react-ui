@@ -6,15 +6,6 @@
       "path": "../api"
     },
     {
-      "path": "../auth"
-    },
-    {
-      "path": "../product"
-    },
-    {
-      "path": "../user"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {

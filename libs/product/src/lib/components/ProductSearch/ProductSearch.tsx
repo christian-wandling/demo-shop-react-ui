@@ -3,7 +3,8 @@ import { useProductStore } from '../../+state/useProductStore';
 
 export const ProductSearch = () => {
   const navigate = useNavigate();
-  const { filter, setFilter } = useProductStore();
+  const filter = useProductStore(state => state.filter);
+  const { setFilter } = useProductStore();
 
   /**
    * Updates the product name filter in the application state
