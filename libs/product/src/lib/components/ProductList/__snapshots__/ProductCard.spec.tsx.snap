@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProductCard > matches the snapshot 1`] = `
+<body>
+  <div>
+    <a
+      class="product-item group"
+      data-discover="true"
+      href="/products/1"
+    >
+      <div
+        class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7"
+      >
+        <img
+          alt="Test Product"
+          class="h-full w-full object-cover object-center group-hover:opacity-75"
+          src="https://example.com/thumbnail.jpg"
+        />
+      </div>
+      <h3
+        class="mt-4 text-sm text-gray-700"
+      >
+        Test Product
+      </h3>
+      <p
+        class="mt-1 text-lg font-medium text-gray-900"
+      >
+        $19.99
+      </p>
+    </a>
+  </div>
+</body>
+`;

@@ -1,17 +1,19 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useProductStore } from './useProductStore';
-import { ProductApi, ProductListResponse, ProductResponse } from '@demo-shop-react-ui/api';
+import { getApi, ProductListResponse, ProductResponse } from '@demo-shop-react-ui/api';
 
 vi.mock('@demo-shop-react-ui/api', () => ({
-  ProductApi: vi.fn().mockReturnValue({
-    getAllProducts: vi.fn(),
-    getProductById: vi.fn(),
+  getApi: vi.fn().mockReturnValue({
+    productApi: {
+      getAllProducts: vi.fn(),
+      getProductById: vi.fn(),
+    },
   }),
   Configuration: vi.fn(),
 }));
 
 describe('useProductStore', () => {
-  const api = new ProductApi();
+  const api = getApi().productApi;
 
   const mockProductListResponse: ProductListResponse = {
     items: [

@@ -3,7 +3,13 @@
   "include": [],
   "references": [
     {
+      "path": "../api"
+    },
+    {
       "path": "../auth"
+    },
+    {
+      "path": "../product"
     },
     {
       "path": "./tsconfig.lib.json"

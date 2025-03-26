@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import ProductCard from './ProductCard';
 import { useProductStore } from '../../+state/useProductStore';
+import { ProductCard } from './ProductCard';
 
-export function ProductList() {
+export const ProductList = () => {
   const { getFilteredProducts, fetchProducts } = useProductStore();
   const products = getFilteredProducts();
 
@@ -23,6 +23,4 @@ export function ProductList() {
       </div>
     </div>
   );
-}
-
-export default ProductList;
+};

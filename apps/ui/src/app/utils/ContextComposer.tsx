@@ -1,15 +1,9 @@
-import React, { ComponentType, ReactNode } from 'react';
+import React from 'react';
+import { ContextComposerProps } from '../models/contextComposerProps';
 
-interface ContextComposerProps {
-  contextProviders: Array<{ Provider: ComponentType<any>; props?: Record<string, any> }>;
-  children: ReactNode;
-}
-
-const ContextComposer: React.FC<ContextComposerProps> = ({ contextProviders, children }) => {
+export const ContextComposer: React.FC<ContextComposerProps> = ({ contextProviders, children }) => {
   return contextProviders.reduceRight(
     (kids, { Provider, props = {} }) => <Provider {...props}>{kids}</Provider>,
     children
   );
 };
-
-export default ContextComposer;

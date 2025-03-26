@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
-import { useProductStore } from '../../+state/useProductStore'; // Assuming you'll have a store
+import { useProductStore } from '../../+state/useProductStore';
 
-export function ProductSearch() {
+export const ProductSearch = () => {
   const navigate = useNavigate();
   const { filter, setFilter } = useProductStore();
 
@@ -54,6 +54,4 @@ export function ProductSearch() {
       </div>
     </div>
   );
-}
-
-export default ProductSearch;
+};

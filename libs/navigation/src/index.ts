@@ -5,3 +5,4 @@ export * from './lib/enums/navigationItemType';
 export * from './lib/models/navigationConfig';
 export * from './lib/NavigationContext';
 export * from './lib/NavigationProvider';
+export * from './lib/components/Navigation/Navigation';

@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "outDir": "dist",
+    "lib": ["dom"],
     "types": ["node", "@nx/react/typings/cssmodule.d.ts", "@nx/react/typings/image.d.ts"],
     "rootDir": "src",
     "jsx": "react-jsx",
@@ -37,7 +38,13 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
+      "path": "../api/tsconfig.lib.json"
+    },
+    {
       "path": "../auth/tsconfig.lib.json"
+    },
+    {
+      "path": "../product/tsconfig.lib.json"
     }
   ]
 }

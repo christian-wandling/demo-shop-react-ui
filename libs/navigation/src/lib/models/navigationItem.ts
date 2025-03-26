@@ -1,4 +1,4 @@
-import { PermissionStrategy } from '@demo-shop/auth';
+import { PermissionStrategy } from '@demo-shop-react-ui/auth';
 import { NavigationItemType } from '../enums/navigationItemType';
 import { RouteItem } from './routeItem';
 

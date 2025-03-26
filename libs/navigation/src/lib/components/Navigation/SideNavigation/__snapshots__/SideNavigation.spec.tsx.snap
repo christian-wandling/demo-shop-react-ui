@@ -1,0 +1,163 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SideNavigation > Snapshots > matches snapshot when closed 1`] = `<div />`;
+
+exports[`SideNavigation > Snapshots > matches snapshot when open 1`] = `
+<div>
+  <dialog
+    class="relative flex z-40 lg:hidden"
+  >
+    <div
+      aria-hidden="true"
+      class="fixed inset-0 bg-black bg-opacity-25"
+      data-testid="dialog"
+    />
+  </dialog>
+  <div
+    class="absolute h-screen top-0 z-40 flex w-full max-w-xs flex-col overflow-y-auto bg-white px-6 p-2 shadow-xl"
+  >
+    <div
+      class="sticky z-20 top-0 flex px-4 pb-2 pt-5"
+    >
+      <button
+        class="relative opacity-90 -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-white"
+        type="button"
+      >
+        <span
+          class="absolute -inset-0.5"
+        />
+        <span
+          class="sr-only"
+        >
+          Close menu
+        </span>
+        <svg
+          aria-hidden="true"
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 18L18 6M6 6l12 12"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="flex-1 space-y-6 border-t border-gray-200 px-4 py-6"
+    >
+      <div
+        class="flow-root"
+      >
+        <a
+          class="text-indigo-600-m-2 block p-2 font-medium text-gray-700 hover:text-indigo-500 text-xl"
+          data-discover="true"
+          href="/products"
+        >
+          Products
+        </a>
+      </div>
+      <div
+        class="flow-root"
+      >
+        <a
+          class="text-gray-700-m-2 block p-2 font-medium text-gray-700 hover:text-indigo-500 text-xl"
+          data-discover="true"
+          href="/orders"
+        >
+          Orders
+        </a>
+      </div>
+    </div>
+    <div
+      data-testid="user-section"
+    >
+      Logged in as undefined
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SideNavigation > Snapshots > matches snapshot without a user (logged out state) 1`] = `
+<div>
+  <dialog
+    class="relative flex z-40 lg:hidden"
+  >
+    <div
+      aria-hidden="true"
+      class="fixed inset-0 bg-black bg-opacity-25"
+      data-testid="dialog"
+    />
+  </dialog>
+  <div
+    class="absolute h-screen top-0 z-40 flex w-full max-w-xs flex-col overflow-y-auto bg-white px-6 p-2 shadow-xl"
+  >
+    <div
+      class="sticky z-20 top-0 flex px-4 pb-2 pt-5"
+    >
+      <button
+        class="relative opacity-90 -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-white"
+        type="button"
+      >
+        <span
+          class="absolute -inset-0.5"
+        />
+        <span
+          class="sr-only"
+        >
+          Close menu
+        </span>
+        <svg
+          aria-hidden="true"
+          class="h-6 w-6"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M6 18L18 6M6 6l12 12"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      class="flex-1 space-y-6 border-t border-gray-200 px-4 py-6"
+    >
+      <div
+        class="flow-root"
+      >
+        <a
+          class="text-indigo-600-m-2 block p-2 font-medium text-gray-700 hover:text-indigo-500 text-xl"
+          data-discover="true"
+          href="/products"
+        >
+          Products
+        </a>
+      </div>
+      <div
+        class="flow-root"
+      >
+        <a
+          class="text-gray-700-m-2 block p-2 font-medium text-gray-700 hover:text-indigo-500 text-xl"
+          data-discover="true"
+          href="/orders"
+        >
+          Orders
+        </a>
+      </div>
+    </div>
+    <div
+      data-testid="user-section"
+    >
+      Not logged in
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Navigation Component > matches the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="bg-white"
+    >
+      <div
+        data-testid="navigation-bar"
+      />
+    </div>
+  </div>
+</body>
+`;

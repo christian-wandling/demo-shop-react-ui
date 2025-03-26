@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import ProductSearch from './ProductSearch';
+import { ProductSearch } from './ProductSearch';
 import { useProductStore } from '../../+state/useProductStore';
 import { useNavigate } from 'react-router';
 
@@ -8,7 +8,7 @@ vi.mock('react-router', () => ({
   useNavigate: vi.fn().mockReturnValue(vi.fn()),
 }));
 
-vi.mock('../../+state/ProductStore', () => ({
+vi.mock('../../+state/useProductStore', () => ({
   useProductStore: vi.fn().mockReturnValue({
     filter: {},
     setFilter: vi.fn(),
@@ -26,6 +26,11 @@ describe('ProductSearch', () => {
   it('should render successfully', () => {
     const { baseElement } = render(<ProductSearch />);
     expect(baseElement).toBeTruthy();
+  });
+
+  it('should match snapshot', () => {
+    const { baseElement } = render(<ProductSearch />);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('should display the search icon', () => {
