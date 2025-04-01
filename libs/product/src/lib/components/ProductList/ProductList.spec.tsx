@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 
-import ProductList from './ProductList';
+import { ProductList } from './ProductList';
 import { beforeEach, expect, it, vi } from 'vitest';
 import { ProductResponse } from '@demo-shop-react-ui/api';
-import { useProductStore } from '../../+state/ProductStore';
+import { useProductStore } from '../../+state/useProductStore';
 import { act } from 'react';
 
 vi.mock('react-router', () => ({
@@ -11,10 +11,10 @@ vi.mock('react-router', () => ({
 }));
 
 vi.mock('./ProductCard', () => ({
-  default: vi.fn(({ product }) => <div data-testid="product-card">{product.name}</div>),
+  ProductCard: vi.fn(({ product }) => <div data-testid="product-card">{product.name}</div>),
 }));
 
-vi.mock('../../+state/ProductStore', () => ({
+vi.mock('../../+state/useProductStore', () => ({
   useProductStore: vi.fn().mockReturnValue({
     fetchProducts: vi.fn(),
     getFilteredProducts: vi.fn(),
@@ -48,9 +48,20 @@ describe('ProductList', () => {
   ];
 
   const store = useProductStore();
+
   beforeEach(() => {
     vi.clearAllMocks();
     vi.spyOn(store, 'getFilteredProducts').mockReturnValue(mockProducts);
+  });
+
+  it('should render successfully', () => {
+    const { baseElement } = render(<ProductList />);
+    expect(baseElement).toBeTruthy();
+  });
+
+  it('should match snapshot', () => {
+    const { baseElement } = render(<ProductList />);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('calls fetchProducts on mount', async () => {

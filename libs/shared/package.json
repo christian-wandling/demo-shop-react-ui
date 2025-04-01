@@ -12,6 +12,7 @@
     "./package.json": "./package.json"
   },
   "nx": {
-    "name": "shared"
+    "name": "shared",
+    "sourceRoot": "libs/shared/src"
   }
 }

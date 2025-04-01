@@ -12,6 +12,7 @@
     "./package.json": "./package.json"
   },
   "nx": {
-    "name": "api"
+    "name": "api",
+    "sourceRoot": "libs/api/src"
   }
 }

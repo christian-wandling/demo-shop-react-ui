@@ -12,6 +12,7 @@
     "./package.json": "./package.json"
   },
   "nx": {
-    "name": "product"
+    "name": "product",
+    "sourceRoot": "libs/product/src"
   }
 }

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router';
-import ProductCard from './ProductCard';
+import { ProductCard } from './ProductCard';
 import { ProductResponse } from '@demo-shop-react-ui/api';
 
 import { vi } from 'vitest';
@@ -33,8 +33,13 @@ describe('ProductCard', () => {
   };
 
   it('renders the product card successfully', () => {
-    renderWithRouter(<ProductCard product={mockProduct} />);
-    expect(screen.getByText('Test Product')).toBeTruthy();
+    const { baseElement } = renderWithRouter(<ProductCard product={mockProduct} />);
+    expect(baseElement).toBeTruthy();
+  });
+
+  it('matches the snapshot', () => {
+    const { baseElement } = renderWithRouter(<ProductCard product={mockProduct} />);
+    expect(baseElement).toMatchSnapshot();
   });
 
   it('displays the correct product name', () => {

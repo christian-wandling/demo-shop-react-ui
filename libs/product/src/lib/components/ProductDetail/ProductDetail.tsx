@@ -1,9 +1,9 @@
 import { formatCurrency } from '@demo-shop-react-ui/shared';
-import { useProductStore } from '../../+state/ProductStore';
+import { useProductStore } from '../../+state/useProductStore';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
-export function ProductDetail() {
+export const ProductDetail = () => {
   const { id } = useParams();
   const { getProductById, fetchProductById } = useProductStore();
 
@@ -71,6 +71,4 @@ export function ProductDetail() {
       </div>
     </div>
   );
-}
-
-export default ProductDetail;
+};

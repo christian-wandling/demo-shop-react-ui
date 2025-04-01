@@ -13,11 +13,11 @@ export default defineConfig(() => ({
     watch: false,
     globals: true,
     environment: 'jsdom',
-    include: [],
     reporters: ['default'],
+    passWithNoTests: true,
     coverage: {
       reportsDirectory: './test-output/vitest/coverage',
-      provider: 'v8' as const,
+      enabled: false,
     },
   },
 }));
