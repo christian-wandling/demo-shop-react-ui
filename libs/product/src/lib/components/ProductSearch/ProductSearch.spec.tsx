@@ -8,10 +8,17 @@ vi.mock('react-router', () => ({
   useNavigate: vi.fn().mockReturnValue(vi.fn()),
 }));
 
+const mockState = {
+  filter: {},
+  setFilter: vi.fn(),
+};
+
 vi.mock('../../+state/useProductStore', () => ({
-  useProductStore: vi.fn().mockReturnValue({
-    filter: {},
-    setFilter: vi.fn(),
+  useProductStore: vi.fn(selectorOrState => {
+    if (typeof selectorOrState === 'function') {
+      return selectorOrState(mockState);
+    }
+    return mockState;
   }),
 }));
 
@@ -75,7 +82,7 @@ describe('ProductSearch', () => {
   });
 
   it('should display the enter icon when filter name is set', () => {
-    store.filter = { name: 'test product' };
+    mockState.filter = { name: 'test product' };
 
     render(<ProductSearch />);
     const enterIcon = screen.getByAltText('enter');
@@ -83,7 +90,7 @@ describe('ProductSearch', () => {
   });
 
   it('should not display the enter icon when filter name is empty', () => {
-    store.filter = { name: '' };
+    mockState.filter = { name: '' };
 
     render(<ProductSearch />);
     const enterIcon = screen.queryByAltText('enter');
@@ -91,7 +98,7 @@ describe('ProductSearch', () => {
   });
 
   it('should navigate to products page when enter icon is clicked', () => {
-    store.filter = { name: 'test product' };
+    mockState.filter = { name: 'test product' };
 
     render(<ProductSearch />);
     const enterIcon = screen.getByAltText('enter');
@@ -102,14 +109,14 @@ describe('ProductSearch', () => {
   });
 
   it('should apply "extended" class when filter name is set', () => {
-    store.filter = { name: 'test product' };
+    mockState.filter = { name: 'test product' };
     render(<ProductSearch />);
     const searchInput = document.querySelector('.search-input');
     expect(searchInput?.classList).toContain('extended');
   });
 
   it('should not apply "extended" class when filter name is empty', () => {
-    store.filter = { name: '' };
+    mockState.filter = { name: '' };
 
     render(<ProductSearch />);
     const searchInput = document.querySelector('.search-input');

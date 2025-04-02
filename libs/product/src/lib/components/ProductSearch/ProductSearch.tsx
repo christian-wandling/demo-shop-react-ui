@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router';
 import { useProductStore } from '../../+state/useProductStore';
+import './ProductSearch.css';
 
 export const ProductSearch = () => {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export const ProductSearch = () => {
   };
 
   return (
-    <div className="flex align-middle lg:ml-6 cursor-pointer relative">
+    <div className="search-container flex align-middle lg:ml-6 cursor-pointer relative">
       <a className="p-2.5 text-gray-400 hover:text-gray-500">
         <span className="sr-only">Search</span>
         <img src="/icons/search.svg" alt="search" height="20" width="20" />
@@ -41,7 +42,7 @@ export const ProductSearch = () => {
         <input
           type="text"
           name="price"
-          className="block w-full my-0.5 rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+          className="block w-full my-0.5 rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 transition-all duration-200"
           placeholder="Search products"
           value={filter.name}
           onChange={e => setProductNameFilter(e.target.value)}
