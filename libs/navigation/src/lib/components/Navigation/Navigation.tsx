@@ -5,6 +5,7 @@ import { getFilteredNavigationItems } from '../../services/navigationService';
 import { NavigationItemType } from '../../enums/navigationItemType';
 import { NavigationContext } from '../../NavigationContext';
 import { login, logout, register } from '@demo-shop-react-ui/auth';
+import { useUserStore } from '@demo-shop-react-ui/user';
 
 /**
  * NavigationContainer is responsible for managing state and data for the navigation components.
@@ -12,7 +13,7 @@ import { login, logout, register } from '@demo-shop-react-ui/auth';
  */
 export const Navigation = () => {
   const config = useContext(NavigationContext);
-  const user = undefined;
+  const user = useUserStore(state => state.user);
 
   const [sideNavigationOpen, setSideNavigationOpen] = useState(false);
   const [selectedNavigationItem, setSelectedNavigationItem] = useState('products');

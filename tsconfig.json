@@ -23,6 +23,9 @@
     },
     {
       "path": "./libs/auth"
+    },
+    {
+      "path": "./libs/user"
     }
   ]
 }

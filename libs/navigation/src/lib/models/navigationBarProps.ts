@@ -4,7 +4,7 @@ import { UserResponse } from '@demo-shop-react-ui/api';
 export interface NavigationBarProps {
   items: NavigationItem[];
   selectedItem: string;
-  user?: UserResponse;
+  user: UserResponse | null;
   onOpenSideNavigation: () => void;
   onSelectedItemChange: (item: string) => void;
   onLogin: () => void;
