@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { ProductSearch } from '@demo-shop-react-ui/product';
+import { CartIcon } from '@demo-shop-react-ui/shopping';
 import { NavigationBarProps } from '../../../models/navigationBarProps';
 import { RouteItem } from '../../../models/routeItem';
 import { NavigationBarUserSection } from './NavigationBarUserSection';
@@ -70,7 +71,7 @@ export const NavigationBar = ({
             <div className="ml-auto flex items-center">
               <NavigationBarUserSection user={user} onLogin={onLogin} onLogout={onLogout} onRegister={onRegister} />
               <ProductSearch />
-              {/*<CartIcon />*/}
+              <CartIcon />
             </div>
           </div>
         </div>

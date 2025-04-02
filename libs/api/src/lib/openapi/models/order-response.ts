@@ -12,21 +12,10 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 import type { OrderStatus } from './order-status';
-import {
-  OrderStatusFromJSON,
-  OrderStatusFromJSONTyped,
-  OrderStatusToJSON,
-  OrderStatusToJSONTyped,
-} from './order-status';
+import { OrderStatusFromJSON, OrderStatusToJSON } from './order-status';
 import type { OrderItemResponse } from './order-item-response';
-import {
-  OrderItemResponseFromJSON,
-  OrderItemResponseFromJSONTyped,
-  OrderItemResponseToJSON,
-  OrderItemResponseToJSONTyped,
-} from './order-item-response';
+import { OrderItemResponseFromJSON, OrderItemResponseToJSON } from './order-item-response';
 
 /**
  *
@@ -72,6 +61,7 @@ export interface OrderResponse {
   created: Date;
 }
 
+
 /**
  * Check if a given object implements the OrderResponse interface.
  */
@@ -94,12 +84,13 @@ export function OrderResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
     return json;
   }
   return {
-    id: json['id'],
-    userId: json['userId'],
-    items: (json['items'] as Array<any>).map(OrderItemResponseFromJSON),
-    amount: json['amount'],
-    status: OrderStatusFromJSON(json['status']),
-    created: new Date(json['created']),
+
+    'id': json['id'],
+    'userId': json['userId'],
+    'items': ((json['items'] as Array<any>).map(OrderItemResponseFromJSON)),
+    'amount': json['amount'],
+    'status': OrderStatusFromJSON(json['status']),
+    'created': (new Date(json['created'])),
   };
 }
 
@@ -113,11 +104,13 @@ export function OrderResponseToJSONTyped(value?: OrderResponse | null, ignoreDis
   }
 
   return {
-    id: value['id'],
-    userId: value['userId'],
-    items: (value['items'] as Array<any>).map(OrderItemResponseToJSON),
-    amount: value['amount'],
-    status: OrderStatusToJSON(value['status']),
-    created: value['created'].toISOString(),
+
+    'id': value['id'],
+    'userId': value['userId'],
+    'items': ((value['items'] as Array<any>).map(OrderItemResponseToJSON)),
+    'amount': value['amount'],
+    'status': OrderStatusToJSON(value['status']),
+    'created': ((value['created']).toISOString()),
   };
 }
+

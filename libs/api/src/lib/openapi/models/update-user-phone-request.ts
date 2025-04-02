@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 /**
  *
  * @export
@@ -44,7 +43,8 @@ export function UpdateUserPhoneRequestFromJSONTyped(json: any, ignoreDiscriminat
     return json;
   }
   return {
-    phone: json['phone'],
+
+    'phone': json['phone'],
   };
 }
 
@@ -52,15 +52,14 @@ export function UpdateUserPhoneRequestToJSON(json: any): UpdateUserPhoneRequest 
   return UpdateUserPhoneRequestToJSONTyped(json, false);
 }
 
-export function UpdateUserPhoneRequestToJSONTyped(
-  value?: UpdateUserPhoneRequest | null,
-  ignoreDiscriminator: boolean = false
-): any {
+export function UpdateUserPhoneRequestToJSONTyped(value?: UpdateUserPhoneRequest | null, ignoreDiscriminator: boolean = false): any {
   if (value == null) {
     return value;
   }
 
   return {
-    phone: value['phone'],
+
+    'phone': value['phone'],
   };
 }
+

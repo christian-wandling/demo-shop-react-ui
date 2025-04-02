@@ -1,28 +1,27 @@
 import { formatCurrency } from '@demo-shop-react-ui/shared';
+import { useShoppingCartStore } from '@demo-shop-react-ui/shopping';
 import { useProductStore } from '../../+state/useProductStore';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
 export const ProductDetail = () => {
   const { id } = useParams();
-  const { getProductById, fetchProductById } = useProductStore();
+  const getProductById = useProductStore(state => state.getProductById);
+  const fetchProductById = useProductStore(state => state.fetchProductById);
+  const hasActiveSession = useShoppingCartStore(state => state.hasActiveSession);
+  const add = useShoppingCartStore(state => state.add);
 
   useEffect(() => {
     if (id) {
       fetchProductById(+id);
     }
-  }, [id]);
+  }, [id, fetchProductById]);
 
   if (!id) {
     return <div>Product ID is missing</div>;
   }
 
-  const addButtonEnabled = false;
   const product = getProductById(+id);
-
-  function addToCart(id: number) {
-    throw new Error('Not implemented');
-  }
 
   if (!product) {
     return <div>Loading...</div>;
@@ -53,11 +52,11 @@ export const ProductDetail = () => {
           <p className="text-3xl tracking-tight text-gray-900">{formatCurrency(product.price)}</p>
 
           <button
-            onClick={_ => addToCart(product.id)}
-            disabled={!addButtonEnabled}
+            onClick={_ => add({ productId: product.id })}
+            disabled={!hasActiveSession()}
             className={`btn-add mt-10 flex w-full items-center justify-center rounded-md border border-transparent px-8 py-3 text-base font-medium
   ${
-    addButtonEnabled
+    hasActiveSession()
       ? 'bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
       : 'bg-gray-100 text-gray-800 pointer-events-none'
   }`}>

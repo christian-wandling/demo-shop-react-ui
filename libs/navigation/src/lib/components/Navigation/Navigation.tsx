@@ -6,6 +6,7 @@ import { NavigationItemType } from '../../enums/navigationItemType';
 import { NavigationContext } from '../../NavigationContext';
 import { login, logout, register } from '@demo-shop-react-ui/auth';
 import { useUserStore } from '@demo-shop-react-ui/user';
+import { useShoppingCartStore } from '@demo-shop-react-ui/shopping';
 
 /**
  * NavigationContainer is responsible for managing state and data for the navigation components.
@@ -14,6 +15,7 @@ import { useUserStore } from '@demo-shop-react-ui/user';
 export const Navigation = () => {
   const config = useContext(NavigationContext);
   const user = useUserStore(state => state.user);
+  const fetchCurrentSession = useShoppingCartStore(state => state.fetchCurrentSession);
 
   const [sideNavigationOpen, setSideNavigationOpen] = useState(false);
   const [selectedNavigationItem, setSelectedNavigationItem] = useState('products');
@@ -30,7 +32,7 @@ export const Navigation = () => {
    */
   const handleLogin = async () => {
     await login();
-    // await cart.loadShoppingSession();
+    await fetchCurrentSession();
   };
 
   /**
@@ -38,7 +40,7 @@ export const Navigation = () => {
    */
   const handleRegister = async () => {
     await register();
-    // await cart.loadShoppingSession();
+    await fetchCurrentSession();
   };
 
   /**

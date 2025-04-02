@@ -5,14 +5,14 @@ import './ProductSearch.css';
 export const ProductSearch = () => {
   const navigate = useNavigate();
   const filter = useProductStore(state => state.filter);
-  const { setFilter } = useProductStore();
+  const setFilter = useProductStore(state => state.setFilter);
 
   /**
    * Updates the product name filter in the application state
    *
    * @param name - The product name to filter by, or undefined to clear the filter
    */
-  const setProductNameFilter = (name: string) => {
+  const handleInput = (name: string) => {
     setFilter({ name });
   };
 
@@ -45,7 +45,7 @@ export const ProductSearch = () => {
           className="block w-full my-0.5 rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 transition-all duration-200"
           placeholder="Search products"
           value={filter.name}
-          onChange={e => setProductNameFilter(e.target.value)}
+          onChange={e => handleInput(e.target.value)}
           onKeyDown={e => handleKeyDown(e.key)}
         />
         {filter.name && (

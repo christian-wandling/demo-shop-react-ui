@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 /**
  *
  * @export
@@ -78,12 +77,13 @@ export function AddressResponseFromJSONTyped(json: any, ignoreDiscriminator: boo
     return json;
   }
   return {
-    street: json['street'],
-    apartment: json['apartment'],
-    city: json['city'],
-    region: json['region'] == null ? undefined : json['region'],
-    zip: json['zip'],
-    country: json['country'],
+
+    'street': json['street'],
+    'apartment': json['apartment'],
+    'city': json['city'],
+    'region': json['region'] == null ? undefined : json['region'],
+    'zip': json['zip'],
+    'country': json['country'],
   };
 }
 
@@ -97,11 +97,13 @@ export function AddressResponseToJSONTyped(value?: AddressResponse | null, ignor
   }
 
   return {
-    street: value['street'],
-    apartment: value['apartment'],
-    city: value['city'],
-    region: value['region'],
-    zip: value['zip'],
-    country: value['country'],
+
+    'street': value['street'],
+    'apartment': value['apartment'],
+    'city': value['city'],
+    'region': value['region'],
+    'zip': value['zip'],
+    'country': value['country'],
   };
 }
+

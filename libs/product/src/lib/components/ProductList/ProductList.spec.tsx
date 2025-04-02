@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { ProductList } from './ProductList';
 import { beforeEach, expect, it, vi } from 'vitest';
 import { ProductResponse } from '@demo-shop-react-ui/api';
-import { useProductStore } from '../../+state/useProductStore';
 import { act } from 'react';
 
 vi.mock('react-router', () => ({
@@ -14,10 +13,16 @@ vi.mock('./ProductCard', () => ({
   ProductCard: vi.fn(({ product }) => <div data-testid="product-card">{product.name}</div>),
 }));
 
+const fetchProductsSpy = vi.fn();
+const getFilteredProductsSpy = vi.fn();
+
 vi.mock('../../+state/useProductStore', () => ({
-  useProductStore: vi.fn().mockReturnValue({
-    fetchProducts: vi.fn(),
-    getFilteredProducts: vi.fn(),
+  useProductStore: vi.fn().mockImplementation(selector => {
+    const store = {
+      fetchProducts: fetchProductsSpy,
+      getFilteredProducts: getFilteredProductsSpy,
+    };
+    return selector(store);
   }),
 }));
 
@@ -47,11 +52,10 @@ describe('ProductList', () => {
     },
   ];
 
-  const store = useProductStore();
-
   beforeEach(() => {
     vi.clearAllMocks();
-    vi.spyOn(store, 'getFilteredProducts').mockReturnValue(mockProducts);
+
+    getFilteredProductsSpy.mockReturnValue(mockProducts);
   });
 
   it('should render successfully', () => {
@@ -65,11 +69,10 @@ describe('ProductList', () => {
   });
 
   it('calls fetchProducts on mount', async () => {
-    const fetchProducts = vi.spyOn(store, 'fetchProducts');
     await act(async () => {
       render(<ProductList />);
     });
-    expect(fetchProducts).toHaveBeenCalled();
+    expect(fetchProductsSpy).toHaveBeenCalled();
   });
 
   it('renders product cards when products are available', () => {
@@ -81,7 +84,7 @@ describe('ProductList', () => {
   });
 
   it('renders no products when the product list is empty', () => {
-    vi.spyOn(store, 'getFilteredProducts').mockReturnValue([]);
+    getFilteredProductsSpy.mockReturnValue([]);
 
     render(<ProductList />);
     expect(screen.queryByTestId('product-card')).toBeNull();

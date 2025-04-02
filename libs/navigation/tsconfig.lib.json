@@ -41,13 +41,16 @@
       "path": "../api/tsconfig.lib.json"
     },
     {
+      "path": "../shopping/tsconfig.lib.json"
+    },
+    {
+      "path": "../product/tsconfig.lib.json"
+    },
+    {
       "path": "../user/tsconfig.lib.json"
     },
     {
       "path": "../auth/tsconfig.lib.json"
-    },
-    {
-      "path": "../product/tsconfig.lib.json"
     }
   ]
 }

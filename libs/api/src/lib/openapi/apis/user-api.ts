@@ -12,18 +12,15 @@
  * Do not edit the class manually.
  */
 
+
 import * as runtime from '../runtime';
-import type { AddressResponse, UpdateUserAddressRequest, UpdateUserPhoneRequest, UserResponse } from '../models';
+import type { AddressResponse, UpdateUserAddressRequest, UpdateUserPhoneRequest, UserResponse } from '../models/index';
 import {
   AddressResponseFromJSON,
-  AddressResponseToJSON,
-  UpdateUserAddressRequestFromJSON,
   UpdateUserAddressRequestToJSON,
-  UpdateUserPhoneRequestFromJSON,
   UpdateUserPhoneRequestToJSON,
   UserResponseFromJSON,
-  UserResponseToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface UpdateCurrentUserAddressRequest {
   updateUserAddressRequest: UpdateUserAddressRequest;
@@ -37,13 +34,12 @@ export interface UpdateCurrentUserPhoneRequest {
  *
  */
 export class UserApi extends runtime.BaseAPI {
+
   /**
    * Resolve current user based on identity extracted from bearer token
    * Resolve current user
    */
-  async resolveCurrentUserRaw(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<UserResponse>> {
+  async resolveCurrentUserRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserResponse>> {
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -56,17 +52,14 @@ export class UserApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/users/me`,
-        method: 'POST',
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/users/me`,
+      method: 'POST',
+      headers: headerParameters,
+      query: queryParameters,
+    }, initOverrides);
 
-    return new runtime.JSONApiResponse(response, jsonValue => UserResponseFromJSON(jsonValue));
+    return new runtime.JSONApiResponse(response, (jsonValue) => UserResponseFromJSON(jsonValue));
   }
 
   /**
@@ -82,14 +75,11 @@ export class UserApi extends runtime.BaseAPI {
    * Update the address of the user based on identity extracted from bearer token
    * Update address of current user
    */
-  async updateCurrentUserAddressRaw(
-    requestParameters: UpdateCurrentUserAddressRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<AddressResponse>> {
+  async updateCurrentUserAddressRaw(requestParameters: UpdateCurrentUserAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<AddressResponse>> {
     if (requestParameters['updateUserAddressRequest'] == null) {
       throw new runtime.RequiredError(
         'updateUserAddressRequest',
-        'Required parameter "updateUserAddressRequest" was null or undefined when calling updateCurrentUserAddress().'
+        'Required parameter "updateUserAddressRequest" was null or undefined when calling updateCurrentUserAddress().',
       );
     }
 
@@ -107,28 +97,22 @@ export class UserApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/users/me/address`,
-        method: 'PUT',
-        headers: headerParameters,
-        query: queryParameters,
-        body: UpdateUserAddressRequestToJSON(requestParameters['updateUserAddressRequest']),
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/users/me/address`,
+      method: 'PUT',
+      headers: headerParameters,
+      query: queryParameters,
+      body: UpdateUserAddressRequestToJSON(requestParameters['updateUserAddressRequest']),
+    }, initOverrides);
 
-    return new runtime.JSONApiResponse(response, jsonValue => AddressResponseFromJSON(jsonValue));
+    return new runtime.JSONApiResponse(response, (jsonValue) => AddressResponseFromJSON(jsonValue));
   }
 
   /**
    * Update the address of the user based on identity extracted from bearer token
    * Update address of current user
    */
-  async updateCurrentUserAddress(
-    requestParameters: UpdateCurrentUserAddressRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<AddressResponse> {
+  async updateCurrentUserAddress(requestParameters: UpdateCurrentUserAddressRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<AddressResponse> {
     const response = await this.updateCurrentUserAddressRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -137,14 +121,11 @@ export class UserApi extends runtime.BaseAPI {
    * Update the phone of the user based on identity extracted from bearer token
    * Update phone of current user
    */
-  async updateCurrentUserPhoneRaw(
-    requestParameters: UpdateCurrentUserPhoneRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<UserResponse>> {
+  async updateCurrentUserPhoneRaw(requestParameters: UpdateCurrentUserPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<UserResponse>> {
     if (requestParameters['updateUserPhoneRequest'] == null) {
       throw new runtime.RequiredError(
         'updateUserPhoneRequest',
-        'Required parameter "updateUserPhoneRequest" was null or undefined when calling updateCurrentUserPhone().'
+        'Required parameter "updateUserPhoneRequest" was null or undefined when calling updateCurrentUserPhone().',
       );
     }
 
@@ -162,29 +143,24 @@ export class UserApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/users/me/phone`,
-        method: 'PATCH',
-        headers: headerParameters,
-        query: queryParameters,
-        body: UpdateUserPhoneRequestToJSON(requestParameters['updateUserPhoneRequest']),
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/users/me/phone`,
+      method: 'PATCH',
+      headers: headerParameters,
+      query: queryParameters,
+      body: UpdateUserPhoneRequestToJSON(requestParameters['updateUserPhoneRequest']),
+    }, initOverrides);
 
-    return new runtime.JSONApiResponse(response, jsonValue => UserResponseFromJSON(jsonValue));
+    return new runtime.JSONApiResponse(response, (jsonValue) => UserResponseFromJSON(jsonValue));
   }
 
   /**
    * Update the phone of the user based on identity extracted from bearer token
    * Update phone of current user
    */
-  async updateCurrentUserPhone(
-    requestParameters: UpdateCurrentUserPhoneRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<UserResponse> {
+  async updateCurrentUserPhone(requestParameters: UpdateCurrentUserPhoneRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<UserResponse> {
     const response = await this.updateCurrentUserPhoneRaw(requestParameters, initOverrides);
     return await response.value();
   }
+
 }

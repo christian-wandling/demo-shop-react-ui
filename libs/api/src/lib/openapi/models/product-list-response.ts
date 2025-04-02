@@ -12,14 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 import type { ProductResponse } from './product-response';
-import {
-  ProductResponseFromJSON,
-  ProductResponseFromJSONTyped,
-  ProductResponseToJSON,
-  ProductResponseToJSONTyped,
-} from './product-response';
+import { ProductResponseFromJSON, ProductResponseToJSON } from './product-response';
 
 /**
  *
@@ -52,7 +46,8 @@ export function ProductListResponseFromJSONTyped(json: any, ignoreDiscriminator:
     return json;
   }
   return {
-    items: (json['items'] as Array<any>).map(ProductResponseFromJSON),
+
+    'items': ((json['items'] as Array<any>).map(ProductResponseFromJSON)),
   };
 }
 
@@ -60,15 +55,14 @@ export function ProductListResponseToJSON(json: any): ProductListResponse {
   return ProductListResponseToJSONTyped(json, false);
 }
 
-export function ProductListResponseToJSONTyped(
-  value?: ProductListResponse | null,
-  ignoreDiscriminator: boolean = false
-): any {
+export function ProductListResponseToJSONTyped(value?: ProductListResponse | null, ignoreDiscriminator: boolean = false): any {
   if (value == null) {
     return value;
   }
 
   return {
-    items: (value['items'] as Array<any>).map(ProductResponseToJSON),
+
+    'items': ((value['items'] as Array<any>).map(ProductResponseToJSON)),
   };
 }
+

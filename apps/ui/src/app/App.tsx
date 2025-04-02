@@ -6,6 +6,7 @@ import { apiConfig, navigationConfig } from './config/config';
 import { Navigation, NavigationProvider } from '@demo-shop-react-ui/navigation';
 import { useAppStore } from './+state/useAppStore';
 import { useEffect, useRef } from 'react';
+import { ShoppingCart } from '@demo-shop-react-ui/shopping';
 
 export const App = () => {
   const isInitialized = useAppStore(state => state.isInitialized);
@@ -56,6 +57,7 @@ export const App = () => {
   return (
     <div>
       <ContextComposer contextProviders={providers}>
+        <ShoppingCart />
         <Navigation />
         <Routes>
           <Route path="/" element={<Navigate to="/products" replace />} />

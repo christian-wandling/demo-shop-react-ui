@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 /**
  *
  * @export
@@ -51,8 +50,9 @@ export function ImageResponseFromJSONTyped(json: any, ignoreDiscriminator: boole
     return json;
   }
   return {
-    name: json['name'],
-    uri: json['uri'],
+
+    'name': json['name'],
+    'uri': json['uri'],
   };
 }
 
@@ -66,7 +66,9 @@ export function ImageResponseToJSONTyped(value?: ImageResponse | null, ignoreDis
   }
 
   return {
-    name: value['name'],
-    uri: value['uri'],
+
+    'name': value['name'],
+    'uri': value['uri'],
   };
 }
+

@@ -12,6 +12,7 @@
  * Do not edit the class manually.
  */
 
+
 import * as runtime from '../runtime';
 import type {
   AddCartItemRequest,
@@ -19,19 +20,14 @@ import type {
   OrderResponse,
   ShoppingSessionResponse,
   UpdateCartItemQuantityRequest,
-} from '../models';
+} from '../models/index';
 import {
-  AddCartItemRequestFromJSON,
   AddCartItemRequestToJSON,
   CartItemResponseFromJSON,
-  CartItemResponseToJSON,
   OrderResponseFromJSON,
-  OrderResponseToJSON,
   ShoppingSessionResponseFromJSON,
-  ShoppingSessionResponseToJSON,
-  UpdateCartItemQuantityRequestFromJSON,
   UpdateCartItemQuantityRequestToJSON,
-} from '../models';
+} from '../models/index';
 
 export interface AddCartItemOperationRequest {
   addCartItemRequest: AddCartItemRequest;
@@ -50,18 +46,16 @@ export interface UpdateCartItemQuantityOperationRequest {
  *
  */
 export class ShoppingSessionApi extends runtime.BaseAPI {
+
   /**
    * Add a cart item to the shopping session of current user based on identity extracted from bearer token
    * Add cart item
    */
-  async addCartItemRaw(
-    requestParameters: AddCartItemOperationRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<CartItemResponse>> {
+  async addCartItemRaw(requestParameters: AddCartItemOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CartItemResponse>> {
     if (requestParameters['addCartItemRequest'] == null) {
       throw new runtime.RequiredError(
         'addCartItemRequest',
-        'Required parameter "addCartItemRequest" was null or undefined when calling addCartItem().'
+        'Required parameter "addCartItemRequest" was null or undefined when calling addCartItem().',
       );
     }
 
@@ -79,28 +73,22 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/shopping-sessions/current/cart-items`,
-        method: 'POST',
-        headers: headerParameters,
-        query: queryParameters,
-        body: AddCartItemRequestToJSON(requestParameters['addCartItemRequest']),
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/shopping-sessions/current/cart-items`,
+      method: 'POST',
+      headers: headerParameters,
+      query: queryParameters,
+      body: AddCartItemRequestToJSON(requestParameters['addCartItemRequest']),
+    }, initOverrides);
 
-    return new runtime.JSONApiResponse(response, jsonValue => CartItemResponseFromJSON(jsonValue));
+    return new runtime.JSONApiResponse(response, (jsonValue) => CartItemResponseFromJSON(jsonValue));
   }
 
   /**
    * Add a cart item to the shopping session of current user based on identity extracted from bearer token
    * Add cart item
    */
-  async addCartItem(
-    requestParameters: AddCartItemOperationRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<CartItemResponse> {
+  async addCartItem(requestParameters: AddCartItemOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CartItemResponse> {
     const response = await this.addCartItemRaw(requestParameters, initOverrides);
     return await response.value();
   }
@@ -109,9 +97,7 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
    * Check out by creating an order from the current shopping session and deleting the shopping session afterwards
    * Checkout current shopping session
    */
-  async checkoutRaw(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<OrderResponse>> {
+  async checkoutRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>> {
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -124,17 +110,14 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/shopping-sessions/checkout`,
-        method: 'POST',
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/shopping-sessions/checkout`,
+      method: 'POST',
+      headers: headerParameters,
+      query: queryParameters,
+    }, initOverrides);
 
-    return new runtime.JSONApiResponse(response, jsonValue => OrderResponseFromJSON(jsonValue));
+    return new runtime.JSONApiResponse(response, (jsonValue) => OrderResponseFromJSON(jsonValue));
   }
 
   /**
@@ -150,14 +133,11 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
    * Remove a cart item from the shopping session of current user based on identity extracted from bearer token
    * Remove cart item
    */
-  async removeCartItemRaw(
-    requestParameters: RemoveCartItemRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<void>> {
+  async removeCartItemRaw(requestParameters: RemoveCartItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<void>> {
     if (requestParameters['id'] == null) {
       throw new runtime.RequiredError(
         'id',
-        'Required parameter "id" was null or undefined when calling removeCartItem().'
+        'Required parameter "id" was null or undefined when calling removeCartItem().',
       );
     }
 
@@ -173,18 +153,12 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/shopping-sessions/current/cart-items/{id}`.replace(
-          `{${'id'}}`,
-          encodeURIComponent(String(requestParameters['id']))
-        ),
-        method: 'DELETE',
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/shopping-sessions/current/cart-items/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(requestParameters['id']))),
+      method: 'DELETE',
+      headers: headerParameters,
+      query: queryParameters,
+    }, initOverrides);
 
     return new runtime.VoidApiResponse(response);
   }
@@ -193,10 +167,7 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
    * Remove a cart item from the shopping session of current user based on identity extracted from bearer token
    * Remove cart item
    */
-  async removeCartItem(
-    requestParameters: RemoveCartItemRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<void> {
+  async removeCartItem(requestParameters: RemoveCartItemRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<void> {
     await this.removeCartItemRaw(requestParameters, initOverrides);
   }
 
@@ -204,9 +175,7 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
    * Resolve current shopping session based on identity extracted from bearer token
    * Resolve current shopping session
    */
-  async resolveCurrentShoppingSessionRaw(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<ShoppingSessionResponse>> {
+  async resolveCurrentShoppingSessionRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<ShoppingSessionResponse>> {
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -219,26 +188,21 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/shopping-sessions/current`,
-        method: 'POST',
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/shopping-sessions/current`,
+      method: 'POST',
+      headers: headerParameters,
+      query: queryParameters,
+    }, initOverrides);
 
-    return new runtime.JSONApiResponse(response, jsonValue => ShoppingSessionResponseFromJSON(jsonValue));
+    return new runtime.JSONApiResponse(response, (jsonValue) => ShoppingSessionResponseFromJSON(jsonValue));
   }
 
   /**
    * Resolve current shopping session based on identity extracted from bearer token
    * Resolve current shopping session
    */
-  async resolveCurrentShoppingSession(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<ShoppingSessionResponse> {
+  async resolveCurrentShoppingSession(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<ShoppingSessionResponse> {
     const response = await this.resolveCurrentShoppingSessionRaw(initOverrides);
     return await response.value();
   }
@@ -247,21 +211,18 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
    * Update quantity of a cart item in shopping session of current user based on identity extracted from bearer token
    * Update cart item quantity
    */
-  async updateCartItemQuantityRaw(
-    requestParameters: UpdateCartItemQuantityOperationRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<CartItemResponse>> {
+  async updateCartItemQuantityRaw(requestParameters: UpdateCartItemQuantityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<CartItemResponse>> {
     if (requestParameters['id'] == null) {
       throw new runtime.RequiredError(
         'id',
-        'Required parameter "id" was null or undefined when calling updateCartItemQuantity().'
+        'Required parameter "id" was null or undefined when calling updateCartItemQuantity().',
       );
     }
 
     if (requestParameters['updateCartItemQuantityRequest'] == null) {
       throw new runtime.RequiredError(
         'updateCartItemQuantityRequest',
-        'Required parameter "updateCartItemQuantityRequest" was null or undefined when calling updateCartItemQuantity().'
+        'Required parameter "updateCartItemQuantityRequest" was null or undefined when calling updateCartItemQuantity().',
       );
     }
 
@@ -279,32 +240,24 @@ export class ShoppingSessionApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/shopping-sessions/current/cart-items/{id}`.replace(
-          `{${'id'}}`,
-          encodeURIComponent(String(requestParameters['id']))
-        ),
-        method: 'PATCH',
-        headers: headerParameters,
-        query: queryParameters,
-        body: UpdateCartItemQuantityRequestToJSON(requestParameters['updateCartItemQuantityRequest']),
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/shopping-sessions/current/cart-items/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(requestParameters['id']))),
+      method: 'PATCH',
+      headers: headerParameters,
+      query: queryParameters,
+      body: UpdateCartItemQuantityRequestToJSON(requestParameters['updateCartItemQuantityRequest']),
+    }, initOverrides);
 
-    return new runtime.JSONApiResponse(response, jsonValue => CartItemResponseFromJSON(jsonValue));
+    return new runtime.JSONApiResponse(response, (jsonValue) => CartItemResponseFromJSON(jsonValue));
   }
 
   /**
    * Update quantity of a cart item in shopping session of current user based on identity extracted from bearer token
    * Update cart item quantity
    */
-  async updateCartItemQuantity(
-    requestParameters: UpdateCartItemQuantityOperationRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<CartItemResponse> {
+  async updateCartItemQuantity(requestParameters: UpdateCartItemQuantityOperationRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<CartItemResponse> {
     const response = await this.updateCartItemQuantityRaw(requestParameters, initOverrides);
     return await response.value();
   }
+
 }

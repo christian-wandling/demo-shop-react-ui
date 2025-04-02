@@ -25,6 +25,9 @@
       "path": "./libs/auth"
     },
     {
+      "path": "./libs/shopping"
+    },
+    {
       "path": "./libs/user"
     }
   ]

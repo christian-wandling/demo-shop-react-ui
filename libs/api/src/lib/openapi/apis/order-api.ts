@@ -12,14 +12,10 @@
  * Do not edit the class manually.
  */
 
+
 import * as runtime from '../runtime';
-import type { OrderListResponse, OrderResponse } from '../models';
-import {
-  OrderListResponseFromJSON,
-  OrderListResponseToJSON,
-  OrderResponseFromJSON,
-  OrderResponseToJSON,
-} from '../models';
+import type { OrderListResponse, OrderResponse } from '../models/index';
+import { OrderListResponseFromJSON, OrderResponseFromJSON } from '../models/index';
 
 export interface GetOrderByIdRequest {
   id: number;
@@ -29,13 +25,12 @@ export interface GetOrderByIdRequest {
  *
  */
 export class OrderApi extends runtime.BaseAPI {
+
   /**
    * Get all orders of current user based on identity extracted from bearer token
    * Get all orders
    */
-  async getAllOrdersOfCurrentUserRaw(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<OrderListResponse>> {
+  async getAllOrdersOfCurrentUserRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderListResponse>> {
     const queryParameters: any = {};
 
     const headerParameters: runtime.HTTPHeaders = {};
@@ -48,26 +43,21 @@ export class OrderApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/orders`,
-        method: 'GET',
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/orders`,
+      method: 'GET',
+      headers: headerParameters,
+      query: queryParameters,
+    }, initOverrides);
 
-    return new runtime.JSONApiResponse(response, jsonValue => OrderListResponseFromJSON(jsonValue));
+    return new runtime.JSONApiResponse(response, (jsonValue) => OrderListResponseFromJSON(jsonValue));
   }
 
   /**
    * Get all orders of current user based on identity extracted from bearer token
    * Get all orders
    */
-  async getAllOrdersOfCurrentUser(
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<OrderListResponse> {
+  async getAllOrdersOfCurrentUser(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderListResponse> {
     const response = await this.getAllOrdersOfCurrentUserRaw(initOverrides);
     return await response.value();
   }
@@ -76,14 +66,11 @@ export class OrderApi extends runtime.BaseAPI {
    * Get order by id of current user based on identity extracted from bearer token
    * Get order by id
    */
-  async getOrderByIdRaw(
-    requestParameters: GetOrderByIdRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<runtime.ApiResponse<OrderResponse>> {
+  async getOrderByIdRaw(requestParameters: GetOrderByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<OrderResponse>> {
     if (requestParameters['id'] == null) {
       throw new runtime.RequiredError(
         'id',
-        'Required parameter "id" was null or undefined when calling getOrderById().'
+        'Required parameter "id" was null or undefined when calling getOrderById().',
       );
     }
 
@@ -99,28 +86,23 @@ export class OrderApi extends runtime.BaseAPI {
         headerParameters['Authorization'] = `Bearer ${tokenString}`;
       }
     }
-    const response = await this.request(
-      {
-        path: `/api/v1/orders/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(requestParameters['id']))),
-        method: 'GET',
-        headers: headerParameters,
-        query: queryParameters,
-      },
-      initOverrides
-    );
+    const response = await this.request({
+      path: `/api/v1/orders/{id}`.replace(`{${'id'}}`, encodeURIComponent(String(requestParameters['id']))),
+      method: 'GET',
+      headers: headerParameters,
+      query: queryParameters,
+    }, initOverrides);
 
-    return new runtime.JSONApiResponse(response, jsonValue => OrderResponseFromJSON(jsonValue));
+    return new runtime.JSONApiResponse(response, (jsonValue) => OrderResponseFromJSON(jsonValue));
   }
 
   /**
    * Get order by id of current user based on identity extracted from bearer token
    * Get order by id
    */
-  async getOrderById(
-    requestParameters: GetOrderByIdRequest,
-    initOverrides?: RequestInit | runtime.InitOverrideFunction
-  ): Promise<OrderResponse> {
+  async getOrderById(requestParameters: GetOrderByIdRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<OrderResponse> {
     const response = await this.getOrderByIdRaw(requestParameters, initOverrides);
     return await response.value();
   }
+
 }

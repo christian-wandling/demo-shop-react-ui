@@ -16,6 +16,19 @@ vi.mock('../../services/navigationService', () => ({
   ]),
 }));
 
+const mockShoppingCartState = {
+  fetchCurrentSession: vi.fn(),
+};
+
+vi.mock('@demo-shop-react-ui/shopping', () => ({
+  useShoppingCartStore: vi.fn(selectorOrState => {
+    if (typeof selectorOrState === 'function') {
+      return selectorOrState(mockShoppingCartState);
+    }
+    return mockShoppingCartState;
+  }),
+}));
+
 const login = vi.fn().mockResolvedValue(undefined);
 const register = vi.fn().mockResolvedValue(undefined);
 const logout = vi.fn().mockResolvedValue(undefined);
@@ -43,6 +56,8 @@ const navigationConfig: NavigationConfig = {
 };
 
 describe('Navigation Component', () => {
+  const fetchCurrentSessionSpy = vi.spyOn(mockShoppingCartState, 'fetchCurrentSession');
+
   beforeEach(() => {
     vi.clearAllMocks();
     global.window.resizeTo = vi.fn();
@@ -142,6 +157,7 @@ describe('Navigation Component', () => {
     });
 
     expect(login).toHaveBeenCalledTimes(1);
+    expect(fetchCurrentSessionSpy).toHaveBeenCalledTimes(1);
   });
 
   it('calls register function when triggered', async () => {
@@ -158,6 +174,7 @@ describe('Navigation Component', () => {
     });
 
     expect(register).toHaveBeenCalledTimes(1);
+    expect(fetchCurrentSessionSpy).toHaveBeenCalledTimes(1);
   });
 
   it('calls logout function when triggered', async () => {
