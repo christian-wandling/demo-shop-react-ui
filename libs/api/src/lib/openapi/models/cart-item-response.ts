@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 /**
  *
  * @export
@@ -86,13 +85,14 @@ export function CartItemResponseFromJSONTyped(json: any, ignoreDiscriminator: bo
     return json;
   }
   return {
-    id: json['id'],
-    productId: json['productId'],
-    productName: json['productName'],
-    productThumbnail: json['productThumbnail'],
-    quantity: json['quantity'],
-    unitPrice: json['unitPrice'],
-    totalPrice: json['totalPrice'],
+
+    'id': json['id'],
+    'productId': json['productId'],
+    'productName': json['productName'],
+    'productThumbnail': json['productThumbnail'],
+    'quantity': json['quantity'],
+    'unitPrice': json['unitPrice'],
+    'totalPrice': json['totalPrice'],
   };
 }
 
@@ -100,21 +100,20 @@ export function CartItemResponseToJSON(json: any): CartItemResponse {
   return CartItemResponseToJSONTyped(json, false);
 }
 
-export function CartItemResponseToJSONTyped(
-  value?: CartItemResponse | null,
-  ignoreDiscriminator: boolean = false
-): any {
+export function CartItemResponseToJSONTyped(value?: CartItemResponse | null, ignoreDiscriminator: boolean = false): any {
   if (value == null) {
     return value;
   }
 
   return {
-    id: value['id'],
-    productId: value['productId'],
-    productName: value['productName'],
-    productThumbnail: value['productThumbnail'],
-    quantity: value['quantity'],
-    unitPrice: value['unitPrice'],
-    totalPrice: value['totalPrice'],
+
+    'id': value['id'],
+    'productId': value['productId'],
+    'productName': value['productName'],
+    'productThumbnail': value['productThumbnail'],
+    'quantity': value['quantity'],
+    'unitPrice': value['unitPrice'],
+    'totalPrice': value['totalPrice'],
   };
 }
+

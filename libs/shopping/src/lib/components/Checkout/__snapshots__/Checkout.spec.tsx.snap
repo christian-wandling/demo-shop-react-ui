@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Checkout Component > matches the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="bg-gray-100 sm:m-2 lg:m-6 p-4 sm:p-8 lg:p-10 sm:rounded"
+    >
+      <div
+        class="flex flex-col lg:flex-row justify-between gap-8"
+      >
+        <div
+          data-testid="shipping-form"
+        >
+          <button
+            data-testid="update-user-button"
+          >
+            Update User
+          </button>
+          <span>
+            Is Form Dirty: 
+            false
+          </span>
+          <span>
+            Is Form Valid: 
+          </span>
+        </div>
+        <div
+          data-testid="order-summary"
+        >
+          <span>
+            Total Items: 
+            2
+          </span>
+          <span>
+            Total Price: 
+          </span>
+          <button
+            data-testid="checkout-button"
+          >
+            Checkout
+          </button>
+          <button
+            data-testid="remove-item-button"
+          >
+            Remove Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

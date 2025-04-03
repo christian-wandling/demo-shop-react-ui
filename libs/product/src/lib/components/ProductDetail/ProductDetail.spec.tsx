@@ -1,17 +1,22 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { ProductDetail } from './ProductDetail';
-import { useProductStore } from '../../+state/useProductStore';
 import { ProductResponse } from '@demo-shop-react-ui/api';
 
 vi.mock('react-router', () => ({
   useParams: vi.fn().mockReturnValue({ id: '1' }),
 }));
 
+const fetchProductByIdSpy = vi.fn();
+const getProductByIdSpy = vi.fn();
+
 vi.mock('../../+state/useProductStore', () => ({
-  useProductStore: vi.fn().mockReturnValue({
-    fetchProductById: vi.fn(),
-    getProductById: vi.fn(),
+  useProductStore: vi.fn().mockImplementation(selector => {
+    const store = {
+      fetchProductById: fetchProductByIdSpy,
+      getProductById: getProductByIdSpy,
+    };
+    return selector(store);
   }),
 }));
 
@@ -30,10 +35,10 @@ describe('ProductDetail', () => {
     images: [{ name: 'name', uri: 'test-image.jpg' }],
   };
 
-  const store = useProductStore();
-
   beforeEach(() => {
     vi.clearAllMocks();
+
+    getProductByIdSpy.mockReturnValue(mockProduct);
   });
 
   it('should render successfully', () => {
@@ -47,9 +52,6 @@ describe('ProductDetail', () => {
   });
 
   it('should display product details when product is available', () => {
-    const getProductById = vi.spyOn(store, 'getProductById');
-    getProductById.mockReturnValue(mockProduct);
-
     render(<ProductDetail />);
 
     expect(screen.getByText('Test Product')).toBeTruthy();
@@ -62,7 +64,7 @@ describe('ProductDetail', () => {
   });
 
   it('should show loading state when product is not available', () => {
-    vi.spyOn(store, 'getProductById').mockReturnValue(undefined);
+    getProductByIdSpy.mockReturnValue(undefined);
 
     render(<ProductDetail />);
 
@@ -70,16 +72,13 @@ describe('ProductDetail', () => {
   });
 
   it('should call fetchProductById with the correct ID', () => {
-    const fetchProductById = vi.spyOn(store, 'fetchProductById');
-
     render(<ProductDetail />);
 
-    expect(fetchProductById).toHaveBeenCalledWith(1);
+    expect(fetchProductByIdSpy).toHaveBeenCalledWith(1);
   });
 
   it('should disable the "Add to cart" button', () => {
-    vi.spyOn(store, 'getProductById').mockReturnValue(mockProduct);
-
+    fetchProductByIdSpy.mockReturnValue(undefined);
     render(<ProductDetail />);
 
     const addToCartButton: HTMLButtonElement = screen.getByText('Add to cart');
@@ -87,8 +86,6 @@ describe('ProductDetail', () => {
   });
 
   it('should display the placeholder image if the product image fails to load', async () => {
-    vi.spyOn(store, 'getProductById').mockReturnValue(mockProduct);
-
     render(<ProductDetail />);
 
     const productImage: HTMLImageElement = screen.getByAltText('Test Product');

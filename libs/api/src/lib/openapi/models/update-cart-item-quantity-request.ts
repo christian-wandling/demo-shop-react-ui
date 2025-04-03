@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 /**
  *
  * @export
@@ -39,15 +38,13 @@ export function UpdateCartItemQuantityRequestFromJSON(json: any): UpdateCartItem
   return UpdateCartItemQuantityRequestFromJSONTyped(json, false);
 }
 
-export function UpdateCartItemQuantityRequestFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
-): UpdateCartItemQuantityRequest {
+export function UpdateCartItemQuantityRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateCartItemQuantityRequest {
   if (json == null) {
     return json;
   }
   return {
-    quantity: json['quantity'],
+
+    'quantity': json['quantity'],
   };
 }
 
@@ -55,15 +52,14 @@ export function UpdateCartItemQuantityRequestToJSON(json: any): UpdateCartItemQu
   return UpdateCartItemQuantityRequestToJSONTyped(json, false);
 }
 
-export function UpdateCartItemQuantityRequestToJSONTyped(
-  value?: UpdateCartItemQuantityRequest | null,
-  ignoreDiscriminator: boolean = false
-): any {
+export function UpdateCartItemQuantityRequestToJSONTyped(value?: UpdateCartItemQuantityRequest | null, ignoreDiscriminator: boolean = false): any {
   if (value == null) {
     return value;
   }
 
   return {
-    quantity: value['quantity'],
+
+    'quantity': value['quantity'],
   };
 }
+

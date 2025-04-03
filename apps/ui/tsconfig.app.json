@@ -30,6 +30,9 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
+      "path": "../../libs/shopping/tsconfig.lib.json"
+    },
+    {
       "path": "../../libs/user/tsconfig.lib.json"
     },
     {

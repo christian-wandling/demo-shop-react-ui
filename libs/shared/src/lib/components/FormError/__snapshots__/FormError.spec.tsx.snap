@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FormError component > Snapshots > matches the snapshot for errors 1`] = `
+<body>
+  <div>
+    <div
+      class="text-xs text-red-600"
+      role="alert"
+    >
+      <div>
+        Email
+         is required
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`FormError component > Snapshots > matches the snapshot for no errors 1`] = `
+<body>
+  <div />
+</body>
+`;

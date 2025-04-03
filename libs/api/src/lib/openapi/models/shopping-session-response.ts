@@ -12,14 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 import type { CartItemResponse } from './cart-item-response';
-import {
-  CartItemResponseFromJSON,
-  CartItemResponseFromJSONTyped,
-  CartItemResponseToJSON,
-  CartItemResponseToJSONTyped,
-} from './cart-item-response';
+import { CartItemResponseFromJSON, CartItemResponseToJSON } from './cart-item-response';
 
 /**
  *
@@ -66,9 +60,10 @@ export function ShoppingSessionResponseFromJSONTyped(json: any, ignoreDiscrimina
     return json;
   }
   return {
-    id: json['id'],
-    userId: json['userId'],
-    items: (json['items'] as Array<any>).map(CartItemResponseFromJSON),
+
+    'id': json['id'],
+    'userId': json['userId'],
+    'items': ((json['items'] as Array<any>).map(CartItemResponseFromJSON)),
   };
 }
 
@@ -76,17 +71,16 @@ export function ShoppingSessionResponseToJSON(json: any): ShoppingSessionRespons
   return ShoppingSessionResponseToJSONTyped(json, false);
 }
 
-export function ShoppingSessionResponseToJSONTyped(
-  value?: ShoppingSessionResponse | null,
-  ignoreDiscriminator: boolean = false
-): any {
+export function ShoppingSessionResponseToJSONTyped(value?: ShoppingSessionResponse | null, ignoreDiscriminator: boolean = false): any {
   if (value == null) {
     return value;
   }
 
   return {
-    id: value['id'],
-    userId: value['userId'],
-    items: (value['items'] as Array<any>).map(CartItemResponseToJSON),
+
+    'id': value['id'],
+    'userId': value['userId'],
+    'items': ((value['items'] as Array<any>).map(CartItemResponseToJSON)),
   };
 }
+

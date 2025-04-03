@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FormSelect > matches the snapshot 1`] = `
+<body>
+  <div>
+    <div>
+      <label
+        class="block text-sm font-medium leading-6 text-gray-900"
+        for="testSelect"
+      >
+        Test Select
+         
+      </label>
+      <select
+        class="
+              block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6
+              text-gray-900
+               
+            "
+        id="testSelect"
+      >
+        <option
+          value=""
+        >
+          Select 
+          Test Select
+        </option>
+        <option
+          value="option1"
+        >
+          Option 1
+        </option>
+        <option
+          value="option2"
+        >
+          Option 2
+        </option>
+      </select>
+    </div>
+  </div>
+</body>
+`;

@@ -12,14 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 import type { AddressResponse } from './address-response';
-import {
-  AddressResponseFromJSON,
-  AddressResponseFromJSONTyped,
-  AddressResponseToJSON,
-  AddressResponseToJSONTyped,
-} from './address-response';
+import { AddressResponseFromJSON, AddressResponseToJSON } from './address-response';
 
 /**
  *
@@ -86,12 +80,13 @@ export function UserResponseFromJSONTyped(json: any, ignoreDiscriminator: boolea
     return json;
   }
   return {
-    id: json['id'],
-    email: json['email'],
-    firstname: json['firstname'],
-    lastname: json['lastname'],
-    phone: json['phone'],
-    address: json['address'] == null ? undefined : AddressResponseFromJSON(json['address']),
+
+    'id': json['id'],
+    'email': json['email'],
+    'firstname': json['firstname'],
+    'lastname': json['lastname'],
+    'phone': json['phone'],
+    'address': json['address'] == null ? undefined : AddressResponseFromJSON(json['address']),
   };
 }
 
@@ -105,11 +100,13 @@ export function UserResponseToJSONTyped(value?: UserResponse | null, ignoreDiscr
   }
 
   return {
-    id: value['id'],
-    email: value['email'],
-    firstname: value['firstname'],
-    lastname: value['lastname'],
-    phone: value['phone'],
-    address: AddressResponseToJSON(value['address']),
+
+    'id': value['id'],
+    'email': value['email'],
+    'firstname': value['firstname'],
+    'lastname': value['lastname'],
+    'phone': value['phone'],
+    'address': AddressResponseToJSON(value['address']),
   };
 }
+

@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FormInput component > matches the snapshot 1`] = `
+<body>
+  <div>
+    <div>
+      <label
+        class="block text-sm font-medium leading-6 text-gray-900"
+        for="testField"
+      >
+        Test Field
+         
+      </label>
+      <input
+        class="
+              block w-full rounded-md border-0 py-1.5  shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6
+              text-gray-900
+               
+            "
+        id="testField"
+        name="testField"
+        placeholder="Enter test data"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</body>
+`;

@@ -3,8 +3,10 @@ import { useProductStore } from '../../+state/useProductStore';
 import { ProductCard } from './ProductCard';
 
 export const ProductList = () => {
-  const { getFilteredProducts, fetchProducts } = useProductStore();
-  const products = getFilteredProducts();
+  useProductStore(state => state.products);
+  useProductStore(state => state.filter);
+  const fetchProducts = useProductStore(state => state.fetchProducts);
+  const getFilteredProducts = useProductStore(state => state.getFilteredProducts);
 
   useEffect(() => {
     fetchProducts();
@@ -16,7 +18,7 @@ export const ProductList = () => {
         <h2 className="sr-only">Products</h2>
 
         <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {products.map(product => (
+          {getFilteredProducts().map(product => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

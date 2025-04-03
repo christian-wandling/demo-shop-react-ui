@@ -1,0 +1,147 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ShoppingCart > SnapShots > should match the snapshot when cart is hidden 1`] = `
+<body>
+  <div />
+</body>
+`;
+
+exports[`ShoppingCart > SnapShots > should match the snapshot when cart is in view 1`] = `
+<body>
+  <div>
+    <div
+      data-testid="animate-presence"
+    >
+      <div
+        animate="[object Object]"
+        aria-labelledby="slide-over-title"
+        aria-modal="true"
+        class="relative z-50"
+        data-testid="motion-div"
+        exit="[object Object]"
+        initial="[object Object]"
+        role="dialog"
+        transition="[object Object]"
+      >
+        <div
+          aria-hidden="true"
+          class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+        />
+        <div
+          class="fixed inset-0 overflow-hidden"
+        >
+          <div
+            class="absolute inset-0 overflow-hidden"
+          />
+        </div>
+      </div>
+      <div
+        animate="[object Object]"
+        class="z-50 pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
+        data-testid="motion-div"
+        exit="[object Object]"
+        initial="[object Object]"
+        transition="[object Object]"
+      >
+        <div
+          class="pointer-events-auto w-screen max-w-md"
+        >
+          <div
+            class="flex h-full flex-col bg-white shadow-xl"
+          >
+            <div
+              class="flex-1 overflow-y-auto sm:px-6"
+            >
+              <div
+                class="flex items-start justify-between sticky top-0 py-6 px-4 z-10 border-b-2 border-gray-100 bg-white"
+              >
+                <h2
+                  class="text-lg font-medium text-gray-900"
+                  id="slide-over-title"
+                >
+                  Shopping cart
+                </h2>
+                <div
+                  class="ml-3 flex h-7 items-center"
+                >
+                  <button
+                    class="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                    type="button"
+                  >
+                    <span
+                      class="absolute -inset-0.5"
+                    />
+                    <span
+                      class="sr-only"
+                    >
+                      Close panel
+                    </span>
+                    <svg
+                      aria-hidden="true"
+                      class="h-6 w-6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M6 18L18 6M6 6l12 12"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                data-testid="cart-items"
+              />
+            </div>
+            <div
+              class="border-t border-gray-200 px-4 py-6 sm:px-6"
+            >
+              <div
+                class="flex justify-between text-base font-medium text-gray-900"
+              >
+                <p>
+                  Total
+                </p>
+                <p>
+                  $99.99
+                </p>
+              </div>
+              <div
+                class="mt-6"
+              >
+                <a
+                  href="#"
+                >
+                  Checkout
+                </a>
+              </div>
+              <div
+                class="mt-6 flex justify-center text-center text-sm text-gray-500"
+              >
+                <p>
+                  or
+                  <button
+                    class="font-medium text-indigo-600 hover:text-indigo-500 ml-1"
+                    type="button"
+                  >
+                    Continue Shopping
+                    <span
+                      aria-hidden="true"
+                    >
+                       →
+                    </span>
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

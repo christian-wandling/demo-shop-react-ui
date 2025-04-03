@@ -12,7 +12,6 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 /**
  *
  * @export
@@ -73,20 +72,18 @@ export function UpdateUserAddressRequestFromJSON(json: any): UpdateUserAddressRe
   return UpdateUserAddressRequestFromJSONTyped(json, false);
 }
 
-export function UpdateUserAddressRequestFromJSONTyped(
-  json: any,
-  ignoreDiscriminator: boolean
-): UpdateUserAddressRequest {
+export function UpdateUserAddressRequestFromJSONTyped(json: any, ignoreDiscriminator: boolean): UpdateUserAddressRequest {
   if (json == null) {
     return json;
   }
   return {
-    street: json['street'],
-    apartment: json['apartment'],
-    city: json['city'],
-    zip: json['zip'],
-    country: json['country'],
-    region: json['region'] == null ? undefined : json['region'],
+
+    'street': json['street'],
+    'apartment': json['apartment'],
+    'city': json['city'],
+    'zip': json['zip'],
+    'country': json['country'],
+    'region': json['region'] == null ? undefined : json['region'],
   };
 }
 
@@ -94,20 +91,19 @@ export function UpdateUserAddressRequestToJSON(json: any): UpdateUserAddressRequ
   return UpdateUserAddressRequestToJSONTyped(json, false);
 }
 
-export function UpdateUserAddressRequestToJSONTyped(
-  value?: UpdateUserAddressRequest | null,
-  ignoreDiscriminator: boolean = false
-): any {
+export function UpdateUserAddressRequestToJSONTyped(value?: UpdateUserAddressRequest | null, ignoreDiscriminator: boolean = false): any {
   if (value == null) {
     return value;
   }
 
   return {
-    street: value['street'],
-    apartment: value['apartment'],
-    city: value['city'],
-    zip: value['zip'],
-    country: value['country'],
-    region: value['region'],
+
+    'street': value['street'],
+    'apartment': value['apartment'],
+    'city': value['city'],
+    'zip': value['zip'],
+    'country': value['country'],
+    'region': value['region'],
   };
 }
+

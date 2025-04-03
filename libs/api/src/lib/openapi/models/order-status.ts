@@ -1,5 +1,6 @@
 /* tslint:disable */
 /* eslint-disable */
+
 /**
  * Demo Shop API
  * A comprehensive API for managing an online store, providing endpoints for product catalog, user management, shopping cart operations, and order processing
@@ -19,8 +20,9 @@
  */
 export enum OrderStatus {
   Created = 'Created',
-  Completed = 'Completed',
+  Completed = 'Completed'
 }
+
 
 export function instanceOfOrderStatus(value: any): boolean {
   for (const key in OrderStatus) {
@@ -48,3 +50,4 @@ export function OrderStatusToJSON(value?: OrderStatus | null): any {
 export function OrderStatusToJSONTyped(value: any, ignoreDiscriminator: boolean): OrderStatus {
   return value as OrderStatus;
 }
+

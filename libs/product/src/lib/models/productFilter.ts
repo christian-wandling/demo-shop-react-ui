@@ -14,6 +14,5 @@ export type AllowedProductFilterTypes = keyof Pick<ProductResponse, 'name' | 'ca
  * @property {string} [categories] - Optional filter for product categories
  */
 export type ProductFilter = {
-  name?: string;
-  categories?: string;
+  name: string;
 };

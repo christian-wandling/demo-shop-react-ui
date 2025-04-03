@@ -1,0 +1,134 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CartItems Component > matches the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="mt-8"
+    >
+      <div
+        class="flow-root"
+      >
+        <ul
+          class="-my-6 divide-y divide-gray-200"
+        >
+          <li
+            class="flex py-6"
+          >
+            <a
+              class="relative h-24 w-24 aspect-1 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 group-hover:opacity-75 cursor-pointer"
+              data-discover="true"
+              href="/products/101"
+            >
+              <img
+                alt="Test Product 1"
+                class="object-cover object-center"
+                src="https://example.com/image1.jpg"
+                title="Test Product 1"
+              />
+            </a>
+            <div
+              class="ml-4 flex flex-1 flex-col"
+            >
+              <div>
+                <div
+                  class="flex justify-between text-base font-medium text-gray-900"
+                >
+                  <h3>
+                    <a>
+                      Test Product 1
+                    </a>
+                  </h3>
+                  <p
+                    class="ml-4"
+                  >
+                    $
+                    19.99
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex flex-1 items-end justify-between text-sm"
+              >
+                <p
+                  class="text-gray-500"
+                >
+                  Qty 
+                  2
+                </p>
+                <div
+                  class="flex"
+                >
+                  <button
+                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                    type="button"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="flex py-6"
+          >
+            <a
+              class="relative h-24 w-24 aspect-1 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 group-hover:opacity-75 cursor-pointer"
+              data-discover="true"
+              href="/products/102"
+            >
+              <img
+                alt="Test Product 2"
+                class="object-cover object-center"
+                src="https://example.com/image2.jpg"
+                title="Test Product 2"
+              />
+            </a>
+            <div
+              class="ml-4 flex flex-1 flex-col"
+            >
+              <div>
+                <div
+                  class="flex justify-between text-base font-medium text-gray-900"
+                >
+                  <h3>
+                    <a>
+                      Test Product 2
+                    </a>
+                  </h3>
+                  <p
+                    class="ml-4"
+                  >
+                    $
+                    29.99
+                  </p>
+                </div>
+              </div>
+              <div
+                class="flex flex-1 items-end justify-between text-sm"
+              >
+                <p
+                  class="text-gray-500"
+                >
+                  Qty 
+                  1
+                </p>
+                <div
+                  class="flex"
+                >
+                  <button
+                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                    type="button"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -12,14 +12,8 @@
  * Do not edit the class manually.
  */
 
-import { mapValues } from '../runtime';
 import type { ImageResponse } from './image-response';
-import {
-  ImageResponseFromJSON,
-  ImageResponseFromJSONTyped,
-  ImageResponseToJSON,
-  ImageResponseToJSONTyped,
-} from './image-response';
+import { ImageResponseFromJSON, ImageResponseToJSON } from './image-response';
 
 /**
  *
@@ -94,13 +88,14 @@ export function ProductResponseFromJSONTyped(json: any, ignoreDiscriminator: boo
     return json;
   }
   return {
-    id: json['id'],
-    name: json['name'],
-    description: json['description'],
-    categories: json['categories'],
-    images: (json['images'] as Array<any>).map(ImageResponseFromJSON),
-    price: json['price'],
-    thumbnail: ImageResponseFromJSON(json['thumbnail']),
+
+    'id': json['id'],
+    'name': json['name'],
+    'description': json['description'],
+    'categories': json['categories'],
+    'images': ((json['images'] as Array<any>).map(ImageResponseFromJSON)),
+    'price': json['price'],
+    'thumbnail': ImageResponseFromJSON(json['thumbnail']),
   };
 }
 
@@ -114,12 +109,14 @@ export function ProductResponseToJSONTyped(value?: ProductResponse | null, ignor
   }
 
   return {
-    id: value['id'],
-    name: value['name'],
-    description: value['description'],
-    categories: value['categories'],
-    images: (value['images'] as Array<any>).map(ImageResponseToJSON),
-    price: value['price'],
-    thumbnail: ImageResponseToJSON(value['thumbnail']),
+
+    'id': value['id'],
+    'name': value['name'],
+    'description': value['description'],
+    'categories': value['categories'],
+    'images': ((value['images'] as Array<any>).map(ImageResponseToJSON)),
+    'price': value['price'],
+    'thumbnail': ImageResponseToJSON(value['thumbnail']),
   };
 }
+
