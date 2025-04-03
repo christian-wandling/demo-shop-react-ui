@@ -31,6 +31,7 @@ vi.mock('@demo-shop-react-ui/api', () => {
     addCartItem: vi.fn(),
     removeCartItem: vi.fn(),
     updateCartItemQuantity: vi.fn(),
+    checkout: vi.fn(),
   };
 
   return {
@@ -359,6 +360,16 @@ describe('useShoppingCartStore', () => {
       useShoppingCartStore.getState().setShowCart(true);
 
       expect(useShoppingCartStore.getState().showCart).toBe(true);
+    });
+  });
+
+  describe('checkout', () => {
+    it('should checkout the current session', () => {
+      const checkoutSpy = vi.spyOn(getApi().shoppingSessionApi, 'checkout');
+
+      useShoppingCartStore.getState().checkout();
+
+      expect(checkoutSpy).toHaveBeenCalled();
     });
   });
 });

@@ -58,7 +58,7 @@ export const ProductDetail = () => {
   ${
     hasActiveSession()
       ? 'bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-      : 'bg-gray-100 text-gray-800 pointer-events-none'
+      : 'bg-gray-200 text-gray-800 pointer-events-none'
   }`}>
             Add to cart
           </button>

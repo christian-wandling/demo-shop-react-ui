@@ -6,6 +6,9 @@
       "path": "../shared"
     },
     {
+      "path": "../user"
+    },
+    {
       "path": "../api"
     },
     {

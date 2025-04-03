@@ -1,6 +1,7 @@
 import { useShoppingCartStore } from '../../+state/useShoppingCartStore';
 
 export const CartIcon = () => {
+  useShoppingCartStore(state => state.items);
   const setShowCart = useShoppingCartStore(state => state.setShowCart);
   const getItemCount = useShoppingCartStore(state => state.getItemCount);
 

@@ -25,7 +25,6 @@ const mockCartItems: CartItemResponse[] = [
   },
 ];
 
-// Helper function to render component with router context
 const renderWithRouter = (component: any) => {
   return render(<BrowserRouter>{component}</BrowserRouter>);
 };
@@ -47,15 +46,12 @@ describe('CartItems Component', () => {
     const onRemoveItem = vi.fn();
     renderWithRouter(<CartItems items={mockCartItems} onRemoveItem={onRemoveItem} />);
 
-    // Check if both products are rendered
     expect(screen.getByText('Test Product 1')).toBeTruthy();
     expect(screen.getByText('Test Product 2')).toBeTruthy();
 
-    // Check if quantities are rendered correctly
     expect(screen.getByText('Qty 2')).toBeTruthy();
     expect(screen.getByText('Qty 1')).toBeTruthy();
 
-    // Check if prices are rendered correctly
     expect(screen.getByText('$19.99')).toBeTruthy();
     expect(screen.getByText('$29.99')).toBeTruthy();
   });
@@ -65,14 +61,14 @@ describe('CartItems Component', () => {
     renderWithRouter(<CartItems items={mockCartItems} onRemoveItem={onRemoveItem} />);
 
     const removeButtons = screen.getAllByText('Remove');
-    fireEvent.click(removeButtons[0]); // Click first Remove button
+    fireEvent.click(removeButtons[0]);
 
     expect(onRemoveItem).toHaveBeenCalledTimes(1);
-    expect(onRemoveItem).toHaveBeenCalledWith(1); // First item's id
+    expect(onRemoveItem).toHaveBeenCalledWith(1);
 
-    fireEvent.click(removeButtons[1]); // Click second Remove button
+    fireEvent.click(removeButtons[1]);
     expect(onRemoveItem).toHaveBeenCalledTimes(2);
-    expect(onRemoveItem).toHaveBeenLastCalledWith(2); // Second item's id
+    expect(onRemoveItem).toHaveBeenLastCalledWith(2);
   });
 
   it('renders product images with correct attributes', () => {
@@ -95,7 +91,6 @@ describe('CartItems Component', () => {
     const onRemoveItem = vi.fn();
     renderWithRouter(<CartItems items={mockCartItems} onRemoveItem={onRemoveItem} />);
 
-    // Get all links that would navigate to product pages
     const productLinks: NodeListOf<HTMLLinkElement> = document.querySelectorAll('a[href^="/products/"]');
     expect(productLinks).toHaveLength(2);
 

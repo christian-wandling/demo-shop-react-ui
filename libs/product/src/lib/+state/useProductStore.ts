@@ -16,7 +16,9 @@ interface ProductState {
 export const useProductStore = create<ProductState>()((set, get) => {
   return {
     products: [],
-    filter: {},
+    filter: {
+      name: '',
+    },
 
     fetchProducts: async () => {
       const { productApi } = getApi();

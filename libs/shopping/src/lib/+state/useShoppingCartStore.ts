@@ -12,12 +12,10 @@ interface ShoppingCartState {
   getItemById: (id: number) => CartItemResponse | undefined;
   getItemByProductId: (productId: number) => CartItemResponse | undefined;
   setShowCart: (showCart: boolean) => void;
-
   getTotalPrice: () => number;
-
   getItemCount: () => number;
-
   hasActiveSession: () => boolean;
+  checkout: () => Promise<void>;
 }
 
 export const useShoppingCartStore = create<ShoppingCartState>()((set, get) => {
@@ -102,6 +100,17 @@ export const useShoppingCartStore = create<ShoppingCartState>()((set, get) => {
 
     setShowCart: (showCart: boolean) => {
       set(state => ({ ...state, showCart }));
+    },
+
+    checkout: async () => {
+      try {
+        const { shoppingSessionApi } = getApi();
+        await shoppingSessionApi.checkout();
+        get().fetchCurrentSession();
+      } catch (err: any) {
+        console.error(err);
+        throw new Error(err.message);
+      }
     },
   };
 });

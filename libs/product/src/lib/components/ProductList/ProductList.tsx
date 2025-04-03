@@ -3,12 +3,14 @@ import { useProductStore } from '../../+state/useProductStore';
 import { ProductCard } from './ProductCard';
 
 export const ProductList = () => {
+  useProductStore(state => state.products);
+  useProductStore(state => state.filter);
   const fetchProducts = useProductStore(state => state.fetchProducts);
   const getFilteredProducts = useProductStore(state => state.getFilteredProducts);
 
   useEffect(() => {
     fetchProducts();
-  }, [fetchProducts]);
+  }, []);
 
   return (
     <div className="bg-white">
