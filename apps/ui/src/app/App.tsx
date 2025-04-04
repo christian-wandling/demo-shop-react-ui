@@ -7,6 +7,7 @@ import { Navigation, NavigationProvider } from '@demo-shop-react-ui/navigation';
 import { useAppStore } from './+state/useAppStore';
 import { useEffect, useRef } from 'react';
 import { Checkout, ShoppingCart } from '@demo-shop-react-ui/shopping';
+import { OrderDetail, OrderList } from '@demo-shop-react-ui/order';
 
 export const App = () => {
   const isInitialized = useAppStore(state => state.isInitialized);
@@ -64,6 +65,8 @@ export const App = () => {
           <Route path="/products" element={<ProductList />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/orders" element={<OrderList />} />
+          <Route path="/orders/:id" element={<OrderDetail />} />
         </Routes>
       </ContextComposer>
     </div>

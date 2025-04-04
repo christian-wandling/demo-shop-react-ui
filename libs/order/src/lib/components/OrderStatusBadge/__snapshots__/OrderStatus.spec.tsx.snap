@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`OrderStatusBadge > should match snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="rounded-lg px-2 sm:px-4 py-1 sm:py-1.5 max-w-20 sm:max-w-28 text-center text-white border border-slate-300 text-xs bg-green-800"
+      date-testid="orderStatus"
+    >
+      Completed
+    </div>
+  </div>
+</body>
+`;

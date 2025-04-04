@@ -3,7 +3,7 @@
 exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
 <div>
   <header
-    class="relative bg-white"
+    class="sticky top-0 z-20 bg-white"
   >
     <nav
       aria-label="Top"
@@ -163,7 +163,7 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
 exports[`NavigationBar > renders correctly 1`] = `
 <div>
   <header
-    class="relative bg-white"
+    class="sticky top-0 z-20 bg-white"
   >
     <nav
       aria-label="Top"

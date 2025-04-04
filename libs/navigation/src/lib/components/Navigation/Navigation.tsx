@@ -51,7 +51,7 @@ export const Navigation = () => {
   };
 
   return (
-    <div className="bg-white">
+    <>
       <NavigationBar
         items={navigationItems}
         selectedItem={selectedNavigationItem}
@@ -75,6 +75,6 @@ export const Navigation = () => {
           onLogout={handleLogout}
         />
       )}
-    </div>
+    </>
   );
 };

@@ -21,7 +21,7 @@ describe('NavigationBarUserSection', () => {
   it('renders login and register buttons when user is not logged in', () => {
     render(
       <NavigationBarUserSection
-        user={undefined}
+        user={null}
         onLogin={mockHandlers.onLogin}
         onLogout={mockHandlers.onLogout}
         onRegister={mockHandlers.onRegister}
@@ -52,7 +52,7 @@ describe('NavigationBarUserSection', () => {
   it('calls onLogin when Sign in is clicked', () => {
     render(
       <NavigationBarUserSection
-        user={undefined}
+        user={null}
         onLogin={mockHandlers.onLogin}
         onLogout={mockHandlers.onLogout}
         onRegister={mockHandlers.onRegister}
@@ -66,7 +66,7 @@ describe('NavigationBarUserSection', () => {
   it('calls onRegister when Register is clicked', () => {
     render(
       <NavigationBarUserSection
-        user={undefined}
+        user={null}
         onLogin={mockHandlers.onLogin}
         onLogout={mockHandlers.onLogout}
         onRegister={mockHandlers.onRegister}
@@ -108,7 +108,7 @@ describe('NavigationBarUserSection', () => {
     it('matches the snapshot logged out state', () => {
       const { baseElement } = render(
         <NavigationBarUserSection
-          user={undefined}
+          user={null}
           onLogin={mockHandlers.onLogin}
           onLogout={mockHandlers.onLogout}
           onRegister={mockHandlers.onRegister}

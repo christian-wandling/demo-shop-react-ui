@@ -6,6 +6,7 @@ import { useParams } from 'react-router';
 
 export const ProductDetail = () => {
   const { id } = useParams();
+  useProductStore(state => state.products);
   const getProductById = useProductStore(state => state.getProductById);
   const fetchProductById = useProductStore(state => state.fetchProductById);
   const hasActiveSession = useShoppingCartStore(state => state.hasActiveSession);

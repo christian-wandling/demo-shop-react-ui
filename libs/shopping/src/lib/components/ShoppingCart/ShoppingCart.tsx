@@ -61,10 +61,10 @@ export const ShoppingCart = () => {
         animate={{ transform: 'translateX(0)' }}
         exit={{ transform: 'translateX(100%)' }}
         transition={{ duration: 0.7 }}
-        className="z-50 pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+        className="z-50 pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10">
         <div className="pointer-events-auto w-screen max-w-md">
           <div className="flex h-full flex-col bg-white shadow-xl">
-            <div className="flex-1 overflow-y-auto sm:px-6">
+            <div className="flex-1 overflow-y-auto px-4 sm:px-6">
               <div className="flex items-start justify-between sticky top-0 py-6 px-4 z-10 border-b-2 border-gray-100 bg-white">
                 <h2 className="text-lg font-medium text-gray-900" id="slide-over-title">
                   Shopping cart
@@ -89,7 +89,7 @@ export const ShoppingCart = () => {
                 </div>
               </div>
 
-              <CartItems items={items} onRemoveItem={remove} />
+              <CartItems items={items} onRemoveItem={remove} onThumbnailClick={closeCart} />
             </div>
 
             <div className="border-t border-gray-200 px-4 py-6 sm:px-6">

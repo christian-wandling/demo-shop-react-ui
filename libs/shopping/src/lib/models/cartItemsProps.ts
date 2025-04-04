@@ -11,4 +11,6 @@ export interface CartItemsProps {
    * The callback receives the ID of the item to be removed.
    */
   onRemoveItem: (itemId: number) => void;
+
+  onThumbnailClick?: () => void;
 }
