@@ -150,7 +150,7 @@ describe('useProductStore', () => {
 
     it('should update the filter', () => {
       useProductStore.setState({ filter: { name: 'name' } });
-      const filter = {};
+      const filter = { name: '' };
 
       useProductStore.getState().setFilter(filter);
       expect(useProductStore.getState().filter).toEqual(filter);
@@ -173,7 +173,7 @@ describe('useProductStore', () => {
     });
 
     it('should return all products if no filter set', () => {
-      useProductStore.setState({ products: mockProductListResponse.items, filter: {} });
+      useProductStore.setState({ products: mockProductListResponse.items, filter: { name: '' } });
 
       const product = useProductStore.getState().getFilteredProducts();
       expect(product).toEqual(mockProductListResponse.items);

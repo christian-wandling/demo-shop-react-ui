@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DateTime > matches snapshot with custom pattern 1`] = `
+<time
+  class=""
+  data-testid="time"
+  datetime="2023-05-15T12:30:00.000Z"
+>
+  Monday, May 15th, 2023
+</time>
+`;
+
+exports[`DateTime > matches snapshot with custom timezone 1`] = `
+<time
+  class=""
+  data-testid="time"
+  datetime="2023-05-15T12:30:00.000Z"
+>
+  May 15, 2023
+</time>
+`;
+
+exports[`DateTime > matches snapshot with default props 1`] = `
+<body>
+  <div>
+    <time
+      class=""
+      data-testid="time"
+      datetime="2023-05-15T12:30:00.000Z"
+    >
+      May 15, 2023
+    </time>
+  </div>
+</body>
+`;

@@ -6,7 +6,6 @@ import { RouteItem } from '../../models/routeItem';
 import { PermissionStrategy } from '@demo-shop-react-ui/auth';
 import { NavigationConfig } from '../../models/navigationConfig';
 import { NavigationContext } from '../../NavigationContext';
-import { NavigationBar } from './NavigationBar/NavigationBar';
 import { getFilteredNavigationItems } from '../../services/navigationService';
 
 vi.mock('../../services/navigationService', () => ({
@@ -40,8 +39,13 @@ vi.mock('@demo-shop-react-ui/auth', async importOriginal => ({
   logout: () => logout(),
 }));
 
+let navigationBarProps: any = null;
+
 vi.mock('./NavigationBar/NavigationBar', () => ({
-  NavigationBar: vi.fn(() => <div data-testid="navigation-bar"></div>),
+  NavigationBar: vi.fn(props => {
+    navigationBarProps = props;
+    return <div data-testid="navigation-bar"></div>;
+  }),
 }));
 
 vi.mock('./SideNavigation/SideNavigation', () => ({
@@ -116,8 +120,6 @@ describe('Navigation Component', () => {
       </NavigationContext.Provider>
     );
 
-    const navigationBarProps = NavigationBar.mock.calls[0][0];
-
     await act(async () => {
       navigationBarProps.onOpenSideNavigation();
     });
@@ -131,16 +133,13 @@ describe('Navigation Component', () => {
         <Navigation />
       </NavigationContext.Provider>
     );
-
-    const navigationBarProps = NavigationBar.mock.calls[0][0];
     expect(navigationBarProps.selectedItem).toBe('products');
 
     await act(async () => {
       navigationBarProps.onSelectedItemChange('about');
     });
 
-    const updatedProps = NavigationBar.mock.calls[NavigationBar.mock.calls.length - 1][0];
-    expect(updatedProps.selectedItem).toBe('about');
+    expect(navigationBarProps.selectedItem).toBe('about');
   });
 
   it('calls login function when triggered', async () => {
@@ -149,8 +148,6 @@ describe('Navigation Component', () => {
         <Navigation />
       </NavigationContext.Provider>
     );
-
-    const navigationBarProps = NavigationBar.mock.calls[0][0];
 
     await act(async () => {
       await navigationBarProps.onLogin();
@@ -167,8 +164,6 @@ describe('Navigation Component', () => {
       </NavigationContext.Provider>
     );
 
-    const navigationBarProps = NavigationBar.mock.calls[0][0];
-
     await act(async () => {
       await navigationBarProps.onRegister();
     });
@@ -184,8 +179,6 @@ describe('Navigation Component', () => {
       </NavigationContext.Provider>
     );
 
-    const navigationBarProps = NavigationBar.mock.calls[0][0];
-
     await act(async () => {
       await navigationBarProps.onLogout();
     });
@@ -200,9 +193,7 @@ describe('Navigation Component', () => {
       </NavigationContext.Provider>
     );
 
-    const resizeHandler = window.addEventListener.mock.calls.find(call => call[0] === 'resize')[1];
-
-    const navigationBarProps = NavigationBar.mock.calls[0][0];
+    const resizeHandler = (window as any).addEventListener.mock.calls.find((call: any[]) => call[0] === 'resize')[1];
 
     await act(async () => {
       navigationBarProps.onOpenSideNavigation();

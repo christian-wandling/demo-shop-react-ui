@@ -39,7 +39,7 @@ export const SideNavigation = ({
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'tween' }}
-            className="absolute h-screen top-0 z-40 flex w-full max-w-xs flex-col overflow-y-auto bg-white px-6 p-2 shadow-xl">
+            className="fixed h-screen top-0 z-40 flex w-full max-w-xs flex-col overflow-y-auto bg-white px-6 p-2 shadow-xl">
             <div className="sticky z-20 top-0 flex px-4 pb-2 pt-5">
               <button
                 onClick={() => onSetOpen(false)}

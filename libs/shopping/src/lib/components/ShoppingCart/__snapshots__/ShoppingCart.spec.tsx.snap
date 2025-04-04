@@ -37,7 +37,7 @@ exports[`ShoppingCart > SnapShots > should match the snapshot when cart is in vi
       </div>
       <div
         animate="[object Object]"
-        class="z-50 pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10"
+        class="z-50 pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10"
         data-testid="motion-div"
         exit="[object Object]"
         initial="[object Object]"
@@ -50,7 +50,7 @@ exports[`ShoppingCart > SnapShots > should match the snapshot when cart is in vi
             class="flex h-full flex-col bg-white shadow-xl"
           >
             <div
-              class="flex-1 overflow-y-auto sm:px-6"
+              class="flex-1 overflow-y-auto px-4 sm:px-6"
             >
               <div
                 class="flex items-start justify-between sticky top-0 py-6 px-4 z-10 border-b-2 border-gray-100 bg-white"

@@ -10,7 +10,7 @@ import { CartItemsProps } from '../../models/cartItemsProps';
  * @example
  * <CartItems items={cartItems} onRemoveItem={handleRemoveItem} />
  */
-export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
+export const CartItems = ({ items, onRemoveItem, onThumbnailClick }: CartItemsProps) => {
   return (
     <div className="mt-8">
       <div className="flow-root">
@@ -19,12 +19,13 @@ export const CartItems = ({ items, onRemoveItem }: CartItemsProps) => {
             <li key={item.id} className="flex py-6">
               <Link
                 to={`/products/${item.productId}`}
-                className="relative h-24 w-24 aspect-1 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 group-hover:opacity-75 cursor-pointer">
+                className="relative h-24 w-24 aspect-1 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 cursor-pointer">
                 <img
                   src={item.productThumbnail}
                   alt={item.productName}
                   title={item.productName}
-                  className="object-cover object-center"
+                  className="w-full h-full object-cover hover:opacity-75"
+                  onClick={onThumbnailClick}
                 />
               </Link>
 

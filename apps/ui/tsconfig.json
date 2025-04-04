@@ -3,7 +3,7 @@
   "include": [],
   "references": [
     {
-      "path": "../../libs/user"
+      "path": "../../libs/order"
     },
     {
       "path": "../../libs/navigation"
@@ -12,13 +12,16 @@
       "path": "../../libs/api"
     },
     {
-      "path": "../../libs/auth"
-    },
-    {
       "path": "../../libs/product"
     },
     {
       "path": "../../libs/shopping"
+    },
+    {
+      "path": "../../libs/auth"
+    },
+    {
+      "path": "../../libs/user"
     },
     {
       "path": "./tsconfig.app.json"

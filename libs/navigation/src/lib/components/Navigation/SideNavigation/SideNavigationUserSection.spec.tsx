@@ -3,7 +3,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { SideNavigationUserSection } from './SideNavigationUserSection';
 import { UserResponse } from '@demo-shop-react-ui/api';
 
-describe('SmallScreenUserNavigation', () => {
+describe('SideNavigationUserSection', () => {
   const mockOnLogin = vi.fn();
   const mockOnLogout = vi.fn();
   const mockOnRegister = vi.fn();
@@ -18,7 +18,12 @@ describe('SmallScreenUserNavigation', () => {
 
   it('renders successfully', () => {
     const { baseElement } = render(
-      <SideNavigationUserSection onLogin={mockOnLogin} onLogout={mockOnLogout} onRegister={mockOnRegister} />
+      <SideNavigationUserSection
+        onLogin={mockOnLogin}
+        onLogout={mockOnLogout}
+        onRegister={mockOnRegister}
+        user={null}
+      />
     );
 
     expect(baseElement).toBeTruthy();
@@ -26,14 +31,26 @@ describe('SmallScreenUserNavigation', () => {
 
   it('matches snapshot', () => {
     const { baseElement } = render(
-      <SideNavigationUserSection onLogin={mockOnLogin} onLogout={mockOnLogout} onRegister={mockOnRegister} />
+      <SideNavigationUserSection
+        onLogin={mockOnLogin}
+        onLogout={mockOnLogout}
+        onRegister={mockOnRegister}
+        user={null}
+      />
     );
 
     expect(baseElement).toMatchSnapshot();
   });
 
   it('renders login and register options when user is not logged in', () => {
-    render(<SideNavigationUserSection onLogin={mockOnLogin} onLogout={mockOnLogout} onRegister={mockOnRegister} />);
+    render(
+      <SideNavigationUserSection
+        onLogin={mockOnLogin}
+        onLogout={mockOnLogout}
+        onRegister={mockOnRegister}
+        user={null}
+      />
+    );
 
     expect(screen.getByText('Sign in')).toBeTruthy();
     expect(screen.getByText('Register')).toBeTruthy();
@@ -57,14 +74,28 @@ describe('SmallScreenUserNavigation', () => {
   });
 
   it('calls onLogin when Sign in is clicked', () => {
-    render(<SideNavigationUserSection onLogin={mockOnLogin} onLogout={mockOnLogout} onRegister={mockOnRegister} />);
+    render(
+      <SideNavigationUserSection
+        onLogin={mockOnLogin}
+        onLogout={mockOnLogout}
+        onRegister={mockOnRegister}
+        user={null}
+      />
+    );
 
     fireEvent.click(screen.getByText('Sign in'));
     expect(mockOnLogin).toHaveBeenCalledTimes(1);
   });
 
   it('calls onRegister when Register is clicked', () => {
-    render(<SideNavigationUserSection onLogin={mockOnLogin} onLogout={mockOnLogout} onRegister={mockOnRegister} />);
+    render(
+      <SideNavigationUserSection
+        onLogin={mockOnLogin}
+        onLogout={mockOnLogout}
+        onRegister={mockOnRegister}
+        user={null}
+      />
+    );
 
     fireEvent.click(screen.getByText('Register'));
     expect(mockOnRegister).toHaveBeenCalledTimes(1);
@@ -86,7 +117,12 @@ describe('SmallScreenUserNavigation', () => {
 
   it('renders with correct CSS classes for mobile view', () => {
     const { container } = render(
-      <SideNavigationUserSection onLogin={mockOnLogin} onLogout={mockOnLogout} onRegister={mockOnRegister} />
+      <SideNavigationUserSection
+        onLogin={mockOnLogin}
+        onLogout={mockOnLogout}
+        onRegister={mockOnRegister}
+        user={null}
+      />
     );
 
     const navContainer = container.firstChild as HTMLElement;

@@ -1,0 +1,157 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`OrderList > matches snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="mx-auto px-8 max-w-7xl"
+    >
+      <section
+        class="py-8 top-16 sticky z-10 bg-white border-b-2 border-gray-100"
+      >
+        <h1
+          class="font-bold text-gray-700"
+        >
+          John Doe
+        </h1>
+        <div
+          class="text-xs text-gray-500"
+        >
+          <p>
+            123 Main St Apt 4B
+          </p>
+          <p>
+            12345 Springfield, IL
+          </p>
+          <p>
+            USA
+          </p>
+        </div>
+      </section>
+      <section>
+        <ul
+          class="divide-y divide-gray-100"
+        >
+          <li
+            class="relative flex flex-col md:flex-row justify-between gap-x-3 sm:gap-x-6 py-2 sm:py-5 sm:px-5 cursor-pointer hover:bg-slate-50"
+          >
+            <div
+              class="flex min-w-0 gap-x-3 mb-4"
+            >
+              <div
+                class="min-w-0 flex-auto"
+              >
+                <p
+                  class="text-xl mb-4 font-semibold hover:underline"
+                >
+                  Order #
+                  1001
+                </p>
+                <div
+                  class="flex gap-1 sm:gap-4"
+                >
+                  <a
+                    class="relative w-12 h-12 sm:w-24 sm:h-24 aspect-1 flex-shrink-0 rounded-lg overflow-hidden"
+                    to="/products/p101"
+                  >
+                    <img
+                      alt="Test Product 1"
+                      class="w-full h-full object-cover hover:opacity-75"
+                      src="/test1.jpg"
+                      title="Test Product 1"
+                    />
+                  </a>
+                  <a
+                    class="relative w-12 h-12 sm:w-24 sm:h-24 aspect-1 flex-shrink-0 rounded-lg overflow-hidden"
+                    to="/products/p102"
+                  >
+                    <img
+                      alt="Test Product 2"
+                      class="w-full h-full object-cover hover:opacity-75"
+                      src="/test2.jpg"
+                      title="Test Product 2"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="sm:absolute sm:right-5 sm:top-5 mb-4 rounded-lg px-2 sm:px-4 py-1 sm:py-1.5 max-w-20 sm:max-w-28 text-center text-white border border-slate-300 text-xs "
+              data-testid="orderStatus"
+            >
+              Delivered
+            </div>
+            <div
+              class="flex flex-col md:items-end sm:justify-end gap-1"
+            >
+              <p
+                class="text-sm leading-none text-gray-900"
+              >
+                $249.99
+              </p>
+              <div
+                class="text-xs leading-none text-gray-500"
+              >
+                2023-06-15T10:30:00Z
+              </div>
+            </div>
+          </li>
+          <li
+            class="relative flex flex-col md:flex-row justify-between gap-x-3 sm:gap-x-6 py-2 sm:py-5 sm:px-5 cursor-pointer hover:bg-slate-50"
+          >
+            <div
+              class="flex min-w-0 gap-x-3 mb-4"
+            >
+              <div
+                class="min-w-0 flex-auto"
+              >
+                <p
+                  class="text-xl mb-4 font-semibold hover:underline"
+                >
+                  Order #
+                  1002
+                </p>
+                <div
+                  class="flex gap-1 sm:gap-4"
+                >
+                  <a
+                    class="relative w-12 h-12 sm:w-24 sm:h-24 aspect-1 flex-shrink-0 rounded-lg overflow-hidden"
+                    to="/products/p103"
+                  >
+                    <img
+                      alt="Test Product 3"
+                      class="w-full h-full object-cover hover:opacity-75"
+                      src="/test3.jpg"
+                      title="Test Product 3"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="sm:absolute sm:right-5 sm:top-5 mb-4 rounded-lg px-2 sm:px-4 py-1 sm:py-1.5 max-w-20 sm:max-w-28 text-center text-white border border-slate-300 text-xs "
+              data-testid="orderStatus"
+            >
+              Processing
+            </div>
+            <div
+              class="flex flex-col md:items-end sm:justify-end gap-1"
+            >
+              <p
+                class="text-sm leading-none text-gray-900"
+              >
+                $99.50
+              </p>
+              <div
+                class="text-xs leading-none text-gray-500"
+              >
+                2023-06-20T14:20:00Z
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</body>
+`;

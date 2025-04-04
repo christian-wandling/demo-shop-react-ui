@@ -4,12 +4,8 @@ exports[`Navigation Component > matches the snapshot 1`] = `
 <body>
   <div>
     <div
-      class="bg-white"
-    >
-      <div
-        data-testid="navigation-bar"
-      />
-    </div>
+      data-testid="navigation-bar"
+    />
   </div>
 </body>
 `;
