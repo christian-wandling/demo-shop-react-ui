@@ -36,9 +36,14 @@ export const useProductStore = create<ProductState>()((set, get) => {
     },
 
     fetchProductById: async (id: number) => {
-      const { productApi } = getApi();
-      const product = await productApi.getProductById({ id });
-      set(state => ({ products: [...state.products, product] }));
+      try {
+        set(state => ({ ...state, loading: true, error: null }));
+        const { productApi } = getApi();
+        const product = await productApi.getProductById({ id });
+        set(state => ({ products: [...state.products, product], loading: false, error: null }));
+      } catch (err: any) {
+        set(state => ({ ...state, loading: false, error: err.message }));
+      }
     },
 
     getFilteredProducts: () => {

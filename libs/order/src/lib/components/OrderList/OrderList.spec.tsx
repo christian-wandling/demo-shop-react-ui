@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { OrderList } from './OrderList';
+import OrderList from './OrderList';
 import { useUserStore } from '@demo-shop-react-ui/user';
 import { useOrderStore } from '../../+state/useOrderStore';
 import { useNavigate } from 'react-router';

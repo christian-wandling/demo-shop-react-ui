@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { OrderDetail } from './OrderDetail';
+import OrderDetail from './OrderDetail';
 import { useParams } from 'react-router';
 import { generatePdf } from '../../services/printInvoiceService';
 import { OrderResponse, OrderStatus, UserResponse } from '@demo-shop-react-ui/api';
@@ -49,7 +49,8 @@ vi.mock('../../services/printInvoiceService', () => ({
   generatePdf: vi.fn(),
 }));
 
-vi.mock('@demo-shop-react-ui/shared', () => ({
+vi.mock('@demo-shop-react-ui/shared', async importOriginal => ({
+  ...(await importOriginal()),
   DateTime: ({ dateTime }: any) => <span data-testid="date-time">{dateTime.toISOString()}</span>,
 }));
 
@@ -108,17 +109,17 @@ describe('OrderDetail', () => {
     expect(baseElement).toMatchSnapshot();
   });
 
-  it('displays "Order ID is missing" when id is not provided', () => {
+  it('displays not found page when id is not provided', () => {
     vi.mocked(useParams).mockReturnValue({});
     render(<OrderDetail />);
-    expect(screen.getByText('Order ID is missing')).toBeTruthy();
+    expect(screen.getByText('Page not found')).toBeTruthy();
   });
 
-  it('displays loading state when order or user data is not available', () => {
+  it('displays page not found when order or user data is not available', () => {
     fetchOrderByIdSpy.mockReturnValue(null);
     getOrderByIdSpy.mockReturnValue(undefined);
     render(<OrderDetail />);
-    expect(screen.getByText('Loading...')).toBeTruthy();
+    expect(screen.getByText('Page not found')).toBeTruthy();
   });
 
   it('displays order details correctly when data is available', () => {

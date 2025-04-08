@@ -155,7 +155,6 @@ describe('useShoppingCartStore', () => {
 
   describe('add', () => {
     it('should throw error when no active session', async () => {
-      console.log(useShoppingCartStore.getState());
       await expect(useShoppingCartStore.getState().add({ productId: 101 })).rejects.toThrow(
         'No active shopping session'
       );

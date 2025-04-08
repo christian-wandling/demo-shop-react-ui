@@ -13,6 +13,8 @@ import { generatePdf } from '../../services/printInvoiceService';
  */
 export default function OrderDetail() {
   const { id } = useParams();
+  const error = useOrderStore(state => state.error);
+  const loading = useOrderStore(state => state.loading);
   useOrderStore(state => state.orders);
   const user = useUserStore(state => state.user);
   const getOrderById = useOrderStore(state => state.getOrderById);
@@ -24,14 +26,18 @@ export default function OrderDetail() {
     }
   }, [id, fetchOrderById]);
 
-  if (!id) {
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (!id || error) {
     return <NotFound />;
   }
 
   const order = getOrderById(+id);
 
   if (!order || !user) {
-    return <LoadingSpinner />;
+    return <NotFound />;
   }
 
   /**

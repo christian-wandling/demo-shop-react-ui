@@ -3,6 +3,8 @@ import { getApi, OrderResponse, OrderStatus } from '@demo-shop-react-ui/api';
 
 interface OrderState {
   orders: OrderResponse[];
+  loading: boolean;
+  error: string | null;
 
   getSortedOrders: () => OrderResponse[];
   getOrderById: (id: number) => OrderResponse | undefined;
@@ -13,17 +15,29 @@ interface OrderState {
 export const useOrderStore = create<OrderState>()((set, get) => {
   return {
     orders: [],
+    loading: false,
+    error: null,
 
     fetchOrders: async () => {
-      const { orderApi } = getApi();
-      const res = await orderApi.getAllOrdersOfCurrentUser();
-      set({ orders: res.items });
+      try {
+        set(state => ({ ...state, loading: true, error: null }));
+        const { orderApi } = getApi();
+        const res = await orderApi.getAllOrdersOfCurrentUser();
+        set({ orders: res.items, loading: false, error: null });
+      } catch (err: any) {
+        set(state => ({ ...state, loading: false, error: err.message }));
+      }
     },
 
     fetchOrderById: async (id: number) => {
-      const { orderApi } = getApi();
-      const order = await orderApi.getOrderById({ id });
-      set(state => ({ orders: [...state.orders, order] }));
+      try {
+        set(state => ({ ...state, loading: true, error: null }));
+        const { orderApi } = getApi();
+        const order = await orderApi.getOrderById({ id });
+        set(state => ({ orders: [...state.orders, order], loading: false, error: null }));
+      } catch (err: any) {
+        set(state => ({ ...state, loading: false, error: err.message }));
+      }
     },
 
     getSortedOrders: () => {

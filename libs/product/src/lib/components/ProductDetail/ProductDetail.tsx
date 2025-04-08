@@ -30,7 +30,7 @@ export default function ProductDetail() {
 
   const product = getProductById(+id);
 
-  if (!product || error) {
+  if (!product) {
     return <NotFound />;
   }
 

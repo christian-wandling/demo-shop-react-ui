@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { ProductDetail } from './ProductDetail';
+import ProductDetail from './ProductDetail';
 import { ProductResponse } from '@demo-shop-react-ui/api';
 
 vi.mock('react-router', () => ({
@@ -20,7 +20,8 @@ vi.mock('../../+state/useProductStore', () => ({
   }),
 }));
 
-vi.mock('@demo-shop-react-ui/shared', () => ({
+vi.mock('@demo-shop-react-ui/shared', async importOriginal => ({
+  ...(await importOriginal()),
   formatCurrency: vi.fn(price => `$${price.toFixed(2)}`),
 }));
 
@@ -63,12 +64,12 @@ describe('ProductDetail', () => {
     expect(productImage.src).toContain('test-image.jpg');
   });
 
-  it('should show loading state when product is not available', () => {
+  it('should show not found page when product is not available', () => {
     getProductByIdSpy.mockReturnValue(undefined);
 
     render(<ProductDetail />);
 
-    expect(screen.getByText('Loading...')).toBeTruthy();
+    expect(screen.getByText('Page not found')).toBeTruthy();
   });
 
   it('should call fetchProductById with the correct ID', () => {
