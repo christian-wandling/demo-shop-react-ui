@@ -1,7 +1,24 @@
 # @demo-shop-react-ui/shopping
 
-This library was generated with [Nx](https://nx.dev).
+This library handles all aspects of the shopping feature including product selection, cart management, and the checkout process.
 
-## Running unit tests
+## Features
 
-Run `nx test @demo-shop-react-ui/shopping` to execute the unit tests via [Vitest](https://vitest.dev/).
+- **Shopping Cart Management**
+
+  - Add/remove items
+  - Update quantities
+
+- **Checkout Process**
+
+  - Address management
+  - Order review
+  - Order confirmation
+
+## API Reference
+
+TBA
+
+## Running Unit Tests
+
+Run `nx test cart` to execute the unit tests.

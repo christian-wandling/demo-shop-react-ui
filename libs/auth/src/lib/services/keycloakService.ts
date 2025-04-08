@@ -56,6 +56,9 @@ export function register(): Promise<void> {
   return keycloak?.register() ?? Promise.resolve();
 }
 
+/**
+ * Utility function to check for permissions
+ */
 export function hasPermission(permissionStrategy: PermissionStrategy, ...args: unknown[]): boolean {
   const permissionStrategyFn = PERMISSION_STRATEGIES[permissionStrategy];
 

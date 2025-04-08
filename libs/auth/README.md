@@ -1,7 +1,22 @@
 # @demo-shop-react-ui/auth
 
-This library was generated with [Nx](https://nx.dev).
+Authentication and authorization library built on Keycloak for React applications. This library provides a comprehensive solution for securing your application with role-based access control and seamless authentication flows.
+Features
+
+## Features
+
+- **Keycloak Integration**
+
+  - SSO (Single Sign-On) support
+  - OAuth2/OpenID Connect compliant
+  - Session timeout handling
+  - Token refresh handling
+  - Role-based route protection
+
+## API Reference
+
+TBA
 
 ## Running unit tests
 
-Run `nx test @demo-shop-react-ui/auth` to execute the unit tests via [Vitest](https://vitest.dev/).
+Run `nx test auth` to execute the unit tests.

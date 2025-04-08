@@ -1,81 +1,98 @@
-# DemoShopReactUi
+# DemoShop React UI
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+A frontend e-commerce application built for educational purposes using React.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+this frontend is compatible with the api found in these projects:
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+Full stack project using Angular and NestJS
 
-## Finish your CI setup
+> <a href="http://github.com/christian-wandling/demo-shop-public" target="_blank">http://github.com/christian-wandling/demo-shop-public</a>
 
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/iGN0hi1B0H)
+Api using ASP.NET Core
 
-## Run tasks
+> <a href="http://github.com/christian-wandling/demo-shop-dotnet-api" target="_blank">http://github.com/christian-wandling/demo-shop-dotnet-api</a>
 
-To run the dev server for your app, use:
+## Overview
 
-```sh
-npx nx serve ui
+### Libraries
+
+- [Authentication](https://github.com/christian-wandling/demo-shop-react-ui/tree/main/libs/auth/README.md) - User authentication and authorization flows
+- [User](https://github.com/christian-wandling/demo-shop-react-ui/tree/main/libs/user/README.md) - User management
+- [Products](https://github.com/christian-wandling/demo-shop-react-ui/tree/main/libs/product/README.md) - Product catalog, categories, and search functionality
+- [Shopping](https://github.com/christian-wandling/demo-shop-react-ui/tree/main/libs/shopping/README.md) - Shopping cart implementation and session management
+- [Order](https://github.com/christian-wandling/demo-shop-react-ui/tree/main/libs/order/README.md) - Order processing, history, and management
+- [Navigation](https://github.com/christian-wandling/demo-shop-react-ui/tree/main/libs/navigation/README.md) - Site navigation components and routing
+- [Shared](https://github.com/christian-wandling/demo-shop-react-ui/tree/main/libs/shared/README.md) - Common utilities and shared components
+- [OpenApiGenerator](https://github.com/christian-wandling/demo-shop-react-ui/tree/main/libs/api/README.md) - API client generation tools and configurations
+
+### Tech stack
+
+- **React** - Progressive web framework
+- **TypeScript** - Type-safe JavaScript
+- **Zustand** - State Management
+- **HTML2Canvas/jsPDF** - Pdf generation
+- **Tailwind CSS** - Styling
+- **Keycloak** - Secure Authentication
+- **Vitest** - Unit testing
+- **Nx** - Mono-repo build system
+- **Commitlint/Commitizen** - Standardize commit messages
+- **Husky** - Pre-commit hooks
+- **ESLint/Lint-staged** - Automated linting
+- **Prettier** - Automatef code formating
+
+## Setup
+
+### Prerequisites
+
+- <a href="https://nodejs.org/en" target="\_blank">Node.js 20</a> or later
+- <a href="https://www.npmjs.com/" target="\_blank">npm</a> or <a href="https://yarnpkg.com/" target="\_blank">yarn</a>
+
+### Installation
+
+1. Clone the repository
+
+```
+git clone https://github.com/christian-wandling/demo-shop-react-ui.git
 ```
 
-To create a production bundle:
+2. Install dependencies
 
-```sh
-npx nx build ui
+```
+npm install
 ```
 
-To see all available targets to run for a project, run:
+3. Follow the setup guide of either the NestJS or ASP.NET Core Api
 
-```sh
-npx nx show project ui
+Full stack project using Angular and NestJS
+
+> <a href="http://github.com/christian-wandling/demo-shop-public" target="_blank">http://github.com/christian-wandling/demo-shop-public</a>
+
+Api using ASP.NET Core
+
+> <a href="http://github.com/christian-wandling/demo-shop-dotnet-api" target="_blank">http://github.com/christian-wandling/demo-shop-dotnet-api</a>
+
+### Usage
+
+1. Open the web app
+
+```
+http://localhost:4200
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+## Testing
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+To run all tests in the project use
 
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/react:app demo
+```
+npm run test
 ```
 
-To generate a new library, use:
+To test an app or lib use
 
-```sh
-npx nx g @nx/react:lib mylib
+```
+nx test <name>
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+## License
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/react-monorepo-tutorial?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
