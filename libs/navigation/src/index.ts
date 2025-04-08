@@ -1,4 +1,3 @@
-export * from './lib/components/ProtectedRoute/ProtectedRoute';
 export * from './lib/models/navigationItem';
 export * from './lib/models/routeItem';
 export * from './lib/enums/navigationItemType';

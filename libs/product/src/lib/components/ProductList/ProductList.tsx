@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useProductStore } from '../../+state/useProductStore';
 import { ProductCard } from './ProductCard';
 
-export const ProductList = () => {
+export default function ProductList() {
   useProductStore(state => state.products);
   useProductStore(state => state.filter);
   const fetchProducts = useProductStore(state => state.fetchProducts);
@@ -25,4 +25,4 @@ export const ProductList = () => {
       </div>
     </div>
   );
-};
+}

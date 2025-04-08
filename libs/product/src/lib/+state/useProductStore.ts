@@ -5,6 +5,8 @@ import { AllowedProductFilterTypes, ProductFilter } from '../models/productFilte
 interface ProductState {
   products: ProductResponse[];
   filter: ProductFilter;
+  loading: boolean;
+  error: string | null;
 
   setFilter: (filter: ProductFilter) => void;
   getFilteredProducts: () => ProductResponse[];
@@ -19,17 +21,29 @@ export const useProductStore = create<ProductState>()((set, get) => {
     filter: {
       name: '',
     },
+    loading: false,
+    error: null,
 
     fetchProducts: async () => {
-      const { productApi } = getApi();
-      const res = await productApi.getAllProducts();
-      set({ products: res.items });
+      try {
+        set(state => ({ ...state, loading: true, error: null }));
+        const { productApi } = getApi();
+        const res = await productApi.getAllProducts();
+        set({ products: res.items, loading: false, error: null });
+      } catch (err: any) {
+        set(state => ({ ...state, loading: false, error: err.message }));
+      }
     },
 
     fetchProductById: async (id: number) => {
-      const { productApi } = getApi();
-      const product = await productApi.getProductById({ id });
-      set(state => ({ products: [...state.products, product] }));
+      try {
+        set(state => ({ ...state, loading: true, error: null }));
+        const { productApi } = getApi();
+        const product = await productApi.getProductById({ id });
+        set(state => ({ products: [...state.products, product], loading: false, error: null }));
+      } catch (err: any) {
+        set(state => ({ ...state, loading: false, error: err.message }));
+      }
     },
 
     getFilteredProducts: () => {

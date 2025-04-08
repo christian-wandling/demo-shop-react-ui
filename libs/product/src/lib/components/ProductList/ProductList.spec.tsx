@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { ProductList } from './ProductList';
+import ProductList from './ProductList';
 import { beforeEach, expect, it, vi } from 'vitest';
 import { ProductResponse } from '@demo-shop-react-ui/api';
 import { act } from 'react';

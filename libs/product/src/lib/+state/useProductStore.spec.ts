@@ -89,11 +89,13 @@ describe('useProductStore', () => {
     });
 
     it('should handle API errors', async () => {
-      vi.spyOn(api, 'getAllProducts').mockRejectedValue(new Error('API error'));
+      const error = new Error('API error');
+      vi.spyOn(api, 'getAllProducts').mockRejectedValue(error);
 
-      await expect(useProductStore.getState().fetchProducts()).rejects.toThrow('API error');
+      await useProductStore.getState().fetchProducts();
 
       expect(useProductStore.getState().products).toEqual([]);
+      expect(useProductStore.getState().error).toEqual(error.message);
     });
   });
 
@@ -117,10 +119,13 @@ describe('useProductStore', () => {
     });
 
     it('should handle API errors', async () => {
-      vi.spyOn(api, 'getProductById').mockRejectedValue(new Error('API error'));
+      const error = new Error('API error');
+      vi.spyOn(api, 'getProductById').mockRejectedValue(error);
 
-      await expect(useProductStore.getState().fetchProductById(3)).rejects.toThrow('API error');
+      await useProductStore.getState().fetchProductById(3);
+
       expect(useProductStore.getState().products).toEqual([]);
+      expect(useProductStore.getState().error).toEqual(error.message);
     });
   });
 

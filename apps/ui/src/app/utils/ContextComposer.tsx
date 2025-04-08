@@ -3,7 +3,7 @@ import { ContextComposerProps } from '../models/contextComposerProps';
 
 export const ContextComposer: React.FC<ContextComposerProps> = ({ contextProviders, children }) => {
   return contextProviders.reduceRight(
-    (kids, { Provider, props = {} }) => <Provider {...props}>{kids}</Provider>,
+    (_children, { Provider, props = {} }) => <Provider {...props}>{_children}</Provider>,
     children
   );
 };

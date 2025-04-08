@@ -90,11 +90,13 @@ describe('useOrderStore', () => {
     });
 
     it('should handle API errors', async () => {
-      vi.spyOn(api, 'getAllOrdersOfCurrentUser').mockRejectedValue(new Error('API error'));
+      const error = new Error('API error');
+      vi.spyOn(api, 'getAllOrdersOfCurrentUser').mockRejectedValue(error);
 
-      await expect(useOrderStore.getState().fetchOrders()).rejects.toThrow('API error');
+      await useOrderStore.getState().fetchOrders();
 
       expect(useOrderStore.getState().orders).toEqual([]);
+      expect(useOrderStore.getState().error).toEqual(error.message);
     });
   });
 
@@ -118,10 +120,13 @@ describe('useOrderStore', () => {
     });
 
     it('should handle API errors', async () => {
-      vi.spyOn(api, 'getOrderById').mockRejectedValue(new Error('API error'));
+      const error = new Error('API error');
+      vi.spyOn(api, 'getOrderById').mockRejectedValue(error);
 
-      await expect(useOrderStore.getState().fetchOrderById(3)).rejects.toThrow('API error');
+      await useOrderStore.getState().fetchOrderById(3);
+
       expect(useOrderStore.getState().orders).toEqual([]);
+      expect(useOrderStore.getState().error).toEqual(error.message);
     });
   });
 

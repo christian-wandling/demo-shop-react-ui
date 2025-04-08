@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { Checkout } from './Checkout';
+import Checkout from './Checkout';
 import { useShoppingCartStore } from '../../+state/useShoppingCartStore';
 import { CartItemResponse, UserResponse } from '@demo-shop-react-ui/api';
 import { useUserStore } from '@demo-shop-react-ui/user';
