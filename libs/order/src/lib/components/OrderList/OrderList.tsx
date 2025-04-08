@@ -18,7 +18,6 @@ export default function OrderList() {
   const fetchOrders = useOrderStore(state => state.fetchOrders);
   const navigate = useNavigate();
 
-  // Equivalent to ngOnInit
   useEffect(() => {
     fetchOrders();
   }, [fetchOrders]);

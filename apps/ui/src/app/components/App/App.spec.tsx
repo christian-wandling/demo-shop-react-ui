@@ -107,16 +107,13 @@ describe('App Component', () => {
     const contextComposer = vi.mocked(ContextComposer);
     const lastCallArgs = contextComposer.mock.calls[0][0];
 
-    // Check that contextProviders array has the expected structure
     expect(lastCallArgs).toHaveProperty('contextProviders');
     expect(lastCallArgs.contextProviders).toHaveLength(2);
 
-    // Check first provider (ApiProvider)
     expect(lastCallArgs.contextProviders[0].Provider).toBe(ApiProvider);
     expect(lastCallArgs.contextProviders[0].props).toHaveProperty('apiConfig');
     expect(lastCallArgs.contextProviders[0].props?.apiConfig).toEqual({ baseUrl: 'http://test-api.com' });
 
-    // Check second provider (NavigationProvider)
     expect(lastCallArgs.contextProviders[1].Provider).toBe(NavigationProvider);
     expect(lastCallArgs.contextProviders[1].props).toHaveProperty('navigationConfig');
     expect(lastCallArgs.contextProviders[1].props?.navigationConfig).toEqual({ routes: [] });
