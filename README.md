@@ -1,8 +1,8 @@
 # DemoShop React UI
 
-A frontend e-commerce application built for educational purposes using React.
+A modern e-commerce frontend application built with React, designed for educational purposes. This project demonstrates modular architecture and common e-commerce functionality.
 
-this frontend is compatible with the api found in these projects:
+This application is compatible with the following backend API implementations:
 
 Full stack project using Angular and NestJS
 
@@ -38,7 +38,7 @@ Api using ASP.NET Core
 - **Commitlint/Commitizen** - Standardize commit messages
 - **Husky** - Pre-commit hooks
 - **ESLint/Lint-staged** - Automated linting
-- **Prettier** - Automatef code formating
+- **Prettier** - Automated code formating
 
 ## Setup
 
