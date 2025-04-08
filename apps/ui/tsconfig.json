@@ -6,13 +6,16 @@
       "path": "../../libs/order"
     },
     {
+      "path": "../../libs/product"
+    },
+    {
+      "path": "../../libs/shared"
+    },
+    {
       "path": "../../libs/navigation"
     },
     {
       "path": "../../libs/api"
-    },
-    {
-      "path": "../../libs/product"
     },
     {
       "path": "../../libs/shopping"

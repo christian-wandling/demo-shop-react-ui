@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router';
 import { OrderStatusBadge } from '../OrderStatusBadge/OrderStatusBadge';
-import { DateTime } from '@demo-shop-react-ui/shared';
+import { DateTime, LoadingSpinner, NotFound } from '@demo-shop-react-ui/shared';
 import { useOrderStore } from '../../+state/useOrderStore';
 import { useUserStore } from '@demo-shop-react-ui/user';
 import { OrderResponse, UserResponse } from '@demo-shop-react-ui/api';
@@ -11,7 +11,7 @@ import { generatePdf } from '../../services/printInvoiceService';
  * Component that displays detailed information about a specific order.
  * Fetches order data based on the ID from the route parameters.
  */
-export const OrderDetail = () => {
+export default function OrderDetail() {
   const { id } = useParams();
   useOrderStore(state => state.orders);
   const user = useUserStore(state => state.user);
@@ -25,13 +25,13 @@ export const OrderDetail = () => {
   }, [id, fetchOrderById]);
 
   if (!id) {
-    return <div>Order ID is missing</div>;
+    return <NotFound />;
   }
 
   const order = getOrderById(+id);
 
   if (!order || !user) {
-    return <div>Loading...</div>;
+    return <LoadingSpinner />;
   }
 
   /**
@@ -127,4 +127,4 @@ export const OrderDetail = () => {
       </section>
     </div>
   );
-};
+}

@@ -1,12 +1,14 @@
-import { formatCurrency } from '@demo-shop-react-ui/shared';
+import { formatCurrency, LoadingSpinner, NotFound } from '@demo-shop-react-ui/shared';
 import { useShoppingCartStore } from '@demo-shop-react-ui/shopping';
 import { useProductStore } from '../../+state/useProductStore';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 
-export const ProductDetail = () => {
+export default function ProductDetail() {
   const { id } = useParams();
   useProductStore(state => state.products);
+  const loading = useProductStore(state => state.loading);
+  const error = useProductStore(state => state.error);
   const getProductById = useProductStore(state => state.getProductById);
   const fetchProductById = useProductStore(state => state.fetchProductById);
   const hasActiveSession = useShoppingCartStore(state => state.hasActiveSession);
@@ -18,14 +20,18 @@ export const ProductDetail = () => {
     }
   }, [id, fetchProductById]);
 
-  if (!id) {
-    return <div>Product ID is missing</div>;
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (!id || error) {
+    return <NotFound />;
   }
 
   const product = getProductById(+id);
 
-  if (!product) {
-    return <div>Loading...</div>;
+  if (!product || error) {
+    return <NotFound />;
   }
 
   return (
@@ -71,4 +77,4 @@ export const ProductDetail = () => {
       </div>
     </div>
   );
-};
+}

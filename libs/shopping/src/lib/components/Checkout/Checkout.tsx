@@ -8,7 +8,7 @@ import { OrderSummary } from './OrderSummary';
 import { ShippingInformationFormData, shippingInformationFormSchema } from '../../models/shippingInformationFormSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-export const Checkout = () => {
+export default function Checkout() {
   const items = useShoppingCartStore(state => state.items);
   const getTotalPrice = useShoppingCartStore(state => state.getTotalPrice);
   const checkout = useShoppingCartStore(state => state.checkout);
@@ -96,4 +96,4 @@ export const Checkout = () => {
       </div>
     </div>
   );
-};
+}

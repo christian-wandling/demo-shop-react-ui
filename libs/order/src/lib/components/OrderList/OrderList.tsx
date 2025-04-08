@@ -9,7 +9,7 @@ import { OrderStatusBadge } from '../OrderStatusBadge/OrderStatusBadge';
  * Component that displays a list of orders for the current user.
  * The orders are sorted by status and date.
  */
-export const OrderList = () => {
+export default function OrderList() {
   const MAX_THUMBNAILS = 5;
 
   useOrderStore(state => state.orders);
@@ -88,4 +88,4 @@ export const OrderList = () => {
       </section>
     </div>
   );
-};
+}
