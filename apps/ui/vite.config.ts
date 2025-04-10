@@ -8,10 +8,10 @@ export default defineConfig(() => ({
   cacheDir: '../../node_modules/.vite/apps/ui',
   server: {
     port: 4200,
-    host: 'localhost',
+    host: true,
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: process.env.API_URL || 'http://api:3000',
         changeOrigin: true,
         secure: false,
       },
@@ -19,7 +19,7 @@ export default defineConfig(() => ({
   },
   preview: {
     port: 4300,
-    host: 'localhost',
+    host: true,
   },
   plugins: [react(), nxViteTsPaths()],
   // Uncomment this if you are using workers.

@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve ui",
+    "start": "docker-compose up -d",
+    "start:local": "nx serve ui",
+    "rebuild": "docker-compose up -d --build --remove-orphans",
     "cm": "cz",
     "openapi:generate": "rm -rf libs/api/src/lib/openapi && openapi-generator generate -g typescript-fetch -o libs/api/src/lib/openapi -i http://localhost:3000/api/docs/v1/swagger.json -c open-api.yaml",
     "prepare": "husky",

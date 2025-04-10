@@ -1,5 +1,5 @@
 {
-  "name": "ui-e2e",
+  "name": "@demo-shop-react-ui/ui-e2e",
   "version": "0.0.1",
   "private": true,
   "nx": {

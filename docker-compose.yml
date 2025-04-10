@@ -1,0 +1,23 @@
+services:
+  frontend:
+    command: npx nx serve ui --verbose
+    build:
+      context: .
+      dockerfile: ./apps/ui/Dockerfile
+      target: dev
+    environment:
+      - DEBUG=vite:*
+      - API_URL=http://localhost:3000
+      - NODE_ENV=development
+      - KEYCLOAK_URL=http://localhost:8080
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - '4200:4200'
+    volumes:
+      - ./apps/ui/src/:/app/src/
+    networks:
+      - shared
+
+networks:
+  shared:
+    external: true
