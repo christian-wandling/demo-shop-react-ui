@@ -1,16 +1,16 @@
 # DemoShop React UI
 
-A modern e-commerce frontend application built with React, designed for educational purposes. This project demonstrates modular architecture and common e-commerce functionality.
+This repository contains a React frontend for the Demo Shop platform, a full-stack e-commerce application built for educational purposes using modern web technologies.
 
-This application is compatible with the following backend API implementations:
+## Overview
 
-Full stack project using Angular and NestJS
+The Demo Shop platform is maintained over multiple separate repositories supporting interchangeable implementations.
 
-> <a href="http://github.com/christian-wandling/demo-shop-public" target="_blank">http://github.com/christian-wandling/demo-shop-public</a>
+1. [demo-shop-public](http://github.com/christian-wandling/demo-shop-react-ui): Angular frontend, NestJS API and Terraform setup for AWS
+2. [demo-shop-dotnet-api](http://github.com/christian-wandling/demo-shop-dotnet-api): ASP.NET Core implementation of the API
+3. [demo-shop-e2e](http://github.com/christian-wandling/demo-shop-e2e): E2E Testing with playwright
 
-Api using ASP.NET Core
-
-> <a href="http://github.com/christian-wandling/demo-shop-dotnet-api" target="_blank">http://github.com/christian-wandling/demo-shop-dotnet-api</a>
+This application requires either the api from **demo-shop-public** or **demo-shop-dotnet-api** to work.
 
 ## Overview
 
@@ -29,12 +29,31 @@ Api using ASP.NET Core
 
 - **React** - Progressive web framework
 - **TypeScript** - Type-safe JavaScript
-- **Zustand** - State Management
-- **HTML2Canvas/jsPDF** - Pdf generation
+- **Zustand** - State management
+- **React Router** - Navigation and routing
+- **React Hook Form** - Performant form management
+- **Zod** - Schema validation
+- **Framer Motion** - Animation library
+- **HTML2Canvas/jsPDF** - PDF generation
 - **Tailwind CSS** - Styling
+
+#### Auth
+
 - **Keycloak** - Secure Authentication
+
+### Testing and Documentation
+
 - **Vitest** - Unit testing
+- **Playwright** - E2E testing
+
+### DevOps & Infrastructure
+
 - **Nx** - Mono-repo build system
+- **Docker** - Containerization
+- - **Github CI/CD** - Continuous Integration/Continuous Deployment
+
+### Dev workflow
+
 - **Commitlint/Commitizen** - Standardize commit messages
 - **Husky** - Pre-commit hooks
 - **ESLint/Lint-staged** - Automated linting
@@ -46,6 +65,7 @@ Api using ASP.NET Core
 
 - <a href="https://nodejs.org/en" target="\_blank">Node.js 20</a> or later
 - <a href="https://www.npmjs.com/" target="\_blank">npm</a> or <a href="https://yarnpkg.com/" target="\_blank">yarn</a>
+- <a href="https://www.docker.com/" target="\_blank">Docker</a>
 
 ### Installation
 
@@ -61,7 +81,19 @@ git clone https://github.com/christian-wandling/demo-shop-react-ui.git
 npm install
 ```
 
-3. Follow the setup guide of either the NestJS or ASP.NET Core Api
+3. Create shared docker network
+
+```
+docker network create shared
+```
+
+4. Build & Run the docker containers
+
+```
+npm start
+```
+
+5. Follow the setup guide of either the NestJS or ASP.NET Core Api
 
 Full stack project using Angular and NestJS
 
@@ -71,6 +103,16 @@ Api using ASP.NET Core
 
 > <a href="http://github.com/christian-wandling/demo-shop-dotnet-api" target="_blank">http://github.com/christian-wandling/demo-shop-dotnet-api</a>
 
+6. Access the application
+
+```
+Frontend: http://localhost:4200
+API: http://localhost:3000
+Swagger Documentation: http://localhost:4200/api/docs
+Keycloak: http://localhost:8080
+PgAdmin: http://localhost:80
+```
+
 ### Usage
 
 1. Open the web app
@@ -78,6 +120,34 @@ Api using ASP.NET Core
 ```
 http://localhost:4200
 ```
+
+## User management
+
+### User registration via web app
+
+1. Open the web app
+
+```
+http://localhost:4200
+```
+
+2. Click `Register` and create the user
+
+### User creation via Keycloak admin console
+
+1. Access the Keycloak server to add a user
+
+```
+http://localhost:8080/admin/master/console/#/demo_shop/users/add-user
+```
+
+2. To login use `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` defined in your [.env](.env) file.
+
+3. Fill `Email`, `First Name` and `Last name`
+
+4. Navigate to the `Credentials` tab and use `Set Password` to create as password
+
+5. Fill `Password` and `Password Confirmation` and deselect `Temporary`
 
 ## Testing
 

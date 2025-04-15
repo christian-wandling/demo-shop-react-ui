@@ -18,16 +18,13 @@ updates:
     ignore:
       - dependency-name: '*'
         update-types: ['version-update:semver-major']
-      - dependency-name: '@angular/*'
-      - dependency-name: '@angular-devkit/*'
-      - dependency-name: '@schematics/angular'
-      - dependency-name: 'jest-preset-angular'
-      - dependency-name: '@nestjs/*'
+      - dependency-name: 'react'
+      - dependency-name: 'react-dom'
+      - dependency-name: '@types/react'
+      - dependency-name: '@types/react-dom'
       - dependency-name: '@nrwl/*'
       - dependency-name: 'nx'
       - dependency-name: '@nx/*'
-      - dependency-name: 'rxjs'
-      - dependency-name: 'zone.js'
       - dependency-name: 'typescript'
       - dependency-name: '@types/node'
     groups:
@@ -35,8 +32,8 @@ updates:
         patterns:
           - '*'
         exclude-patterns:
-          - '@angular/*'
-          - '@nestjs/*'
+          - 'react'
+          - 'react-dom'
           - '@nrwl/*'
         update-types:
           - 'minor'
