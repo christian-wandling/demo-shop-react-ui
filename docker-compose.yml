@@ -7,7 +7,7 @@ services:
       target: dev
     environment:
       - DEBUG=vite:*
-      - API_URL=http://localhost:3000
+      - API_URL=http://api:3000
       - NODE_ENV=development
       - KEYCLOAK_URL=http://localhost:8080
       - CHOKIDAR_USEPOLLING=true

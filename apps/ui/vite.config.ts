@@ -11,7 +11,7 @@ export default defineConfig(() => ({
     host: true,
     proxy: {
       '/api': {
-        target: process.env.API_URL || 'http://api:3000',
+        target: process.env.API_URL || 'http://localhost:3000',
         changeOrigin: true,
         secure: false,
       },
