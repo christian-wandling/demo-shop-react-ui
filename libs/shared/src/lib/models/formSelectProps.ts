@@ -7,5 +7,6 @@ export interface FormSelectProps {
   required?: boolean;
   disabled?: boolean;
   className?: string;
+  'data-testid'?: string;
   defaultValue?: string;
 }

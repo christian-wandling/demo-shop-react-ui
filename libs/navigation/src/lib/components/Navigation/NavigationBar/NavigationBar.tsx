@@ -3,7 +3,7 @@ import { ProductSearch } from '@demo-shop-react-ui/product';
 import { CartIcon } from '@demo-shop-react-ui/shopping';
 import { NavigationBarProps } from '../../../models/navigationBarProps';
 import { RouteItem } from '../../../models/routeItem';
-import { NavigationBarUserSection } from './NavigationBarUserSection';
+import { UserNavigation } from '../UserNavigation/UserNavigation';
 
 /**
  * NavigationDesktop renders the desktop version of the navigation.
@@ -20,14 +20,15 @@ export const NavigationBar = ({
   onLogout,
 }: NavigationBarProps) => {
   return (
-    <header className="sticky top-0 z-20 bg-white">
+    <header className="sticky top-0 z-20 bg-white" data-testid="navigation-bar">
       <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="border-b border-gray-200">
           <div className="flex h-16 items-center">
             <button
               onClick={onOpenSideNavigation}
               type="button"
-              className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden">
+              className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+              data-testid="navigation-slide-over-toggle">
               <span className="absolute -inset-0.5"></span>
               <span className="sr-only">Open menu</span>
               <svg
@@ -41,15 +42,13 @@ export const NavigationBar = ({
               </svg>
             </button>
 
-            {/* Logo */}
-            <div className="ml-4 flex lg:ml-0 h-8 w-8 relative">
+            <div className="ml-4 flex lg:ml-0 h-8 w-8 relative" data-testid="navigation-bar-logo">
               <Link to="/">
                 <span className="sr-only">Demo Shop</span>
                 <img className="object-contain" src="/icons/demo-shop.png" alt="Demo shop logo" />
               </Link>
             </div>
 
-            {/* Navigation items */}
             <div className="hidden lg:ml-8 lg:block lg:self-stretch">
               <div className="flex h-full space-x-8">
                 {items.map((item, index) => (
@@ -60,7 +59,8 @@ export const NavigationBar = ({
                       className={
                         (selectedItem === item.label ? 'text-indigo-600' : 'text-gray-700') +
                         'menu-item-button flex items-center text-sm font-medium hover:text-indigo-500'
-                      }>
+                      }
+                      data-testid={`navigation-bar-item-${item.label}`}>
                       {item.label.charAt(0).toUpperCase() + item.label.slice(1)}
                     </Link>
                   </div>
@@ -69,7 +69,14 @@ export const NavigationBar = ({
             </div>
 
             <div className="ml-auto flex items-center">
-              <NavigationBarUserSection user={user} onLogin={onLogin} onLogout={onLogout} onRegister={onRegister} />
+              <UserNavigation
+                className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6"
+                data-testid="navigation-bar-user-section"
+                user={user}
+                onLogin={onLogin}
+                onLogout={onLogout}
+                onRegister={onRegister}
+              />
               <ProductSearch />
               <CartIcon />
             </div>

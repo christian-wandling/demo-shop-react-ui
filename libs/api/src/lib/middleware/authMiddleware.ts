@@ -11,7 +11,7 @@ export const authMiddleware: Middleware = {
         ...context.init,
         headers: {
           ...context.init.headers,
-          Authorization: `Bearer ${token}`,
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
       },
     };

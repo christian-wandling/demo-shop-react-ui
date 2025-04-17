@@ -7,5 +7,6 @@ export interface FormInputProps {
   disabled?: boolean;
   autoComplete?: string;
   className?: string;
+  'data-testid'?: string;
   defaultValue?: string;
 }

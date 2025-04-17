@@ -10,20 +10,9 @@ vi.mock('@demo-shop-react-ui/product', () => ({
   ProductSearch: () => <div data-testid="product-search">Product Search</div>,
 }));
 
-vi.mock('./NavigationBarUserSection', () => ({
-  NavigationBarUserSection: ({ user, onLogin, onLogout, onRegister }: UserNavigationProps) => (
-    <div data-testid="user-section">
-      User Section
-      <button onClick={onLogin} data-testid="login-button">
-        Login
-      </button>
-      <button onClick={onLogout} data-testid="logout-button">
-        Logout
-      </button>
-      <button onClick={onRegister} data-testid="register-button">
-        Register
-      </button>
-    </div>
+vi.mock('../UserNavigation/UserNavigation', () => ({
+  UserNavigation: ({ user }: UserNavigationProps) => (
+    <div data-testid="navigation-bar-user-section">{user ? 'Logged in' : 'Not logged in'}</div>
   ),
 }));
 
@@ -133,16 +122,7 @@ describe('NavigationBar', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByTestId('user-section')).toBeTruthy();
-
-    fireEvent.click(screen.getByTestId('login-button'));
-    expect(mockProps.onLogin).toHaveBeenCalled();
-
-    fireEvent.click(screen.getByTestId('logout-button'));
-    expect(mockProps.onLogout).toHaveBeenCalled();
-
-    fireEvent.click(screen.getByTestId('register-button'));
-    expect(mockProps.onRegister).toHaveBeenCalled();
+    expect(screen.getByTestId('navigation-bar-user-section')).toBeTruthy();
   });
 
   describe('Snapshots', () => {

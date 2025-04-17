@@ -45,22 +45,73 @@ export const ShippingInformationForm = ({ methods, onUpdateUser }: ShippingInfor
           className={`mt-4 lg:max-h-[1000px] grid md:grid-cols-8 gap-x-6 gap-y-4 transition-all duration-500 ease-in-out overflow-hidden ${
             shippingExtended ? 'max-h-[1000px]' : 'max-h-0'
           }`}>
-          <FormInput name="firstname" label="Firstname" disabled required className="md:col-span-4" />
-          <FormInput name="lastname" label="Firstname" disabled required className="md:col-span-4" />
-          <FormInput name="email" label="Email" disabled required className="md:col-span-4" />
-          <FormInput name="phone" label="Phone" className="md:col-span-4" />
+          <FormInput
+            name="firstname"
+            label="Firstname"
+            disabled
+            required
+            className="md:col-span-4"
+            data-testid="checkout-form-element-firstname"
+          />
+          <FormInput
+            name="lastname"
+            label="Firstname"
+            disabled
+            required
+            className="md:col-span-4"
+            data-testid="checkout-form-element-lastname"
+          />
+          <FormInput
+            name="email"
+            label="Email"
+            disabled
+            required
+            className="md:col-span-4"
+            data-testid="checkout-form-element-email"
+          />
+          <FormInput name="phone" label="Phone" className="md:col-span-4" data-testid="checkout-form-element-phone" />
           <FormSelect
             name="address.country"
             label="Country"
             options={countrySelectOptions}
             required
             className="md:col-span-4"
+            data-testid="checkout-form-element-country"
           />
-          <FormInput name="address.street" label="Street" required className="md:col-span-5" />
-          <FormInput name="address.apartment" label="Apartment" required className="md:col-span-3" />
-          <FormInput name="address.city" label="City" required className="md:col-span-3" />
-          <FormInput name="address.region" label="Region" className="md:col-span-3" />
-          <FormInput name="address.zip" label="Zip" required className="md:col-span-2" />
+          <FormInput
+            name="address.street"
+            label="Street"
+            required
+            className="md:col-span-5"
+            data-testid="checkout-form-element-street"
+          />
+          <FormInput
+            name="address.apartment"
+            label="Apartment"
+            required
+            className="md:col-span-3"
+            data-testid="checkout-form-element-apartment"
+          />
+          <FormInput
+            name="address.city"
+            label="City"
+            required
+            className="md:col-span-3"
+            data-testid="checkout-form-element-city"
+          />
+          <FormInput
+            name="address.region"
+            label="Region"
+            className="md:col-span-3"
+            data-testid="checkout-form-element-region"
+          />
+          <FormInput
+            name="address.zip"
+            label="Zip"
+            required
+            className="md:col-span-2"
+            data-testid="checkout-form-element-zip"
+          />
 
           <button
             disabled={!updateButtonEnabled}
@@ -68,7 +119,8 @@ export const ShippingInformationForm = ({ methods, onUpdateUser }: ShippingInfor
               !updateButtonEnabled
                 ? 'bg-gray-200 text-gray-800 pointer-events-none'
                 : 'bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-            }`}>
+            }`}
+            data-testid="checkout-update-shipping-information-button">
             Update
           </button>
         </div>

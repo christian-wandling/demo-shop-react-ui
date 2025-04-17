@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { NavigationBarUserSection } from './NavigationBarUserSection';
+import { UserNavigation } from './UserNavigation';
 import { UserResponse } from '@demo-shop-react-ui/api';
 
-describe('NavigationBarUserSection', () => {
+describe('UserNavigation', () => {
   const mockUser: UserResponse = {
     email: 'email',
     id: 0,
@@ -20,7 +20,8 @@ describe('NavigationBarUserSection', () => {
 
   it('renders login and register buttons when user is not logged in', () => {
     render(
-      <NavigationBarUserSection
+      <UserNavigation
+        className=""
         user={null}
         onLogin={mockHandlers.onLogin}
         onLogout={mockHandlers.onLogout}
@@ -35,7 +36,8 @@ describe('NavigationBarUserSection', () => {
 
   it('renders user name and logout button when user is logged in', () => {
     render(
-      <NavigationBarUserSection
+      <UserNavigation
+        className=""
         user={mockUser}
         onLogin={mockHandlers.onLogin}
         onLogout={mockHandlers.onLogout}
@@ -51,7 +53,8 @@ describe('NavigationBarUserSection', () => {
 
   it('calls onLogin when Sign in is clicked', () => {
     render(
-      <NavigationBarUserSection
+      <UserNavigation
+        className=""
         user={null}
         onLogin={mockHandlers.onLogin}
         onLogout={mockHandlers.onLogout}
@@ -65,7 +68,8 @@ describe('NavigationBarUserSection', () => {
 
   it('calls onRegister when Register is clicked', () => {
     render(
-      <NavigationBarUserSection
+      <UserNavigation
+        className=""
         user={null}
         onLogin={mockHandlers.onLogin}
         onLogout={mockHandlers.onLogout}
@@ -79,7 +83,8 @@ describe('NavigationBarUserSection', () => {
 
   it('calls onLogout when Sign out is clicked', () => {
     render(
-      <NavigationBarUserSection
+      <UserNavigation
+        className=""
         user={mockUser}
         onLogin={mockHandlers.onLogin}
         onLogout={mockHandlers.onLogout}
@@ -93,7 +98,8 @@ describe('NavigationBarUserSection', () => {
 
   it('displays the correct user name format', () => {
     render(
-      <NavigationBarUserSection
+      <UserNavigation
+        className=""
         user={{ ...mockUser, firstname: 'Jane', lastname: 'Smith' }}
         onLogin={mockHandlers.onLogin}
         onLogout={mockHandlers.onLogout}
@@ -107,7 +113,8 @@ describe('NavigationBarUserSection', () => {
   describe('Snapshots', () => {
     it('matches the snapshot logged out state', () => {
       const { baseElement } = render(
-        <NavigationBarUserSection
+        <UserNavigation
+          className=""
           user={null}
           onLogin={mockHandlers.onLogin}
           onLogout={mockHandlers.onLogout}
@@ -120,7 +127,8 @@ describe('NavigationBarUserSection', () => {
 
     it('matches the snapshot logged in state', () => {
       const { baseElement } = render(
-        <NavigationBarUserSection
+        <UserNavigation
+          className=""
           user={mockUser}
           onLogin={mockHandlers.onLogin}
           onLogout={mockHandlers.onLogout}

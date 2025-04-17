@@ -17,9 +17,9 @@ vi.mock('framer-motion', () => ({
   AnimatePresence: ({ children }: any) => <>{children}</>,
 }));
 
-vi.mock('./SideNavigationUserSection', () => ({
-  SideNavigationUserSection: ({ user, onLogin, onRegister, onLogout }: any) => (
-    <div data-testid="user-section">{user ? `Logged in as ${user.name}` : 'Not logged in'}</div>
+vi.mock('../UserNavigation/UserNavigation', () => ({
+  UserNavigation: ({ user }: any) => (
+    <div data-testid="navigation-slide-over-user-section">{user ? `Logged in as ${user.name}` : 'Not logged in'}</div>
   ),
 }));
 
@@ -55,7 +55,7 @@ describe('SideNavigation', () => {
 
     expect(screen.getByText('Products')).toBeTruthy();
     expect(screen.getByText('Orders')).toBeTruthy();
-    expect(screen.getByTestId('user-section')).toBeTruthy();
+    expect(screen.getByTestId('navigation-slide-over-user-section')).toBeTruthy();
   });
 
   it('does not render when isOpen is false', () => {
@@ -140,7 +140,7 @@ describe('SideNavigation', () => {
     });
 
     it('matches snapshot without a user (logged out state)', () => {
-      const propsWithoutUser = { ...mockProps, user: undefined };
+      const propsWithoutUser = { ...mockProps, user: null };
 
       const { container } = render(
         <MemoryRouter>

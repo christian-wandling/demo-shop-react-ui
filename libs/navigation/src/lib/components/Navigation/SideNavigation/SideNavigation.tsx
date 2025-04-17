@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import { AnimatePresence, motion } from 'framer-motion';
 import { SideNavigationProps } from '../../../models/sideNavigationProps';
 import { RouteItem } from '../../../models/routeItem';
-import { SideNavigationUserSection } from './SideNavigationUserSection';
+import { UserNavigation } from '../UserNavigation/UserNavigation';
 
 /**
  * NavigationMobile renders the mobile version of the navigation.
@@ -31,7 +31,10 @@ export const SideNavigation = ({
             onKeyDown={e => e.key === 'Escape' && onSetOpen(false)}
             className="relative flex z-40 lg:hidden"
             aria-modal="true">
-            <div className="fixed inset-0 bg-black bg-opacity-25" aria-hidden="true" data-testid="dialog"></div>
+            <div
+              className="fixed inset-0 bg-black bg-opacity-25"
+              aria-hidden="true"
+              data-testid="navigation-slide-over-backdrop"></div>
           </motion.dialog>
 
           <motion.div
@@ -39,12 +42,14 @@ export const SideNavigation = ({
             animate={{ x: 0 }}
             exit={{ x: '-100%' }}
             transition={{ type: 'tween' }}
-            className="fixed h-screen top-0 z-40 flex w-full max-w-xs flex-col overflow-y-auto bg-white px-6 p-2 shadow-xl">
+            className="fixed h-screen top-0 z-40 flex w-full max-w-xs flex-col overflow-y-auto bg-white px-6 p-2 shadow-xl"
+            data-testid="navigation-slide-over">
             <div className="sticky z-20 top-0 flex px-4 pb-2 pt-5">
               <button
                 onClick={() => onSetOpen(false)}
                 type="button"
-                className="relative opacity-90 -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-white">
+                className="relative opacity-90 -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-white"
+                data-testid="navigation-slide-over-close-button">
                 <span className="absolute -inset-0.5"></span>
                 <span className="sr-only">Close menu</span>
                 <svg
@@ -71,14 +76,22 @@ export const SideNavigation = ({
                     className={
                       (selectedItem === item.label ? 'text-indigo-600' : 'text-gray-700') +
                       '-m-2 block p-2 font-medium text-gray-700 hover:text-indigo-500 text-xl'
-                    }>
+                    }
+                    data-testid={`navigation-slide-over-item-${item.label}`}>
                     {item.label.charAt(0).toUpperCase() + item.label.slice(1)}
                   </Link>
                 </div>
               ))}
             </div>
 
-            <SideNavigationUserSection user={user} onLogin={onLogin} onRegister={onRegister} onLogout={onLogout} />
+            <UserNavigation
+              className="lg:hidden space-y-6 border-t border-gray-200 px-4 py-6"
+              data-testid="navigation-slide-over-user-section"
+              user={user}
+              onLogin={onLogin}
+              onRegister={onRegister}
+              onLogout={onLogout}
+            />
           </motion.div>
         </>
       )}

@@ -13,7 +13,11 @@ import { OrderStatusProps } from '../../models/orderStatusProps';
  * @example
  * <OrderStatus status={order.status} />
  */
-export const OrderStatusBadge: React.FC<OrderStatusProps> = ({ status, className = '' }: OrderStatusProps) => {
+export const OrderStatusBadge: React.FC<OrderStatusProps> = ({
+  status,
+  className = '',
+  'data-testid': dataTestId = 'order-status',
+}: OrderStatusProps) => {
   const getBackgroundClass = () => {
     switch (status) {
       case 'Completed':
@@ -30,7 +34,7 @@ export const OrderStatusBadge: React.FC<OrderStatusProps> = ({ status, className
   return (
     <div
       className={`${className} rounded-lg px-2 sm:px-4 py-1 sm:py-1.5 max-w-20 sm:max-w-28 text-center text-white border border-slate-300 text-xs ${getBackgroundClass()}`}
-      data-testid="orderStatus">
+      data-testid={dataTestId}>
       {formattedStatus}
     </div>
   );

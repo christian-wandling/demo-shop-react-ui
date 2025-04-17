@@ -61,7 +61,8 @@ export const ShoppingCart = () => {
         animate={{ transform: 'translateX(0)' }}
         exit={{ transform: 'translateX(100%)' }}
         transition={{ duration: 0.7 }}
-        className="z-50 pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10">
+        className="z-50 pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10"
+        data-testid="shopping-cart-slide-over-container">
         <div className="pointer-events-auto w-screen max-w-md">
           <div className="flex h-full flex-col bg-white shadow-xl">
             <div className="flex-1 overflow-y-auto px-4 sm:px-6">
@@ -73,7 +74,8 @@ export const ShoppingCart = () => {
                   <button
                     onClick={closeCart}
                     type="button"
-                    className="relative -m-2 p-2 text-gray-400 hover:text-gray-500">
+                    className="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                    data-testid="shopping-cart-slide-over-close-button">
                     <span className="absolute -inset-0.5"></span>
                     <span className="sr-only">Close panel</span>
                     <svg
@@ -95,18 +97,18 @@ export const ShoppingCart = () => {
             <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
               <div className="flex justify-between text-base font-medium text-gray-900">
                 <p>Total</p>
-                <p>{formatCurrency(getTotalPrice())}</p>
+                <p data-testid="shopping-cart-items-total">{formatCurrency(getTotalPrice())}</p>
               </div>
               <div className="mt-6">
                 <Link
                   to="/checkout"
                   onClick={closeCart}
-                  data-testid="checkout"
                   className={`flex items-center justify-center rounded-md border border-transparent px-6 py-3 text-base font-medium shadow-sm ${
                     checkoutButtonEnabled
                       ? 'bg-indigo-600 text-white hover:bg-indigo-700'
                       : 'bg-gray-100 text-gray-800 pointer-events-none'
-                  }`}>
+                  }`}
+                  data-testid="shopping-cart-checkout-button">
                   Checkout
                 </Link>
               </div>
@@ -116,7 +118,8 @@ export const ShoppingCart = () => {
                   <button
                     onClick={closeCart}
                     type="button"
-                    className="font-medium text-indigo-600 hover:text-indigo-500 ml-1">
+                    className="font-medium text-indigo-600 hover:text-indigo-500 ml-1"
+                    data-testid="shopping-cart-continue-shopping-button">
                     Continue Shopping
                     <span aria-hidden="true"> &rarr;</span>
                   </button>

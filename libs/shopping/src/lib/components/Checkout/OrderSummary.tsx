@@ -20,7 +20,7 @@ export const OrderSummary = ({
       <div className="border-t border-gray-900/10 mt-12">
         <div className="mt-8 flex justify-between">
           <span>Total</span>
-          <span>{formatCurrency(totalPrice)}</span>
+          <span data-testid="checkout-total-price">{formatCurrency(totalPrice)}</span>
         </div>
       </div>
 
@@ -33,7 +33,8 @@ export const OrderSummary = ({
               !checkoutButtonEnabled
                 ? 'bg-gray-200 text-gray-800 pointer-events-none'
                 : 'bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-            }`}>
+            }`}
+            data-testid="checkout-finish-button">
             Checkout
           </button>
         </div>

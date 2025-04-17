@@ -11,7 +11,7 @@ export const AppRouter = () => {
     ...productRoutes,
     ...orderRoutes,
     ...shoppingRoutes,
-    { path: '**', element: <Navigate to="/" replace /> },
+    { path: '*', element: <Navigate to="/" replace /> },
   ]);
 
   return <Suspense fallback={<LoadingSpinner />}>{routes}</Suspense>;

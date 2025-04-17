@@ -74,7 +74,7 @@ exports[`SideNavigation > Snapshots > matches snapshot when open 1`] = `
       </div>
     </div>
     <div
-      data-testid="user-section"
+      data-testid="navigation-slide-over-user-section"
     >
       Logged in as undefined
     </div>
@@ -154,7 +154,7 @@ exports[`SideNavigation > Snapshots > matches snapshot without a user (logged ou
       </div>
     </div>
     <div
-      data-testid="user-section"
+      data-testid="navigation-slide-over-user-section"
     >
       Not logged in
     </div>

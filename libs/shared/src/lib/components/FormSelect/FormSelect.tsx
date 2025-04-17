@@ -8,6 +8,7 @@ export const FormSelect = ({
   required = false,
   disabled = false,
   className,
+  'data-testid': dataTestId,
   defaultValue = '',
 }: FormSelectProps) => {
   const {
@@ -31,13 +32,14 @@ export const FormSelect = ({
           <select
             id={name}
             disabled={disabled}
-            className={`
-              block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6
-              ${disabled ? 'text-gray-500 bg-gray-200' : 'text-gray-900'}
-              ${errorMessage ? 'error' : ''} ${className || ''}
-            `}
+            className={`block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6 ${
+              disabled ? 'text-gray-500 bg-gray-200' : 'text-gray-900'
+            } ${errorMessage ? 'error' : ''} ${className || ''}`}
+            data-testid={dataTestId}
             {...field}>
-            <option value="">Select {label}</option>
+            <option disabled selected value="">
+              Select {label}
+            </option>
             {options.map(option => (
               <option key={option.value} value={option.value}>
                 {option.label}

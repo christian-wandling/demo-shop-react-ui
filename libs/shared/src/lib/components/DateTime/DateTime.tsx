@@ -15,14 +15,20 @@ import { DateTimeProps } from '../../models/dateTimeProps';
  *   timezone="America/New_York"
  * />
  */
-export const DateTime = ({ dateTime, className = '', pattern = 'MMM dd, yyyy', timezone = 'UTC' }: DateTimeProps) => {
+export const DateTime = ({
+  dateTime,
+  className = '',
+  pattern = 'MMM dd, yyyy',
+  timezone = 'UTC',
+  'data-testid': dataTestId = 'date-time',
+}: DateTimeProps) => {
   const date = typeof dateTime === 'string' ? parseISO(dateTime) : dateTime;
 
   const formattedDate = format(toZonedTime(date, timezone), pattern);
   const isoString = date.toISOString();
 
   return (
-    <time className={className} dateTime={isoString} data-testid="time">
+    <time className={className} dateTime={isoString} data-testid={dataTestId}>
       {formattedDate}
     </time>
   );

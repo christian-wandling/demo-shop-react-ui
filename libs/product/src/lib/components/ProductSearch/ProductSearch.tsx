@@ -33,11 +33,11 @@ export const ProductSearch = () => {
   };
 
   return (
-    <div className="search-container flex align-middle lg:ml-6 cursor-pointer relative">
-      <a className="p-2.5 text-gray-400 hover:text-gray-500">
+    <div className="search-container flex align-middle lg:ml-6 cursor-pointer relative" data-testid="product-search">
+      <div className="p-2.5 text-gray-400 hover:text-gray-500" data-testid="product-search-icon">
         <span className="sr-only">Search</span>
         <img src="/icons/search.svg" alt="search" height="20" width="20" />
-      </a>
+      </div>
       <div className={`search-input relative ${filter.name ? 'extended' : ''}`}>
         <input
           type="text"
@@ -47,6 +47,7 @@ export const ProductSearch = () => {
           value={filter.name}
           onChange={e => handleInput(e.target.value)}
           onKeyDown={e => handleKeyDown(e.key)}
+          data-testid="product-search-input"
         />
         {filter.name && (
           <div className="enter-icon absolute right-2 inset-y-0 flex items-center" onClick={goToProductPage}>

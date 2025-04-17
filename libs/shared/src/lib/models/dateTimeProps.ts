@@ -3,4 +3,5 @@ export interface DateTimeProps {
   pattern?: string;
   timezone?: string;
   className?: string;
+  'data-testid'?: string;
 }

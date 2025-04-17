@@ -7,7 +7,7 @@ describe('DateTime', () => {
     const date = new Date('2023-05-15T12:30:00Z');
     render(<DateTime dateTime={date} />);
 
-    const element: HTMLTimeElement = screen.getByTestId('time');
+    const element: HTMLTimeElement = screen.getByTestId('date-time');
 
     expect(element.textContent).toBe('May 15, 2023');
     expect(element.dateTime).toBe('2023-05-15T12:30:00.000Z');
@@ -17,7 +17,7 @@ describe('DateTime', () => {
     const dateString = '2023-05-15T12:30:00Z';
     render(<DateTime dateTime={dateString} />);
 
-    const element: HTMLTimeElement = screen.getByTestId('time');
+    const element: HTMLTimeElement = screen.getByTestId('date-time');
 
     expect(element.textContent).toBe('May 15, 2023');
     expect(element.dateTime).toBe('2023-05-15T12:30:00.000Z');
@@ -28,7 +28,7 @@ describe('DateTime', () => {
     const pattern = 'yyyy-MM-dd HH:mm';
     render(<DateTime dateTime={date} pattern={pattern} />);
 
-    const element: HTMLTimeElement = screen.getByTestId('time');
+    const element: HTMLTimeElement = screen.getByTestId('date-time');
 
     expect(element.textContent).toBe('2023-05-15 12:30');
   });
@@ -37,7 +37,7 @@ describe('DateTime', () => {
     const date = new Date('2023-05-15T12:30:00Z');
     render(<DateTime dateTime={date} timezone="America/New_York" />);
 
-    const element: HTMLTimeElement = screen.getByTestId('time');
+    const element: HTMLTimeElement = screen.getByTestId('date-time');
 
     expect(element.textContent).toBe('May 15, 2023');
   });
@@ -46,7 +46,7 @@ describe('DateTime', () => {
     const date = new Date('2023-05-15T12:30:00Z');
     render(<DateTime dateTime={date} pattern="yyyy-MM-dd HH:mm zzz" timezone="Asia/Tokyo" />);
 
-    const element: HTMLTimeElement = screen.getByTestId('time');
+    const element: HTMLTimeElement = screen.getByTestId('date-time');
 
     expect(element.textContent).toMatch(/2023-05-15 21:30/);
   });

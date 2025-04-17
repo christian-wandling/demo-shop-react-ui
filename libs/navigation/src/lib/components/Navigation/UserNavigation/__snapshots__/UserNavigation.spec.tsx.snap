@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`UserNavigation > Snapshots > matches the snapshot logged in state 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="block -m-2 lg:m-0 p-2 lg:p-0 font-medium text-xl lg:text-sm text-gray-400"
+      data-testid="user-navigation-name"
+    >
+      John
+       
+      Doe
+    </div>
+    <span
+      aria-hidden="true"
+      class="h-6 w-px bg-gray-200"
+    />
+    <div
+      class="block -m-2 lg:m-0 p-2 lg:p-0 font-medium text-xl lg:text-sm lg:hover:text-indigo-500 cursor-pointer"
+      data-testid="user-navigation-sign-out"
+    >
+      Sign out
+    </div>
+  </div>
+</div>
+`;
+
+exports[`UserNavigation > Snapshots > matches the snapshot logged out state 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class="block -m-2 lg:m-0 p-2 lg:p-0 font-medium text-xl lg:text-sm lg:hover:text-indigo-500 cursor-pointer"
+      data-testid="user-navigation-sign-in"
+    >
+      Sign in
+    </div>
+    <span
+      aria-hidden="true"
+      class="h-6 w-px bg-gray-200"
+    />
+    <div
+      class="block -m-2 lg:m-0 p-2 lg:p-0 font-medium text-xl lg:text-sm lg:hover:text-indigo-500 cursor-pointer"
+      data-testid="user-navigation-register"
+    >
+      Register
+    </div>
+  </div>
+</div>
+`;

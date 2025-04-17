@@ -11,4 +11,5 @@ export type OrderStatusProps = {
   status: 'Created' | 'Completed';
 
   className?: string;
+  'data-testid'?: string;
 };

@@ -95,24 +95,9 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
             class="ml-auto flex items-center"
           >
             <div
-              data-testid="user-section"
+              data-testid="navigation-bar-user-section"
             >
-              User Section
-              <button
-                data-testid="login-button"
-              >
-                Login
-              </button>
-              <button
-                data-testid="logout-button"
-              >
-                Logout
-              </button>
-              <button
-                data-testid="register-button"
-              >
-                Register
-              </button>
+              Logged in
             </div>
             <div
               data-testid="product-search"
@@ -255,24 +240,9 @@ exports[`NavigationBar > renders correctly 1`] = `
             class="ml-auto flex items-center"
           >
             <div
-              data-testid="user-section"
+              data-testid="navigation-bar-user-section"
             >
-              User Section
-              <button
-                data-testid="login-button"
-              >
-                Login
-              </button>
-              <button
-                data-testid="logout-button"
-              >
-                Logout
-              </button>
-              <button
-                data-testid="register-button"
-              >
-                Register
-              </button>
+              Logged in
             </div>
             <div
               data-testid="product-search"

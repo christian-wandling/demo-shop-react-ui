@@ -83,7 +83,7 @@ export default function Checkout() {
   };
 
   return (
-    <div className="bg-gray-100 sm:m-2 lg:m-6 p-4 sm:p-8 lg:p-10 sm:rounded">
+    <div className="bg-gray-100 sm:m-2 lg:m-6 p-4 sm:p-8 lg:p-10 sm:rounded" data-testid="checkout">
       <div className="flex flex-col lg:flex-row justify-between gap-8">
         <ShippingInformationForm methods={methods} onUpdateUser={updateUser} />
         <OrderSummary

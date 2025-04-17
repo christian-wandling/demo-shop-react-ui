@@ -6,7 +6,7 @@ describe('OrderStatusBadge', () => {
   it('renders with Completed status and correct styling', () => {
     render(<OrderStatusBadge status="Completed" />);
 
-    const el = screen.getByTestId('orderStatus');
+    const el = screen.getByTestId('order-status');
 
     expect(el).toBeTruthy();
     expect(el.classList).toContain('bg-green-800');
@@ -23,7 +23,7 @@ describe('OrderStatusBadge', () => {
   it('renders with Created status and correct styling', () => {
     render(<OrderStatusBadge status="Created" />);
 
-    const el = screen.getByTestId('orderStatus');
+    const el = screen.getByTestId('order-status');
 
     expect(el).toBeTruthy();
     expect(el.classList).toContain('bg-orange-500');
@@ -34,7 +34,7 @@ describe('OrderStatusBadge', () => {
   it('properly formats status text with first letter capitalized', () => {
     render(<OrderStatusBadge status="Created" />);
 
-    const el = screen.getByTestId('orderStatus');
+    const el = screen.getByTestId('order-status');
 
     expect(el).toBeTruthy();
     expect(el.textContent).toMatch(/^[A-Z][a-z]*(\s[A-Z][a-z]*)*/);
@@ -43,7 +43,7 @@ describe('OrderStatusBadge', () => {
   it('applies responsive classes for padding and width', () => {
     render(<OrderStatusBadge status="Completed" />);
 
-    const el = screen.getByTestId('orderStatus');
+    const el = screen.getByTestId('order-status');
 
     expect(el.classList).toContain('px-2');
     expect(el.classList).toContain('sm:px-4');
