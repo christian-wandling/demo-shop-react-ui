@@ -9,6 +9,9 @@
     "cm": "cz",
     "openapi:generate": "rm -rf libs/api/src/lib/openapi && openapi-generator generate -g typescript-fetch -o libs/api/src/lib/openapi -i http://localhost:3000/api/docs/v1/swagger.json -c open-api.yaml",
     "prepare": "husky",
+    "release:major": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
     "lint": "npx nx run-many -t lint --exclude api",
     "test": "npx nx run-many -t test",
     "e2e": "npx nx run-many -t e2e --exclude api"
@@ -72,7 +75,7 @@
     "husky": "^9.1.7",
     "jiti": "2.4.2",
     "jsdom": "~22.1.0",
-    "lint-staged": "^15.5.0",
+    "lint-staged": "^15.5.1",
     "nx": "20.6.2",
     "postcss": "8.4.38",
     "prettier": "^2.6.2",
