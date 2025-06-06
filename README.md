@@ -90,7 +90,7 @@ docker network create shared
 4. Build & Run the docker containers
 
 ```
-npm start
+make up
 ```
 
 5. Follow the setup guide of either the NestJS or ASP.NET Core Api
