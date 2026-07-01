@@ -1,18 +1,16 @@
-# DemoShop React UI
+# Demo Shop - React UI
 
 This repository contains a React frontend for the Demo Shop platform, a full-stack e-commerce application built for educational purposes using modern web technologies.
 
-## Overview
+## Platform
 
-The Demo Shop platform is maintained over multiple separate repositories supporting interchangeable implementations.
+The Demo Shop platform is split across interchangeable implementations:
 
-1. [demo-shop-public](http://github.com/christian-wandling/demo-shop-react-ui): Angular frontend, NestJS API and Terraform setup for AWS
-2. [demo-shop-dotnet-api](http://github.com/christian-wandling/demo-shop-dotnet-api): ASP.NET Core implementation of the API
-3. [demo-shop-e2e](http://github.com/christian-wandling/demo-shop-e2e): E2E Testing with playwright
+[Angular + NestJS](https://github.com/christian-wandling/demo-shop-angular-nestjs) · [.NET API](https://github.com/christian-wandling/demo-shop-dotnet-api) · **React UI** · [E2E](https://github.com/christian-wandling/demo-shop-e2e)
 
-This application requires either the api from **demo-shop-public** or **demo-shop-dotnet-api** to work.
+This application requires either the API from demo-shop-angular-nestjs or demo-shop-dotnet-api to run.
 
-## Overview
+## Documentation
 
 ### Libraries
 
@@ -50,22 +48,22 @@ This application requires either the api from **demo-shop-public** or **demo-sho
 
 - **Nx** - Mono-repo build system
 - **Docker** - Containerization
-- - **Github CI/CD** - Continuous Integration/Continuous Deployment
+- **GitHub CI/CD** - Continuous Integration/Continuous Deployment
 
 ### Dev workflow
 
 - **Commitlint/Commitizen** - Standardize commit messages
 - **Husky** - Pre-commit hooks
 - **ESLint/Lint-staged** - Automated linting
-- **Prettier** - Automated code formating
+- **Prettier** - Automated code formatting
 
 ## Setup
 
 ### Prerequisites
 
-- <a href="https://nodejs.org/en" target="\_blank">Node.js 20</a> or later
-- <a href="https://www.npmjs.com/" target="\_blank">npm</a> or <a href="https://yarnpkg.com/" target="\_blank">yarn</a>
-- <a href="https://www.docker.com/" target="\_blank">Docker</a>
+- <a href="https://nodejs.org/en" target="_blank">Node.js 20</a> or later
+- <a href="https://www.npmjs.com/" target="_blank">npm</a> or <a href="https://yarnpkg.com/" target="_blank">yarn</a>
+- <a href="https://www.docker.com/" target="_blank">Docker</a>
 
 ### Installation
 
@@ -93,15 +91,15 @@ docker network create shared
 npm start
 ```
 
-5. Follow the setup guide of either the NestJS or ASP.NET Core Api
+5. Follow the setup guide of either the NestJS or ASP.NET Core API
 
-Full stack project using Angular and NestJS
+Full-stack project using Angular and NestJS
 
-> <a href="http://github.com/christian-wandling/demo-shop-public" target="_blank">http://github.com/christian-wandling/demo-shop-public</a>
+> [github.com/christian-wandling/demo-shop-angular-nestjs](https://github.com/christian-wandling/demo-shop-angular-nestjs)
 
-Api using ASP.NET Core
+API using ASP.NET Core
 
-> <a href="http://github.com/christian-wandling/demo-shop-dotnet-api" target="_blank">http://github.com/christian-wandling/demo-shop-dotnet-api</a>
+> [github.com/christian-wandling/demo-shop-dotnet-api](https://github.com/christian-wandling/demo-shop-dotnet-api)
 
 6. Access the application
 
@@ -141,7 +139,7 @@ http://localhost:4200
 http://localhost:8080/admin/master/console/#/demo_shop/users/add-user
 ```
 
-2. To login use `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` defined in your [.env](.env) file.
+2. To login use `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` defined in your [.env](.env.example) file.
 
 3. Fill `Email`, `First Name` and `Last name`
 
