@@ -131,22 +131,6 @@ http://localhost:4200
 
 2. Click `Register` and create the user
 
-### User creation via Keycloak admin console
-
-1. Access the Keycloak server to add a user
-
-```
-http://localhost:8080/admin/master/console/#/demo_shop/users/add-user
-```
-
-2. To login use `KEYCLOAK_ADMIN` and `KEYCLOAK_ADMIN_PASSWORD` defined in your [.env](.env.example) file.
-
-3. Fill `Email`, `First Name` and `Last name`
-
-4. Navigate to the `Credentials` tab and use `Set Password` to create as password
-
-5. Fill `Password` and `Password Confirmation` and deselect `Temporary`
-
 ## Testing
 
 To run all tests in the project use
