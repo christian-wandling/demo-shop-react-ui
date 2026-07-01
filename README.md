@@ -131,6 +131,12 @@ http://localhost:4200
 
 2. Click `Register` and create the user
 
+### User creation via Keycloak admin console
+
+To create users directly in Keycloak instead of through the web app, follow the Keycloak admin console guide in whichever API you are running:
+
+> [demo-shop-angular-nestjs](https://github.com/christian-wandling/demo-shop-angular-nestjs) · [demo-shop-dotnet-api](https://github.com/christian-wandling/demo-shop-dotnet-api)
+
 ## Testing
 
 To run all tests in the project use
