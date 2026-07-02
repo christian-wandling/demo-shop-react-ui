@@ -1,6 +1,6 @@
 # Demo Shop - React UI
 
-This repository contains a React frontend for the Demo Shop platform, a full-stack e-commerce application built for educational purposes using modern web technologies.
+This repository contains a React frontend for the Demo Shop platform, a full-stack e-commerce reference implementation built with modern web technologies.
 
 ## Platform
 
@@ -25,7 +25,7 @@ This application requires either the API from demo-shop-angular-nestjs or demo-s
 
 ### Tech stack
 
-- **React** - Progressive web framework
+- **React** - Component-based UI library
 - **TypeScript** - Type-safe JavaScript
 - **Zustand** - State management
 - **React Router** - Navigation and routing
