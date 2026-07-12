@@ -38,7 +38,7 @@ exports[`ShoppingCart > SnapShots > should match the snapshot when cart is in vi
       <div
         animate="[object Object]"
         class="z-50 pointer-events-none fixed inset-y-0 right-0 flex max-w-full sm:pl-10"
-        data-testid="motion-div"
+        data-testid="shopping-cart-slide-over-container"
         exit="[object Object]"
         initial="[object Object]"
         transition="[object Object]"
@@ -66,6 +66,7 @@ exports[`ShoppingCart > SnapShots > should match the snapshot when cart is in vi
                 >
                   <button
                     class="relative -m-2 p-2 text-gray-400 hover:text-gray-500"
+                    data-testid="shopping-cart-slide-over-close-button"
                     type="button"
                   >
                     <span
@@ -106,7 +107,9 @@ exports[`ShoppingCart > SnapShots > should match the snapshot when cart is in vi
                 <p>
                   Total
                 </p>
-                <p>
+                <p
+                  data-testid="shopping-cart-items-total"
+                >
                   $99.99
                 </p>
               </div>
@@ -126,6 +129,7 @@ exports[`ShoppingCart > SnapShots > should match the snapshot when cart is in vi
                   or
                   <button
                     class="font-medium text-indigo-600 hover:text-indigo-500 ml-1"
+                    data-testid="shopping-cart-continue-shopping-button"
                     type="button"
                   >
                     Continue Shopping

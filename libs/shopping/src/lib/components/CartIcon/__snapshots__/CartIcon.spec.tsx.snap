@@ -5,8 +5,9 @@ exports[`CartIcon > should match snaphot 1`] = `
   <div>
     <div
       class="ml-4 flow-root lg:ml-6"
+      data-testid="shopping-cart-icon"
     >
-      <a
+      <div
         class="group -m-2 flex items-center p-2 cursor-pointer"
       >
         <svg
@@ -26,6 +27,7 @@ exports[`CartIcon > should match snaphot 1`] = `
         </svg>
         <span
           class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800"
+          data-testid="shopping-cart-icon-count"
         >
           5
         </span>
@@ -34,7 +36,7 @@ exports[`CartIcon > should match snaphot 1`] = `
         >
           items in cart, view bag
         </span>
-      </a>
+      </div>
     </div>
   </div>
 </body>

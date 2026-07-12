@@ -4,6 +4,7 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
 <div>
   <header
     class="sticky top-0 z-20 bg-white"
+    data-testid="navigation-bar"
   >
     <nav
       aria-label="Top"
@@ -17,6 +18,7 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
         >
           <button
             class="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+            data-testid="navigation-slide-over-toggle"
             type="button"
           >
             <span
@@ -44,6 +46,7 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
           </button>
           <div
             class="ml-4 flex lg:ml-0 h-8 w-8 relative"
+            data-testid="navigation-bar-logo"
           >
             <a
               data-discover="true"
@@ -73,6 +76,7 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
                 <a
                   class="text-indigo-600menu-item-button flex items-center text-sm font-medium hover:text-indigo-500"
                   data-discover="true"
+                  data-testid="navigation-bar-item-products"
                   href="/products"
                 >
                   Products
@@ -84,6 +88,7 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
                 <a
                   class="text-gray-700menu-item-button flex items-center text-sm font-medium hover:text-indigo-500"
                   data-discover="true"
+                  data-testid="navigation-bar-item-orders"
                   href="/orders"
                 >
                   Orders
@@ -106,8 +111,9 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
             </div>
             <div
               class="ml-4 flow-root lg:ml-6"
+              data-testid="shopping-cart-icon"
             >
-              <a
+              <div
                 class="group -m-2 flex items-center p-2 cursor-pointer"
               >
                 <svg
@@ -127,6 +133,7 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
                 </svg>
                 <span
                   class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800"
+                  data-testid="shopping-cart-icon-count"
                 >
                   0
                 </span>
@@ -135,7 +142,7 @@ exports[`NavigationBar > Snapshots > matches snapshot 1`] = `
                 >
                   items in cart, view bag
                 </span>
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -149,6 +156,7 @@ exports[`NavigationBar > renders correctly 1`] = `
 <div>
   <header
     class="sticky top-0 z-20 bg-white"
+    data-testid="navigation-bar"
   >
     <nav
       aria-label="Top"
@@ -162,6 +170,7 @@ exports[`NavigationBar > renders correctly 1`] = `
         >
           <button
             class="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+            data-testid="navigation-slide-over-toggle"
             type="button"
           >
             <span
@@ -189,6 +198,7 @@ exports[`NavigationBar > renders correctly 1`] = `
           </button>
           <div
             class="ml-4 flex lg:ml-0 h-8 w-8 relative"
+            data-testid="navigation-bar-logo"
           >
             <a
               data-discover="true"
@@ -218,6 +228,7 @@ exports[`NavigationBar > renders correctly 1`] = `
                 <a
                   class="text-indigo-600menu-item-button flex items-center text-sm font-medium hover:text-indigo-500"
                   data-discover="true"
+                  data-testid="navigation-bar-item-products"
                   href="/products"
                 >
                   Products
@@ -229,6 +240,7 @@ exports[`NavigationBar > renders correctly 1`] = `
                 <a
                   class="text-gray-700menu-item-button flex items-center text-sm font-medium hover:text-indigo-500"
                   data-discover="true"
+                  data-testid="navigation-bar-item-orders"
                   href="/orders"
                 >
                   Orders
@@ -251,8 +263,9 @@ exports[`NavigationBar > renders correctly 1`] = `
             </div>
             <div
               class="ml-4 flow-root lg:ml-6"
+              data-testid="shopping-cart-icon"
             >
-              <a
+              <div
                 class="group -m-2 flex items-center p-2 cursor-pointer"
               >
                 <svg
@@ -272,6 +285,7 @@ exports[`NavigationBar > renders correctly 1`] = `
                 </svg>
                 <span
                   class="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800"
+                  data-testid="shopping-cart-icon-count"
                 >
                   0
                 </span>
@@ -280,7 +294,7 @@ exports[`NavigationBar > renders correctly 1`] = `
                 >
                   items in cart, view bag
                 </span>
-              </a>
+              </div>
             </div>
           </div>
         </div>

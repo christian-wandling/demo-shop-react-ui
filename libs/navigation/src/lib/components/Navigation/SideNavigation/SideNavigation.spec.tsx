@@ -87,7 +87,7 @@ describe('SideNavigation', () => {
       </MemoryRouter>
     );
 
-    const backdrop = screen.getByTestId('dialog');
+    const backdrop = screen.getByTestId('navigation-slide-over-backdrop');
     fireEvent.click(backdrop);
 
     expect(mockProps.onSetOpen).toHaveBeenCalledWith(false);
