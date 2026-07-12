@@ -21,7 +21,15 @@ A library providing flexible and customizable navigation elements for modern web
 
 ## API Reference
 
-TBA
+| Export | Kind | Description |
+| --- | --- | --- |
+| `Navigation` | Component | Renders the navigation bar, side navigation and user section from the configuration in context. |
+| `NavigationProvider` | Component | Supplies a `NavigationConfig` to the tree. Takes `navigationConfig` and `children`. |
+| `NavigationContext` | Context | The `NavigationConfig` context, `null` outside a provider. |
+| `NavigationConfig` | Interface | The configuration object: an `items` list of navigation items. |
+| `NavigationItem` | Abstract class | Base navigation item: `label`, `order`, an optional `permissionStrategy`, and optional `subItems`. |
+| `RouteItem` | Class | A `NavigationItem` that links to a route, adding `route` and an optional `query`. |
+| `NavigationItemType` | Enum | The kind of a navigation item. Currently `ROUTE`. |
 
 ## Test
 

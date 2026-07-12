@@ -19,7 +19,11 @@ This library handles aspects of the order feature including order selection and 
 
 ## API Reference
 
-TBA
+| Export | Kind | Description |
+| --- | --- | --- |
+| `orderRoutes` | Route config | Mounts the protected order history at `/orders` and the detail view at `/orders/:id`. |
+
+The order store, the status badge and the invoice PDF service are internal to the library and are not part of its public surface.
 
 ## Running unit tests
 
