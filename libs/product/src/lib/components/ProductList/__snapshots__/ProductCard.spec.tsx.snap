@@ -6,6 +6,7 @@ exports[`ProductCard > matches the snapshot 1`] = `
     <a
       class="product-item group"
       data-discover="true"
+      data-testid="product-list-item-link1"
       href="/products/1"
     >
       <div
@@ -14,16 +15,19 @@ exports[`ProductCard > matches the snapshot 1`] = `
         <img
           alt="Test Product"
           class="h-full w-full object-cover object-center group-hover:opacity-75"
+          data-testid="product-list-item-image1"
           src="https://example.com/thumbnail.jpg"
         />
       </div>
       <h3
         class="mt-4 text-sm text-gray-700"
+        data-testid="product-list-item-name1"
       >
         Test Product
       </h3>
       <p
         class="mt-1 text-lg font-medium text-gray-900"
+        data-testid="product-list-item-price1"
       >
         $19.99
       </p>

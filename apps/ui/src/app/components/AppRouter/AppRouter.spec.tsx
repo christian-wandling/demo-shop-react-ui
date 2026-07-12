@@ -114,7 +114,7 @@ describe('AppRouter', () => {
 
     const routesConfig = useRoutesMock.mock.calls[0][0];
     const lastRoute = routesConfig[routesConfig.length - 1];
-    expect(lastRoute.path).toBe('**');
+    expect(lastRoute.path).toBe('*');
     expect(lastRoute.element.type).toBe(router.Navigate);
     expect(lastRoute.element.props.to).toBe('/');
   });

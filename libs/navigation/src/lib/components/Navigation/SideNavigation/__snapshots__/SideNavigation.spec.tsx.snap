@@ -10,7 +10,7 @@ exports[`SideNavigation > Snapshots > matches snapshot when open 1`] = `
     <div
       aria-hidden="true"
       class="fixed inset-0 bg-black bg-opacity-25"
-      data-testid="dialog"
+      data-testid="navigation-slide-over-backdrop"
     />
   </dialog>
   <div
@@ -21,6 +21,7 @@ exports[`SideNavigation > Snapshots > matches snapshot when open 1`] = `
     >
       <button
         class="relative opacity-90 -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-white"
+        data-testid="navigation-slide-over-close-button"
         type="button"
       >
         <span
@@ -56,6 +57,7 @@ exports[`SideNavigation > Snapshots > matches snapshot when open 1`] = `
         <a
           class="text-indigo-600-m-2 block p-2 font-medium text-gray-700 hover:text-indigo-500 text-xl"
           data-discover="true"
+          data-testid="navigation-slide-over-item-products"
           href="/products"
         >
           Products
@@ -67,6 +69,7 @@ exports[`SideNavigation > Snapshots > matches snapshot when open 1`] = `
         <a
           class="text-gray-700-m-2 block p-2 font-medium text-gray-700 hover:text-indigo-500 text-xl"
           data-discover="true"
+          data-testid="navigation-slide-over-item-orders"
           href="/orders"
         >
           Orders
@@ -90,7 +93,7 @@ exports[`SideNavigation > Snapshots > matches snapshot without a user (logged ou
     <div
       aria-hidden="true"
       class="fixed inset-0 bg-black bg-opacity-25"
-      data-testid="dialog"
+      data-testid="navigation-slide-over-backdrop"
     />
   </dialog>
   <div
@@ -101,6 +104,7 @@ exports[`SideNavigation > Snapshots > matches snapshot without a user (logged ou
     >
       <button
         class="relative opacity-90 -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400 bg-white"
+        data-testid="navigation-slide-over-close-button"
         type="button"
       >
         <span
@@ -136,6 +140,7 @@ exports[`SideNavigation > Snapshots > matches snapshot without a user (logged ou
         <a
           class="text-indigo-600-m-2 block p-2 font-medium text-gray-700 hover:text-indigo-500 text-xl"
           data-discover="true"
+          data-testid="navigation-slide-over-item-products"
           href="/products"
         >
           Products
@@ -147,6 +152,7 @@ exports[`SideNavigation > Snapshots > matches snapshot without a user (logged ou
         <a
           class="text-gray-700-m-2 block p-2 font-medium text-gray-700 hover:text-indigo-500 text-xl"
           data-discover="true"
+          data-testid="navigation-slide-over-item-orders"
           href="/orders"
         >
           Orders
