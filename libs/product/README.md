@@ -23,7 +23,10 @@ A library for product management. It enables displaying and filtering the produc
 
 ## API Reference
 
-TBA
+| Export | Kind | Description |
+| --- | --- | --- |
+| `ProductSearch` | Component | Search input bound to the catalog's name filter; navigates to the product list on submit. |
+| `productRoutes` | Route config | Mounts the product list at `/products` and the detail view at `/products/:id`. |
 
 ## Running unit tests
 
