@@ -15,7 +15,9 @@ vi.mock('keycloak-js', () => {
   };
 
   return {
-    default: vi.fn(() => mockKeycloak),
+    default: vi.fn(function () {
+      return mockKeycloak;
+    }),
   };
 });
 

@@ -15,23 +15,25 @@ vi.mock('jspdf', () => {
   const mockAddPage = vi.fn();
 
   return {
-    jsPDF: vi.fn().mockImplementation(() => ({
-      addImage: mockAddImage,
-      text: mockText,
-      line: mockLine,
-      save: mockSave,
-      setFont: mockSetFont,
-      setFontSize: mockSetFontSize,
-      setTextColor: mockSetTextColor,
-      setDrawColor: mockSetDrawColor,
-      addPage: mockAddPage,
-      internal: {
-        pageSize: {
-          getWidth: () => 210,
-          getHeight: () => 297,
+    jsPDF: vi.fn().mockImplementation(function () {
+      return {
+        addImage: mockAddImage,
+        text: mockText,
+        line: mockLine,
+        save: mockSave,
+        setFont: mockSetFont,
+        setFontSize: mockSetFontSize,
+        setTextColor: mockSetTextColor,
+        setDrawColor: mockSetDrawColor,
+        addPage: mockAddPage,
+        internal: {
+          pageSize: {
+            getWidth: () => 210,
+            getHeight: () => 297,
+          },
         },
-      },
-    })),
+      };
+    }),
   };
 });
 

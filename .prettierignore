@@ -9,3 +9,5 @@
 **/*.key
 **/docs/**
 **/openapi/**
+
+.nx/self-healing
