@@ -3,15 +3,6 @@
   "include": [],
   "references": [
     {
-      "path": "../shopping"
-    },
-    {
-      "path": "../shared"
-    },
-    {
-      "path": "../api"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {

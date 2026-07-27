@@ -3,30 +3,6 @@
   "include": [],
   "references": [
     {
-      "path": "../../libs/order"
-    },
-    {
-      "path": "../../libs/product"
-    },
-    {
-      "path": "../../libs/shared"
-    },
-    {
-      "path": "../../libs/navigation"
-    },
-    {
-      "path": "../../libs/api"
-    },
-    {
-      "path": "../../libs/shopping"
-    },
-    {
-      "path": "../../libs/auth"
-    },
-    {
-      "path": "../../libs/user"
-    },
-    {
       "path": "./tsconfig.app.json"
     },
     {

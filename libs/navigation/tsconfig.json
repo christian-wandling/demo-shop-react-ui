@@ -3,21 +3,6 @@
   "include": [],
   "references": [
     {
-      "path": "../api"
-    },
-    {
-      "path": "../auth"
-    },
-    {
-      "path": "../product"
-    },
-    {
-      "path": "../user"
-    },
-    {
-      "path": "../shopping"
-    },
-    {
       "path": "./tsconfig.lib.json"
     },
     {
