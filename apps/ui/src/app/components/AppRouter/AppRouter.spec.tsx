@@ -11,7 +11,7 @@ vi.mock('@demo-shop-react-ui/product', () => ({
   productRoutes: [
     {
       path: '/products',
-      element: <div data-testid="products-page">Products Page</div>,
+      Component: () => <div data-testid="products-page">Products Page</div>,
     },
   ],
 }));
@@ -20,7 +20,7 @@ vi.mock('@demo-shop-react-ui/order', () => ({
   orderRoutes: [
     {
       path: '/orders',
-      element: <div data-testid="orders-page">Orders Page</div>,
+      Component: () => <div data-testid="orders-page">Orders Page</div>,
     },
   ],
 }));
@@ -29,7 +29,7 @@ vi.mock('@demo-shop-react-ui/shopping', () => ({
   shoppingRoutes: [
     {
       path: '/cart',
-      element: <div data-testid="cart-page">Shopping Cart</div>,
+      Component: () => <div data-testid="cart-page">Shopping Cart</div>,
     },
   ],
 }));
