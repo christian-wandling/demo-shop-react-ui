@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { isValidElement } from 'react';
 import { render, screen } from '@testing-library/react';
 import { AppRouter } from './AppRouter';
 import { productRoutes } from '@demo-shop-react-ui/product';
@@ -61,8 +62,13 @@ describe('AppRouter', () => {
     expect(useRoutes).toHaveBeenCalledTimes(1);
     const routesConfig = useRoutes.mock.calls[0][0];
     expect(routesConfig[0].path).toBe('/');
-    expect(routesConfig[0].element?.type).toBe(router.Navigate);
-    expect(routesConfig[0].element?.props.to).toBe('/products');
+
+    const redirect = routesConfig[0].element;
+    if (!isValidElement<{ to: string }>(redirect)) {
+      throw new Error('expected the root route to render a redirect element');
+    }
+    expect(redirect.type).toBe(router.Navigate);
+    expect(redirect.props.to).toBe('/products');
   });
 
   it('renders products route correctly', () => {

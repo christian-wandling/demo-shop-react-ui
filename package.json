@@ -13,6 +13,7 @@
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
     "lint": "npx nx run-many -t lint --exclude api",
+    "typecheck": "npx nx run-many -t typecheck",
     "test": "npx nx run-many -t test",
     "e2e": "npx nx run-many -t e2e --exclude api"
   },

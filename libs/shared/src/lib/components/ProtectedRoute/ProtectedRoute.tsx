@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from 'react-router';
+import { ReactElement } from 'react';
 import { hasPermission, PermissionStrategy } from '@demo-shop-react-ui/auth';
 
 /**
@@ -19,7 +20,7 @@ import { hasPermission, PermissionStrategy } from '@demo-shop-react-ui/auth';
  *
  * @returns The child routes via Outlet if authenticated, otherwise redirects to home page
  */
-export const ProtectedRoute = (): Element => {
+export const ProtectedRoute = (): ReactElement => {
   const isAuthenticated = hasPermission(PermissionStrategy.AUTHENTICATED);
 
   if (!isAuthenticated) {

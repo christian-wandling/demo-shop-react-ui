@@ -40,6 +40,9 @@ jobs:
       - name: Lint
         run: npx nx run-many -t lint
 
+      - name: Typecheck
+        run: npx nx run-many -t typecheck
+
       - name: Test
         run: npx nx run-many -t test --coverage --exclude api
 
