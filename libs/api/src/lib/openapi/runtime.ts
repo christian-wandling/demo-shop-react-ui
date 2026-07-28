@@ -269,7 +269,7 @@ export class ResponseError extends Error {
 export class FetchError extends Error {
   override name: 'FetchError' = 'FetchError';
 
-  constructor(public cause: Error, msg?: string) {
+  constructor(public override cause: Error, msg?: string) {
     super(msg);
   }
 }
