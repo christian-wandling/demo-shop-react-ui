@@ -4,7 +4,9 @@
     "lib": ["dom"],
     "outDir": "./out-tsc/vitest",
     "types": ["vitest/globals", "vitest/importMeta", "vite/client", "node", "vitest"],
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "ignoreDeprecations": "6.0",
+    "rootDir": "."
   },
   "include": [
     "vite.config.ts",

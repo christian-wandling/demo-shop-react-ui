@@ -30,5 +30,8 @@
     {
       "path": "./libs/order"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0"
+  }
 }
